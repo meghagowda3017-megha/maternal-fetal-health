@@ -3,6 +3,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 
@@ -45,6 +46,18 @@ app = FastAPI(
     title="Maternal-Fetal Health API",
     version="1.0.0",
     description="Backend API for Maternal-Fetal Health Prediction System"
+)
+
+# --------------------------------------------------
+# CORS configuration
+# --------------------------------------------------
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
