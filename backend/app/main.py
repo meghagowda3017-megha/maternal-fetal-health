@@ -100,6 +100,14 @@ def home():
         "message": "Welcome to Maternal-Fetal Health API"
     }
 
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "ctg_model": "loaded",
+        "maternal_model": "loaded"
+    }
+
 
 # --------------------------------------------------
 # Fetal health prediction endpoint
