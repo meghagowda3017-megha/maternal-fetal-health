@@ -7,16 +7,34 @@ from pydantic import BaseModel
 
 
 # --------------------------------------------------
-# Load trained CTG model
+# Paths
 # --------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = BASE_DIR / "ctg_model.joblib"
 
-model_data = joblib.load(MODEL_PATH)
 
-model = model_data["model"]
-FEATURES = model_data["features"]
+# --------------------------------------------------
+# Load trained CTG model
+# --------------------------------------------------
+
+CTG_MODEL_PATH = BASE_DIR / "ctg_model.joblib"
+
+ctg_model_data = joblib.load(CTG_MODEL_PATH)
+
+ctg_model = ctg_model_data["model"]
+CTG_FEATURES = ctg_model_data["features"]
+
+
+# --------------------------------------------------
+# Load trained Maternal Health Risk model
+# --------------------------------------------------
+
+MATERNAL_MODEL_PATH = BASE_DIR / "maternal_model.joblib"
+
+maternal_model_data = joblib.load(MATERNAL_MODEL_PATH)
+
+maternal_model = maternal_model_data["model"]
+MATERNAL_FEATURES = maternal_model_data["features"]
 
 
 # --------------------------------------------------
@@ -31,7 +49,7 @@ app = FastAPI(
 
 
 # --------------------------------------------------
-# Input data model
+# CTG input data model
 # --------------------------------------------------
 
 class CTGInput(BaseModel):
@@ -57,6 +75,19 @@ class CTGInput(BaseModel):
     Median: float
     Variance: float
     Tendency: float
+
+
+# --------------------------------------------------
+# Maternal health input data model
+# --------------------------------------------------
+
+class MaternalHealthInput(BaseModel):
+    Age: float
+    SystolicBP: float
+    DiastolicBP: float
+    BS: float
+    BodyTemp: float
+    HeartRate: float
 
 
 # --------------------------------------------------
@@ -102,14 +133,12 @@ def predict_fetal_health(data: CTGInput):
             data.Variance,
             data.Tendency
         ]],
-        columns=FEATURES
+        columns=CTG_FEATURES
     )
 
-    # Get prediction
-    prediction = int(model.predict(input_data)[0])
+    prediction = int(ctg_model.predict(input_data)[0])
 
-    # Get prediction probabilities
-    probability_values = model.predict_proba(input_data)[0]
+    probability_values = ctg_model.predict_proba(input_data)[0]
 
     labels = {
         1: "Normal",
@@ -117,15 +146,60 @@ def predict_fetal_health(data: CTGInput):
         3: "Pathologic"
     }
 
-    # Match each probability to its corresponding model class
     probabilities = {}
 
-    for class_value, probability in zip(model.classes_, probability_values):
+    for class_value, probability in zip(
+        ctg_model.classes_,
+        probability_values
+    ):
         class_value = int(class_value)
-        probabilities[labels[class_value]] = round(float(probability), 2)
+        probabilities[labels[class_value]] = round(
+            float(probability),
+            2
+        )
 
     return {
         "prediction": prediction,
         "fetal_health": labels[prediction],
+        "probabilities": probabilities
+    }
+
+
+# --------------------------------------------------
+# Maternal health risk prediction endpoint
+# --------------------------------------------------
+
+@app.post("/predict/maternal-risk")
+def predict_maternal_risk(data: MaternalHealthInput):
+
+    input_data = pd.DataFrame(
+        [[
+            data.Age,
+            data.SystolicBP,
+            data.DiastolicBP,
+            data.BS,
+            data.BodyTemp,
+            data.HeartRate
+        ]],
+        columns=MATERNAL_FEATURES
+    )
+
+    prediction = maternal_model.predict(input_data)[0]
+
+    probability_values = maternal_model.predict_proba(input_data)[0]
+
+    probabilities = {}
+
+    for class_value, probability in zip(
+        maternal_model.classes_,
+        probability_values
+    ):
+        probabilities[str(class_value)] = round(
+            float(probability),
+            2
+        )
+
+    return {
+        "prediction": prediction,
         "probabilities": probabilities
     }
