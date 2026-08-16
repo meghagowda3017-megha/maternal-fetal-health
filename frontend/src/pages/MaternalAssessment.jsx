@@ -28,14 +28,59 @@ function MaternalAssessment({ onBack }) {
     }))
   }
 
+  const validateMaternalData = () => {
+  const age = Number(formData.Age)
+  const systolicBP = Number(formData.SystolicBP)
+  const diastolicBP = Number(formData.DiastolicBP)
+  const bloodSugar = Number(formData.BS)
+  const bodyTemp = Number(formData.BodyTemp)
+  const heartRate = Number(formData.HeartRate)
+
+  if (age < 1 || age > 60) {
+    alert('Please enter a valid age between 1 and 60 years.')
+    return false
+  }
+
+  if (systolicBP < 70 || systolicBP > 250) {
+    alert('Please enter a valid systolic blood pressure between 70 and 250 mmHg.')
+    return false
+  }
+
+  if (diastolicBP < 40 || diastolicBP > 150) {
+    alert('Please enter a valid diastolic blood pressure between 40 and 150 mmHg.')
+    return false
+  }
+
+  if (bloodSugar <= 0) {
+    alert('Please enter a valid blood sugar value greater than 0.')
+    return false
+  }
+
+  if (bodyTemp < 90 || bodyTemp > 110) {
+    alert('Please enter a valid body temperature between 90°F and 110°F.')
+    return false
+  }
+
+  if (heartRate < 30 || heartRate > 220) {
+    alert('Please enter a valid heart rate between 30 and 220 bpm.')
+    return false
+  }
+
+  return true
+}
+
   // --------------------------------------------------
   // MATERNAL PREDICTION
   // --------------------------------------------------
 
   const handleMaternalSubmit = async (event) => {
-    event.preventDefault()
+  event.preventDefault()
 
-    setLoading(true)
+  if (!validateMaternalData()) {
+    return
+  }
+
+  setLoading(true)
     setMaternalResult(null)
 
     try {
