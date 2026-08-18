@@ -68,52 +68,68 @@ function FetalAssessment({ onBack }) {
       [name]: value,
     }))
   }
+  const validateCtgData = () => {
+    for (const feature of CTG_FEATURES) {
+        const value = ctgData[feature]
+
+        if (value === '' || !Number.isFinite(Number(value))) {
+        alert(`Please enter a valid numeric value for ${feature}.`)
+        return false
+        }
+    }
+
+  return true
+}
 
   // --------------------------------------------------
   // FETAL PREDICTION
   // --------------------------------------------------
 
   const handleFetalSubmit = async (event) => {
-    event.preventDefault()
+        event.preventDefault()
 
-    setLoading(true)
-    setFetalResult(null)
-
-    try {
-      const requestBody = {}
-
-      CTG_FEATURES.forEach((feature) => {
-        requestBody[feature] = Number(ctgData[feature])
-      })
-
-      const response = await fetch(
-        'http://127.0.0.1:8000/predict/fetal-health',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody),
+        if (!validateCtgData()) {
+            return
         }
-      )
 
-      if (!response.ok) {
-        throw new Error('Fetal prediction request failed')
-      }
+        setLoading(true)
+            setFetalResult(null)
 
-      const data = await response.json()
+            try {
+            const requestBody = {}
 
-      setFetalResult(data)
-    } catch (error) {
-      console.error(error)
+            CTG_FEATURES.forEach((feature) => {
+                requestBody[feature] = Number(ctgData[feature])
+            })
 
-      alert(
-        'Could not connect to the fetal prediction backend. Make sure FastAPI is running on port 8000.'
-      )
-    } finally {
-      setLoading(false)
+            const response = await fetch(
+                'http://127.0.0.1:8000/predict/fetal-health',
+                {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+                }
+            )
+
+            if (!response.ok) {
+                throw new Error('Fetal prediction request failed')
+            }
+
+            const data = await response.json()
+
+            setFetalResult(data)
+            } catch (error) {
+            console.error(error)
+
+            alert(
+                'Could not connect to the fetal prediction backend. Make sure FastAPI is running on port 8000.'
+            )
+            } finally {
+            setLoading(false)
+            }
     }
-  }
 
   // --------------------------------------------------
   // FETAL CLASS
