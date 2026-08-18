@@ -10,7 +10,7 @@ const initialMaternalData = {
   HeartRate: '',
 }
 
-function MaternalAssessment({ onBack }) {
+function MaternalAssessment({ onBack, onSaveHistory }) {
   const [formData, setFormData] = useState(initialMaternalData)
   const [maternalResult, setMaternalResult] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -108,7 +108,24 @@ function MaternalAssessment({ onBack }) {
 
       const data = await response.json()
 
-      setMaternalResult(data)
+        setMaternalResult(data)
+
+        onSaveHistory({
+        id: Date.now(),
+        type: 'Maternal',
+        date: new Date().toLocaleString(),
+        result: data.prediction,
+        riskClass: getRiskClass(data.prediction),
+        data: {
+            Age: formData.Age,
+            SystolicBP: formData.SystolicBP,
+            DiastolicBP: formData.DiastolicBP,
+            BS: formData.BS,
+            BodyTemp: formData.BodyTemp,
+            HeartRate: formData.HeartRate,
+        },
+        probabilities: data.probabilities || null,
+        })
     } catch (error) {
       console.error(error)
 

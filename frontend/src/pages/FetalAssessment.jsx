@@ -51,7 +51,7 @@ const initialCtgData = {
   Tendency: '',
 }
 
-function FetalAssessment({ onBack }) {
+function FetalAssessment({ onBack, onSaveHistory }) {
   const [ctgData, setCtgData] = useState(initialCtgData)
   const [fetalResult, setFetalResult] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -96,30 +96,40 @@ function FetalAssessment({ onBack }) {
             setFetalResult(null)
 
             try {
-            const requestBody = {}
+                const requestBody = {}
 
-            CTG_FEATURES.forEach((feature) => {
-                requestBody[feature] = Number(ctgData[feature])
-            })
+                CTG_FEATURES.forEach((feature) => {
+                    requestBody[feature] = Number(ctgData[feature])
+                })
 
-            const response = await fetch(
-                'http://127.0.0.1:8000/predict/fetal-health',
-                {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
+                const response = await fetch(
+                    'http://127.0.0.1:8000/predict/fetal-health',
+                    {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                    }
+                )
+
+                if (!response.ok) {
+                    throw new Error('Fetal prediction request failed')
                 }
-            )
 
-            if (!response.ok) {
-                throw new Error('Fetal prediction request failed')
-            }
+                const data = await response.json()
 
-            const data = await response.json()
+                setFetalResult(data)
 
-            setFetalResult(data)
+                if (onSaveHistory) {
+                    onSaveHistory({
+                        id: Date.now(),
+                        type: 'fetal',
+                        title: 'Fetal Health Assessment',
+                        prediction: data.fetal_health,
+                        date: new Date().toLocaleString(),
+                    })
+                }
             } catch (error) {
             console.error(error)
 

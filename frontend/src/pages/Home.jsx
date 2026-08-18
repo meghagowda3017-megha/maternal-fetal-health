@@ -1,6 +1,6 @@
 import './Home.css'
 
-function Home({ onMaternalClick, onFetalClick }) {
+function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
   return (
     <>
       <section className="welcome">
@@ -116,6 +116,14 @@ function Home({ onMaternalClick, onFetalClick }) {
             <span>→</span>
           </button>
 
+        </div>
+        <div className="history-button-wrapper">
+            <button
+                className="history-button"
+                onClick={onHistoryClick}
+            >
+                View Assessment History →
+            </button>
         </div>
 
       </section>
