@@ -119,17 +119,40 @@ function FetalAssessment({ onBack, onSaveHistory }) {
 
                 const data = await response.json()
 
-                setFetalResult(data)
+              setFetalResult(data)
 
-                if (onSaveHistory) {
-                    onSaveHistory({
-                        id: Date.now(),
-                        type: 'fetal',
-                        title: 'Fetal Health Assessment',
-                        prediction: data.fetal_health,
-                        date: new Date().toLocaleString(),
-                    })
-                }
+              onSaveHistory({
+                id: Date.now(),
+                type: 'Fetal',
+                date: new Date().toLocaleString(),
+                result: data.fetal_health,
+                riskClass: getFetalClass(data.fetal_health),
+                data: {
+                  LB: ctgData.LB,
+                  AC: ctgData.AC,
+                  FM: ctgData.FM,
+                  UC: ctgData.UC,
+                  ASTV: ctgData.ASTV,
+                  MSTV: ctgData.MSTV,
+                  ALTV: ctgData.ALTV,
+                  MLTV: ctgData.MLTV,
+                  DL: ctgData.DL,
+                  DS: ctgData.DS,
+                  DP: ctgData.DP,
+                  DR: ctgData.DR,
+                  Width: ctgData.Width,
+                  Min: ctgData.Min,
+                  Max: ctgData.Max,
+                  Nmax: ctgData.Nmax,
+                  Nzeros: ctgData.Nzeros,
+                  Mode: ctgData.Mode,
+                  Mean: ctgData.Mean,
+                  Median: ctgData.Median,
+                  Variance: ctgData.Variance,
+                  Tendency: ctgData.Tendency,
+                },
+                probabilities: data.probabilities || null,
+              })
             } catch (error) {
             console.error(error)
 
