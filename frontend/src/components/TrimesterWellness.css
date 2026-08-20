@@ -1,0 +1,740 @@
+/* ============================================
+   TRIMESTER WELLNESS PAGE
+   ============================================ */
+
+.trimester-wellness {
+  width: 100%;
+}
+
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.wellness-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.wellness-header h2 {
+  margin: 8px 0 12px;
+
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+
+  color: #344054;
+}
+
+.wellness-header p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--text-soft);
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.wellness-header-icon {
+  width: 86px;
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe7ef,
+      #f8dce7
+    );
+
+  font-size: 40px;
+
+  box-shadow:
+    0 12px 30px rgba(215, 140, 165, 0.16);
+}
+
+
+/* ============================================
+   TRIMESTER SELECTOR
+   ============================================ */
+
+.trimester-selector {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 25px;
+}
+
+.trimester-tab {
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  padding: 18px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  color: #68778b;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(72, 92, 120, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.trimester-tab:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(72, 92, 120, 0.1);
+}
+
+.trimester-tab.active {
+  background:
+    linear-gradient(
+      135deg,
+      #e29bb3,
+      #d98ba5
+    );
+
+  color: white;
+
+  box-shadow:
+    0 10px 25px rgba(215, 140, 165, 0.22);
+}
+
+.trimester-tab:first-child.active {
+  background:
+    linear-gradient(
+      135deg,
+      #e29bb3,
+      #d98ba5
+    );
+}
+
+.trimester-tab:nth-child(2).active {
+  background:
+    linear-gradient(
+      135deg,
+      #78b59a,
+      #69a989
+    );
+
+  box-shadow:
+    0 10px 25px rgba(105, 169, 137, 0.22);
+}
+
+.trimester-tab:nth-child(3).active {
+  background:
+    linear-gradient(
+      135deg,
+      #72a9dc,
+      #6598ca
+    );
+
+  box-shadow:
+    0 10px 25px rgba(100, 155, 205, 0.22);
+}
+
+
+/* ============================================
+   MAIN WELLNESS CARD
+   ============================================ */
+
+.wellness-main-card {
+  position: relative;
+
+  padding: 35px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 255, 255, 0.72)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+}
+
+.wellness-main-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -100px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+.wellness-main-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--blue-light);
+
+  opacity: 0.5;
+
+  pointer-events: none;
+}
+
+
+/* ============================================
+   MAIN HEADER
+   ============================================ */
+
+.wellness-main-header {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.wellness-stage-icon {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe7ef,
+      #f8dce7
+    );
+
+  font-size: 31px;
+}
+
+.wellness-main-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #9a7180;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.wellness-main-header h3 {
+  margin: 0 0 5px;
+
+  color: #344054;
+
+  font-size: 25px;
+
+  letter-spacing: -0.5px;
+}
+
+.wellness-main-header strong {
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
+
+.wellness-description {
+  position: relative;
+  z-index: 1;
+
+  max-width: 800px;
+
+  margin: 0 0 30px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   WELLNESS GRID
+   ============================================ */
+
+.wellness-grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.wellness-card {
+  padding: 25px;
+
+  border-radius: 23px;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  background: rgba(255, 255, 255, 0.68);
+
+  box-shadow:
+    0 8px 25px rgba(72, 92, 120, 0.05);
+}
+
+.nutrition-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 244, 247, 0.88),
+      rgba(255, 255, 255, 0.72)
+    );
+}
+
+.activity-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(239, 248, 255, 0.88),
+      rgba(255, 255, 255, 0.72)
+    );
+}
+
+
+/* ============================================
+   WELLNESS CARD TITLE
+   ============================================ */
+
+.wellness-card-title {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 20px;
+}
+
+.wellness-card-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background: #ffe8ef;
+
+  font-size: 22px;
+}
+
+.activity-card .wellness-card-icon {
+  background: #e3f2ff;
+}
+
+.wellness-card-title h3 {
+  margin: 0 0 4px;
+
+  color: #344054;
+
+  font-size: 18px;
+}
+
+.wellness-card-title span {
+  color: var(--text-soft);
+
+  font-size: 12px;
+}
+
+
+/* ============================================
+   WELLNESS LIST
+   ============================================ */
+
+.wellness-card ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.wellness-card li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 9px 0;
+
+  border-bottom: 1px solid rgba(220, 225, 231, 0.55);
+
+  color: #5e6b7c;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.wellness-card li:last-child {
+  border-bottom: none;
+}
+
+.wellness-card li span {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #effaf4;
+
+  color: #5fa57c;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* ============================================
+   HELPFUL TIPS
+   ============================================ */
+
+.wellness-tips {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 22px;
+  padding: 23px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 248, 230, 0.9),
+      rgba(255, 253, 245, 0.8)
+    );
+
+  border: 1px solid rgba(246, 225, 174, 0.65);
+}
+
+.tips-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: #fff1c9;
+
+  font-size: 20px;
+}
+
+.wellness-tips h3 {
+  margin: 1px 0 8px;
+
+  color: #5c4d2d;
+
+  font-size: 16px;
+}
+
+.wellness-tips ul {
+  margin: 0;
+  padding-left: 18px;
+
+  color: #776b50;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+.wellness-tips li {
+  margin-bottom: 3px;
+}
+
+
+/* ============================================
+   DISCLAIMER
+   ============================================ */
+
+.wellness-disclaimer {
+  margin: 25px auto 0;
+  padding: 18px 22px;
+
+  max-width: 900px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.62);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 8px 25px rgba(72, 92, 120, 0.05);
+}
+
+.wellness-disclaimer > span {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: var(--blue-light);
+
+  color: var(--blue-dark);
+
+  font-size: 15px;
+}
+
+.wellness-disclaimer p {
+  margin: 0;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 800px) {
+
+  .wellness-header {
+    align-items: flex-start;
+  }
+
+  .wellness-header-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 22px;
+
+    font-size: 32px;
+  }
+
+  .trimester-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .wellness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wellness-main-card {
+    padding: 25px;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .wellness-header {
+    flex-direction: column;
+  }
+
+  .wellness-header h2 {
+    font-size: 34px;
+  }
+
+  .wellness-header p {
+    font-size: 14px;
+  }
+
+  .wellness-header-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 18px;
+
+    font-size: 28px;
+  }
+
+  .wellness-main-card {
+    padding: 20px;
+
+    border-radius: 24px;
+  }
+
+  .wellness-main-header {
+    align-items: flex-start;
+  }
+
+  .wellness-stage-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    font-size: 26px;
+  }
+
+  .wellness-main-header h3 {
+    font-size: 21px;
+  }
+
+  .wellness-card {
+    padding: 20px;
+  }
+
+  .wellness-tips {
+    padding: 18px;
+  }
+
+  .wellness-disclaimer {
+    padding: 15px;
+  }
+}
+
+/* ============================================
+   BACK TO HOME BUTTON
+   ============================================ */
+
+.wellness-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  padding: 11px 19px;
+
+  border: 1px solid rgba(105, 169, 137, 0.25);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  color: #4f7f68;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 16px rgba(70, 100, 85, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.wellness-back-button:hover {
+  transform: translateX(-3px);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 20px rgba(70, 100, 85, 0.13);
+}
+
+.wellness-back-button:active {
+  transform: translateX(0);
+}
+
+.wellness-back-button:focus {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(105, 169, 137, 0.14),
+    0 5px 16px rgba(70, 100, 85, 0.08);
+}
+

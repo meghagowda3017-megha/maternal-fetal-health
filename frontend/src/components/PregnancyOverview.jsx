@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './PregnancyOverview.css'
 
-function PregnancyOverview({ onBack }) {
+function PregnancyOverview({ onBack, onTrimesterChange }) {
   const [lmpDate, setLmpDate] = useState('')
   const [pregnancyInfo, setPregnancyInfo] = useState(null)
+  useEffect(() => {
+  const savedLmpDate = localStorage.getItem('pregnancyLmpDate')
+  const savedPregnancyInfo = localStorage.getItem('pregnancyInfo')
+
+  if (savedLmpDate) {
+    setLmpDate(savedLmpDate)
+  }
+
+  if (savedPregnancyInfo) {
+    setPregnancyInfo(JSON.parse(savedPregnancyInfo))
+  }
+}, [])
 
   const calculatePregnancy = () => {
     if (!lmpDate) {
@@ -39,6 +51,9 @@ function PregnancyOverview({ onBack }) {
     } else {
       trimester = 'Third Trimester'
     }
+    if (onTrimesterChange) {
+    onTrimesterChange(trimester)
+    }
 
     const progress = Math.min(
       Math.round((pregnancyDays / 280) * 100),
@@ -50,18 +65,30 @@ function PregnancyOverview({ onBack }) {
       0
     )
 
-    setPregnancyInfo({
-      weeks,
-      days,
-      dueDate: dueDate.toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-      }),
-      trimester,
-      progress,
-      remainingWeeks,
-    })
+    const calculatedInfo = {
+        weeks,
+        days,
+        dueDate: dueDate.toLocaleDateString('en-IN', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+        }),
+        trimester,
+        progress,
+        remainingWeeks,
+        }
+
+        setPregnancyInfo(calculatedInfo)
+
+        localStorage.setItem(
+        'pregnancyLmpDate',
+        lmpDate
+        )
+
+        localStorage.setItem(
+        'pregnancyInfo',
+        JSON.stringify(calculatedInfo)
+        )
   }
 
   return (
@@ -183,7 +210,7 @@ function PregnancyOverview({ onBack }) {
               {/* TRIMESTER */}
               <div className="pregnancy-result-card">
                 <div className="result-card-icon">
-                  🩺
+                  🦭
                 </div>
                 <span>
                   Current Trimester

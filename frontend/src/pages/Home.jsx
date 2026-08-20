@@ -5,6 +5,7 @@ function Home({
   onFetalClick,
   onHistoryClick,
   onPregnancyClick,
+  onWellnessClick,
 }) {
   return (
     <>
@@ -65,6 +66,54 @@ function Home({
           </button>
 
         </div>
+      </section>
+      {/* TRIMESTER WELLNESS */}
+
+      <section className="wellness-section">
+
+        <div className="wellness-home-card">
+
+          <div className="card-top">
+
+            <div className="card-icon wellness-home-icon">
+              🪷
+            </div>
+
+            <span className="available-badge">
+              Available
+            </span>
+
+          </div>
+
+          <h3>
+            Trimester Wellness
+          </h3>
+
+          <p>
+            Explore nutrition, wellness and pregnancy-care
+            guidance based on each trimester.
+          </p>
+
+          <div className="card-features">
+
+            <span>🥗 Nutrition</span>
+
+            <span>🧘 Wellness</span>
+
+            <span>💡 Tips</span>
+
+          </div>
+
+          <button
+            className="primary-button wellness-home-button"
+            onClick={onWellnessClick}
+          >
+            Explore Wellness
+            <span>→</span>
+          </button>
+
+        </div>
+
       </section>
 
       {/* MATERNAL + FETAL */}

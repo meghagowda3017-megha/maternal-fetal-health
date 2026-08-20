@@ -6,12 +6,19 @@ import MaternalAssessment from './pages/MaternalAssessment'
 import FetalAssessment from './pages/FetalAssessment'
 import History from './pages/History'
 import PregnancyOverview from './components/PregnancyOverview'
+import TrimesterWellness from './components/TrimesterWellness'
 
 function App() {
   const [showMaternalForm, setShowMaternalForm] = useState(false)
   const [showFetalForm, setShowFetalForm] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const [showPregnancy, setShowPregnancy] = useState(false)
+  const [showWellness, setShowWellness] = useState(false)
+  const [selectedWellnessTrimester, setSelectedWellnessTrimester] =
+  useState(
+    localStorage.getItem('selectedWellnessTrimester') ||
+    'First Trimester'
+  )
   const [history, setHistory] = useState([])
 
   // --------------------------------------------------
@@ -43,6 +50,16 @@ function App() {
     setShowFetalForm(false)
     setShowHistory(false)
   }
+   // --------------------------------------------------
+  // OPEN wellness
+  // --------------------------------------------------
+  const openWellness = () => {
+    setShowWellness(true)
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
+  }
 
   // --------------------------------------------------
   // OPEN HISTORY
@@ -53,6 +70,16 @@ function App() {
     setShowFetalForm(false)
     setShowPregnancy(false)
   }
+  //----Trimester-----
+  //------------------------------
+  const handleTrimesterChange = (trimester) => {
+  setSelectedWellnessTrimester(trimester)
+
+  localStorage.setItem(
+    'selectedWellnessTrimester',
+    trimester
+  )
+}
 
   // --------------------------------------------------
   // GO HOME / CLOSE ALL
@@ -62,6 +89,7 @@ function App() {
     setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
+    setShowWellness(false)
   }
 
   // --------------------------------------------------
@@ -146,12 +174,14 @@ function App() {
         {!showMaternalForm &&
           !showFetalForm &&
           !showHistory &&
-          !showPregnancy && (
+          !showPregnancy &&
+          !showWellness && (
             <Home
               onMaternalClick={openMaternalForm}
               onFetalClick={openFetalForm}
               onHistoryClick={openHistory}
               onPregnancyClick={openPregnancy}
+              onWellnessClick={openWellness}
             />
           )}
 
@@ -175,6 +205,7 @@ function App() {
         {showPregnancy && (
           <PregnancyOverview
             onBack={closePregnancyOverview}
+            onTrimesterChange={handleTrimesterChange}
           />
         )}
 
@@ -185,6 +216,13 @@ function App() {
             onBack={goHome}
             onClear={clearHistory}
             onDelete={deleteHistoryItem}
+          />
+        )}
+        {/* WELLNESS */}
+        {showWellness && (
+          <TrimesterWellness
+            onBack={goHome}
+            initialTrimester={selectedWellnessTrimester}
           />
         )}
 

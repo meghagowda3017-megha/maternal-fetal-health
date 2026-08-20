@@ -680,3 +680,245 @@
 .history-button:active {
   transform: translateY(0);
 }
+/* ============================================
+   TRIMESTER WELLNESS HOME CARD
+   ============================================ */
+
+.wellness-section {
+  width: 100%;
+
+  margin: 28px 0;
+}
+
+.wellness-home-card {
+  position: relative;
+
+  padding: 32px 38px;
+
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 252, 246, 0.96),
+      rgba(255, 255, 255, 0.88)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.wellness-home-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: var(--mint-light);
+
+  opacity: 0.8;
+}
+
+.wellness-home-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.55;
+}
+
+.wellness-home-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 25px 65px rgba(72, 120, 95, 0.13);
+}
+
+.wellness-home-card .card-top {
+  position: relative;
+  z-index: 2;
+}
+
+.wellness-home-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #e6f6eb,
+      #d7eedf
+    );
+
+  box-shadow:
+    0 10px 25px rgba(105, 169, 137, 0.15);
+}
+
+.wellness-home-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 13px;
+
+  color: #344054;
+
+  font-size: 27px;
+
+  letter-spacing: -0.6px;
+}
+
+.wellness-home-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  margin: 0 auto 24px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.wellness-home-card .card-features {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 23px;
+}
+
+.wellness-home-button {
+  position: relative;
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #78b59a,
+      #69a989
+    ) !important;
+
+  box-shadow:
+    0 9px 22px rgba(105, 169, 137, 0.25) !important;
+}
+
+.wellness-home-button:hover {
+  box-shadow:
+    0 13px 28px rgba(105, 169, 137, 0.3) !important;
+}
+
+/* ============================================
+   EXPLORE WELLNESS BUTTON
+   ============================================ */
+
+.wellness-home-card .wellness-home-button {
+  position: relative;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+
+  min-width: 190px;
+
+  border: none !important;
+  border-radius: 14px !important;
+
+  background: linear-gradient(
+    135deg,
+    #78b59a,
+    #63a989
+  ) !important;
+
+  color: white !important;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(99, 169, 137, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.wellness-home-card .wellness-home-button span {
+  color: white !important;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.wellness-home-card .wellness-home-button:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(
+    135deg,
+    #69a989,
+    #579878
+  ) !important;
+
+  box-shadow:
+    0 12px 28px rgba(99, 169, 137, 0.32);
+}
+
+.wellness-home-card .wellness-home-button:hover span {
+  transform: translateX(4px);
+}
+
+.wellness-home-card .wellness-home-button:active {
+  transform: translateY(0);
+}
+
+.wellness-home-card .wellness-home-button:focus {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(99, 169, 137, 0.18),
+    0 8px 20px rgba(99, 169, 137, 0.25);
+}
+
