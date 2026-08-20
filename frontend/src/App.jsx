@@ -5,228 +5,201 @@ import Home from './pages/Home'
 import MaternalAssessment from './pages/MaternalAssessment'
 import FetalAssessment from './pages/FetalAssessment'
 import History from './pages/History'
+import PregnancyOverview from './components/PregnancyOverview'
 
 function App() {
-  // --------------------------------------------------
-  // PAGE STATES
-  // --------------------------------------------------
-
   const [showMaternalForm, setShowMaternalForm] = useState(false)
   const [showFetalForm, setShowFetalForm] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
-
-  // --------------------------------------------------
-  // RESULT STATES
-  // --------------------------------------------------
-
-  const [maternalResult, setMaternalResult] = useState(null)
-  const [fetalResult, setFetalResult] = useState(null)
-
-  // --------------------------------------------------
-  // HISTORY
-  // --------------------------------------------------
-
+  const [showPregnancy, setShowPregnancy] = useState(false)
   const [history, setHistory] = useState([])
 
   // --------------------------------------------------
-  // OPEN MATERNAL
+  // OPEN MATERNAL ASSESSMENT
   // --------------------------------------------------
-
   const openMaternalForm = () => {
     setShowMaternalForm(true)
     setShowFetalForm(false)
     setShowHistory(false)
-    setMaternalResult(null)
+    setShowPregnancy(false)
   }
 
   // --------------------------------------------------
-  // OPEN FETAL
+  // OPEN FETAL ASSESSMENT
   // --------------------------------------------------
-
   const openFetalForm = () => {
     setShowFetalForm(true)
     setShowMaternalForm(false)
     setShowHistory(false)
-    setFetalResult(null)
+    setShowPregnancy(false)
+  }
+
+  // --------------------------------------------------
+  // OPEN PREGNANCY OVERVIEW
+  // --------------------------------------------------
+  const openPregnancy = () => {
+    setShowPregnancy(true)
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowHistory(false)
+  }
+
+  // --------------------------------------------------
+  // OPEN HISTORY
+  // --------------------------------------------------
+  const openHistory = () => {
+    setShowHistory(true)
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowPregnancy(false)
+  }
+
+  // --------------------------------------------------
+  // GO HOME / CLOSE ALL
+  // --------------------------------------------------
+  const goHome = () => {
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
   }
 
   // --------------------------------------------------
   // CLOSE MATERNAL
   // --------------------------------------------------
-
   const closeMaternalForm = () => {
     setShowMaternalForm(false)
-    setMaternalResult(null)
   }
 
   // --------------------------------------------------
   // CLOSE FETAL
   // --------------------------------------------------
-
   const closeFetalForm = () => {
     setShowFetalForm(false)
-    setFetalResult(null)
   }
 
   // --------------------------------------------------
-  // HOME
+  // CLOSE PREGNANCY OVERVIEW
   // --------------------------------------------------
-
-  const goHome = () => {
-    setShowMaternalForm(false)
-    setShowFetalForm(false)
-    setShowHistory(false)
-    setMaternalResult(null)
-    setFetalResult(null)
+  const closePregnancyOverview = () => {
+    setShowPregnancy(false)
   }
 
   // --------------------------------------------------
-  // HISTORY
+  // CLEAR HISTORY
   // --------------------------------------------------
-
-  const openHistory = () => {
-  setShowHistory(true)
-  setShowMaternalForm(false)
-  setShowFetalForm(false)
-}
-
-const clearHistory = () => {
-  setHistory([])
-}
-
-const deleteHistoryItem = (id) => {
-  setHistory((previous) =>
-    previous.filter((item) => item.id !== id)
-  )
-}
+  const clearHistory = () => {
+    setHistory([])
+  }
 
   // --------------------------------------------------
-  // ADD HISTORY ENTRY
+  // DELETE ONE HISTORY ITEM
   // --------------------------------------------------
+  const deleteHistoryItem = (id) => {
+    setHistory((previous) =>
+      previous.filter((item) => item.id !== id)
+    )
+  }
 
-  const addToHistory = (entry) => {
+  // --------------------------------------------------
+  // ADD HISTORY ITEM
+  // --------------------------------------------------
+  const addHistoryItem = (item) => {
     setHistory((previous) => [
-      entry,
+      item,
       ...previous,
     ])
   }
 
-  // --------------------------------------------------
-  // UI
-  // --------------------------------------------------
-
   return (
     <div className="app">
 
-      {/* ==========================================
+      {/* ========================================
           HEADER
-          ========================================== */}
-
+          ======================================== */}
       <header className="header">
-
         <div className="header-content">
-
-          <div className="brand-icon">
+          <div className="brand-icon" onClick={goHome} style={{ cursor: 'pointer' }}>
             ♥
           </div>
-
           <div>
-
-            <h1>
+            <h1 onClick={goHome} style={{ cursor: 'pointer' }}>
               Maternal-Fetal Health
             </h1>
-
             <p>
               Prediction &amp; Monitoring System
             </p>
-
           </div>
-
         </div>
-
         <div className="system-status">
-
           <span className="status-dot"></span>
-
           System Ready
-
         </div>
-
       </header>
 
-
-      {/* ==========================================
+      {/* ========================================
           MAIN
-          ========================================== */}
-
+          ======================================== */}
       <main className="dashboard">
 
-        {/* HOME */}
-
+        {/* HOME PANEL */}
         {!showMaternalForm &&
           !showFetalForm &&
-          !showHistory && (
-
-          <Home
-            onMaternalClick={openMaternalForm}
-            onFetalClick={openFetalForm}
-            onHistoryClick={openHistory}
-          />
-
-        )}
-
+          !showHistory &&
+          !showPregnancy && (
+            <Home
+              onMaternalClick={openMaternalForm}
+              onFetalClick={openFetalForm}
+              onHistoryClick={openHistory}
+              onPregnancyClick={openPregnancy}
+            />
+          )}
 
         {/* MATERNAL ASSESSMENT */}
-
         {showMaternalForm && (
           <MaternalAssessment
             onBack={closeMaternalForm}
-            onSaveHistory={(entry) =>
-              setHistory((previous) => [entry, ...previous])
-            }
+            onSaveHistory={addHistoryItem}
           />
         )}
 
-
         {/* FETAL ASSESSMENT */}
-
         {showFetalForm && (
           <FetalAssessment
             onBack={closeFetalForm}
-            onSaveHistory={(entry) =>
-              setHistory((previous) => [entry, ...previous])
-            }
+            onSaveHistory={addHistoryItem}
           />
         )}
 
+        {/* PREGNANCY OVERVIEW */}
+        {showPregnancy && (
+          <PregnancyOverview
+            onBack={closePregnancyOverview}
+          />
+        )}
 
-        {/* HISTORY */}
-
+        {/* HISTORY VIEW */}
         {showHistory && (
-        <History
-          history={history}
-          onBack={goHome}
-          onClear={clearHistory}
-          onDelete={deleteHistoryItem}
-        />
-      )}
-    </main>
+          <History
+            history={history}
+            onBack={goHome}
+            onClear={clearHistory}
+            onDelete={deleteHistoryItem}
+          />
+        )}
 
+      </main>
 
-      {/* ==========================================
+      {/* ========================================
           FOOTER
-          ========================================== */}
-
+          ======================================== */}
       <footer className="footer">
-
         <p>
           Maternal-Fetal Health Prediction &amp; Monitoring System
         </p>
-
         <span>
           For educational and decision-support purposes only.
         </span>
-
       </footer>
 
     </div>

@@ -1,10 +1,16 @@
 import './Home.css'
 
-function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
+function Home({
+  onMaternalClick,
+  onFetalClick,
+  onHistoryClick,
+  onPregnancyClick,
+}) {
   return (
     <>
-      <section className="welcome">
+      {/* WELCOME */}
 
+      <section className="welcome">
         <span className="welcome-label">
           HEALTH ASSESSMENT
         </span>
@@ -18,12 +24,54 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
           Use our prediction models to assess maternal health
           risk and fetal health status.
         </p>
-
       </section>
+
+      {/* PREGNANCY TRACKING CARD */}
+
+      <section className="pregnancy-section">
+        <div className="pregnancy-card">
+
+          <div className="card-top">
+            <div className="card-icon pregnancy-icon">
+              🩺
+            </div>
+
+            <span className="available-badge">
+              Available
+            </span>
+          </div>
+
+          <h3>
+            Pregnancy Tracking
+          </h3>
+
+          <p>
+            Track your pregnancy week, trimester, estimated due
+            date and overall pregnancy progress.
+          </p>
+
+          <div className="card-features">
+            <span>📅 LMP</span>
+            <span>🌸 Trimester</span>
+            <span>📈 Progress</span>
+          </div>
+
+          <button
+            className="primary-button pregnancy-button"
+            onClick={onPregnancyClick}
+          >
+            Track Pregnancy
+            <span>→</span>
+          </button>
+
+        </div>
+      </section>
+
+      {/* MATERNAL + FETAL */}
 
       <section className="prediction-grid">
 
-        {/* MATERNAL CARD */}
+        {/* MATERNAL */}
 
         <div className="prediction-card maternal-card">
 
@@ -44,21 +92,13 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
           </h3>
 
           <p>
-            Assess maternal health risk using age,
-            blood pressure, blood sugar, body temperature
-            and heart rate.
+            Assess maternal health risk using age, blood pressure,
+            blood sugar, body temperature and heart rate.
           </p>
 
           <div className="card-features">
-
-            <span>
-              ♥ Vital Signs
-            </span>
-
-            <span>
-              ◉ ML Prediction
-            </span>
-
+            <span>♥ Vital Signs</span>
+            <span>◉ ML Prediction</span>
           </div>
 
           <button
@@ -71,7 +111,7 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
 
         </div>
 
-        {/* FETAL CARD */}
+        {/* FETAL */}
 
         <div className="prediction-card fetal-card">
 
@@ -92,20 +132,13 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
           </h3>
 
           <p>
-            Analyze cardiotocography (CTG) measurements
-            to predict fetal health status.
+            Analyze cardiotocography (CTG) measurements to predict
+            fetal health status.
           </p>
 
           <div className="card-features">
-
-            <span>
-              ⌁ CTG Analysis
-            </span>
-
-            <span>
-              ◉ ML Prediction
-            </span>
-
+            <span>⌁ CTG Analysis</span>
+            <span>◉ ML Prediction</span>
           </div>
 
           <button
@@ -117,16 +150,23 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
           </button>
 
         </div>
-        <div className="history-button-wrapper">
-            <button
-                className="history-button"
-                onClick={onHistoryClick}
-            >
-                View Assessment History →
-            </button>
-        </div>
 
       </section>
+
+      {/* HISTORY BUTTON */}
+
+      <div className="history-button-wrapper">
+
+        <button
+          className="history-button"
+          onClick={onHistoryClick}
+        >
+          View Assessment History →
+        </button>
+
+      </div>
+
+      {/* INFO STRIP */}
 
       <section className="info-strip">
 
@@ -163,8 +203,7 @@ function Home({ onMaternalClick, onFetalClick, onHistoryClick }) {
             </strong>
 
             <p>
-              Predictions are designed to support
-              healthcare assessment.
+              Predictions are designed to support healthcare assessment.
             </p>
 
           </div>
