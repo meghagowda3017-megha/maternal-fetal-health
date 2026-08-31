@@ -6,11 +6,11 @@ function Home({
   onHistoryClick,
   onPregnancyClick,
   onWellnessClick,
+  onDailyWellnessClick
 }) {
   return (
     <>
       {/* WELCOME */}
-
       <section className="welcome">
         <span className="welcome-label">
           HEALTH ASSESSMENT
@@ -28,10 +28,8 @@ function Home({
       </section>
 
       {/* PREGNANCY TRACKING CARD */}
-
       <section className="pregnancy-section">
         <div className="pregnancy-card">
-
           <div className="card-top">
             <div className="card-icon pregnancy-icon">
               🩺
@@ -64,17 +62,13 @@ function Home({
             Track Pregnancy
             <span>→</span>
           </button>
-
         </div>
       </section>
+
       {/* TRIMESTER WELLNESS */}
-
       <section className="wellness-section">
-
         <div className="wellness-home-card">
-
           <div className="card-top">
-
             <div className="card-icon wellness-home-icon">
               🪷
             </div>
@@ -82,7 +76,6 @@ function Home({
             <span className="available-badge">
               Available
             </span>
-
           </div>
 
           <h3>
@@ -95,13 +88,9 @@ function Home({
           </p>
 
           <div className="card-features">
-
             <span>🥗 Nutrition</span>
-
             <span>🧘 Wellness</span>
-
             <span>💡 Tips</span>
-
           </div>
 
           <button
@@ -111,29 +100,59 @@ function Home({
             Explore Wellness
             <span>→</span>
           </button>
-
         </div>
-
       </section>
 
-      {/* MATERNAL + FETAL */}
-
-      <section className="prediction-grid">
-
-        {/* MATERNAL */}
-
-        <div className="prediction-card maternal-card">
-
+      {/* DAILY WELLNESS CHECK-IN */}
+      <section className="checkin-section">
+        <div className="checkin-card">
           <div className="card-top">
+            <div className="card-icon checkin-icon">
+              🌷
+            </div>
 
-            <div className="card-icon">
+            <span className="available-badge">
+              Available
+            </span>
+          </div>
+
+          <h3>
+            Daily Wellness Check-in
+          </h3>
+
+          <p>
+            Record your daily mood, energy, sleep, water intake
+            and personal wellness notes.
+          </p>
+
+          <div className="card-features">
+            <span>😊 Mood</span>
+            <span>💧 Hydration</span>
+            <span>😴 Sleep</span>
+          </div>
+
+          <button
+            className="primary-button checkin-button"
+            onClick={onDailyWellnessClick}
+          >
+            Daily Check-in
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      {/* MATERNAL + FETAL PREDICTION GRID */}
+      <section className="prediction-grid">
+        {/* MATERNAL */}
+        <div className="prediction-card maternal-card">
+          <div className="card-top">
+            <div className="card-icon maternal-icon">
               🤰
             </div>
 
             <span className="available-badge">
               Available
             </span>
-
           </div>
 
           <h3>
@@ -151,29 +170,24 @@ function Home({
           </div>
 
           <button
-            className="primary-button"
+            className="primary-button maternal-button"
             onClick={onMaternalClick}
           >
             Start Assessment
             <span>→</span>
           </button>
-
         </div>
 
         {/* FETAL */}
-
         <div className="prediction-card fetal-card">
-
           <div className="card-top">
-
-            <div className="card-icon">
+            <div className="card-icon fetal-icon">
               👶
             </div>
 
             <span className="available-badge">
               Available
             </span>
-
           </div>
 
           <h3>
@@ -191,94 +205,50 @@ function Home({
           </div>
 
           <button
-            className="primary-button"
+            className="primary-button fetal-button"
             onClick={onFetalClick}
           >
             Start Assessment
             <span>→</span>
           </button>
-
         </div>
-
       </section>
 
       {/* HISTORY BUTTON */}
-
       <div className="history-button-wrapper">
-
         <button
           className="history-button"
           onClick={onHistoryClick}
         >
           View Assessment History →
         </button>
-
       </div>
 
       {/* INFO STRIP */}
-
       <section className="info-strip">
-
         <div>
-
-          <span className="info-icon">
-            🔒
-          </span>
-
+          <span className="info-icon">🔒</span>
           <div>
-
-            <strong>
-              Secure Assessment
-            </strong>
-
-            <p>
-              Your information is processed securely.
-            </p>
-
+            <strong>Secure Assessment</strong>
+            <p>Your information is processed securely.</p>
           </div>
-
         </div>
 
         <div>
-
-          <span className="info-icon">
-            ⚕
-          </span>
-
+          <span className="info-icon">⚕</span>
           <div>
-
-            <strong>
-              Decision Support
-            </strong>
-
-            <p>
-              Predictions are designed to support healthcare assessment.
-            </p>
-
+            <strong>Decision Support</strong>
+            <p>Predictions are designed to support healthcare assessment.</p>
           </div>
-
         </div>
 
         <div>
-
-          <span className="info-icon">
-            ✓
-          </span>
-
+          <span className="info-icon">✓</span>
           <div>
-
-            <strong>
-              Machine Learning
-            </strong>
-
-            <p>
-              Powered by trained prediction models.
-            </p>
-
+            <strong>Machine Learning</strong>
+            <p>Powered by trained prediction models.</p>
           </div>
-
         </div>
-
       </section>
     </>
   )

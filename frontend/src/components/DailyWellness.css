@@ -1,0 +1,327 @@
+/* ==================================================
+   PAGE CONTAINER & LAYOUT
+   ================================================== */
+.daily-wellness-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #2d3748;
+}
+
+/* ==================================================
+   HEADER SECTION
+   ================================================== */
+.daily-wellness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #fff5f7 0%, #fed7e2 100%);
+  border-radius: 16px;
+  border: 1px solid #fbb6ce;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #b83280;
+  text-transform: uppercase;
+}
+
+.daily-wellness-header h2 {
+  margin: 0.25rem 0;
+  font-size: 1.75rem;
+  color: #702459;
+}
+
+.daily-wellness-header p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.daily-wellness-header-icon {
+  font-size: 2.5rem;
+  background: #ffffff;
+  padding: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ==================================================
+   FORM & CARD LAYOUT
+   ================================================== */
+.daily-wellness-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  border: 1px solid #edf2f7;
+}
+
+.wellness-question {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.wellness-question:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.question-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.question-heading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.question-heading span {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.question-heading strong {
+  font-size: 1rem;
+  color: #d53f8c;
+  background: #fbb6ce33;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* ==================================================
+   BUTTON GRIDS & SELECTION OPTIONS
+   ================================================== */
+.wellness-option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.wellness-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.wellness-option:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.wellness-option.selected {
+  background-color: #fff5f7;
+  border-color: #d53f8c;
+  color: #902470;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px #d53f8c;
+}
+
+.option-emoji {
+  font-size: 1.25rem;
+}
+
+/* ==================================================
+   RANGE SLIDER
+   ================================================== */
+.wellness-range {
+  width: 100%;
+  accent-color: #d53f8c;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+/* ==================================================
+   INPUT FIELDS & ROWS
+   ================================================== */
+.input-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.small-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.small-input-group label {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.wellness-number-input,
+.weight-input,
+.small-input-group input,
+.wellness-notes {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.wellness-number-input:focus,
+.weight-input:focus,
+.small-input-group input:focus,
+.wellness-notes:focus {
+  border-color: #d53f8c;
+  box-shadow: 0 0 0 3px rgba(213, 63, 140, 0.15);
+}
+
+.weight-input-wrapper,
+.wellness-number-with-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 220px;
+}
+
+.weight-input-wrapper span,
+.wellness-number-with-label span {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.wellness-notes {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+/* ==================================================
+   ACTION BUTTONS
+   ================================================== */
+.daily-wellness-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.wellness-cancel-button {
+  background: none;
+  border: none;
+  color: #718096;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.wellness-cancel-button:hover {
+  background-color: #edf2f7;
+  color: #2d3748;
+}
+
+.wellness-save-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #d53f8c;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.wellness-save-button:hover:not(:disabled) {
+  background-color: #b83280;
+}
+
+.wellness-save-button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+/* ==================================================
+   DISCLAIMER
+   ================================================== */
+.wellness-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 8px;
+  color: #2b6cb0;
+  font-size: 0.85rem;
+}
+
+.wellness-disclaimer span {
+  font-size: 1.1rem;
+}
+
+.wellness-disclaimer p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
+  .wellness-option-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .daily-wellness-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .daily-wellness-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .wellness-save-button,
+  .wellness-cancel-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
