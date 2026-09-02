@@ -1,14 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './DailyWellness.css'
 
-function DailyWellness({ onBack, onSaveWellness }) {
+// Helper function to format date as YYYY-MM-DD for standard <input type="date">
+const getTodayString = () => {
+  const today = new Date()
+  const year = today.getFullYear()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
+function DailyWellness({
+  wellnessHistory = [],
+  onBack,
+  onSaveWellness
+}) {
+
+  // DATE STATE
+  const [selectedDate, setSelectedDate] = useState(getTodayString())
 
   // BASIC WELLNESS
   const [mood, setMood] = useState('')
   const [energy, setEnergy] = useState(3)
   const [water, setWater] = useState('')
 
-  // FEELINGS & PAIN (Updated to Arrays)
+  // FEELINGS & PAIN
   const [feelings, setFeelings] = useState([])
   const [pain, setPain] = useState([])
 
@@ -21,12 +37,12 @@ function DailyWellness({ onBack, onSaveWellness }) {
   const [cravings, setCravings] = useState([])
   const [discharge, setDischarge] = useState('')
 
-  // BODY (Updated skin & hair to Arrays)
+  // BODY
   const [skin, setSkin] = useState([])
   const [hair, setHair] = useState([])
   const [weight, setWeight] = useState('')
 
-  // DIGESTION & STOOL (Updated digestion to Array)
+  // DIGESTION & STOOL
   const [digestion, setDigestion] = useState([])
   const [stool, setStool] = useState('')
 
@@ -36,7 +52,86 @@ function DailyWellness({ onBack, onSaveWellness }) {
   const [ailments, setAilments] = useState([])
   const [notes, setNotes] = useState('')
 
-  // MULTI SELECT HANDLER (Supports optional max limit, defaults to allowing multi-select)
+    // ==================================================
+  // LOAD EXISTING ENTRY FOR SELECTED DATE
+  // ==================================================
+
+  useEffect(() => {
+    const existingEntry = wellnessHistory.find(
+      (item) => item.selectedDate === selectedDate
+    )
+
+    // If an entry already exists for this date,
+    // load its values into the form.
+    if (existingEntry) {
+      setMood(existingEntry.mood || '')
+      setEnergy(
+        existingEntry.energy !== undefined &&
+        existingEntry.energy !== ''
+          ? Number(existingEntry.energy)
+          : 3
+      )
+
+      setFeelings(existingEntry.feelings || [])
+      setPain(existingEntry.pain || [])
+
+      setSleepQuality(existingEntry.sleepQuality || '')
+      setSleepHours(existingEntry.sleepHours || '')
+      setSleepMinutes(existingEntry.sleepMinutes || '')
+
+      setWater(existingEntry.water || '')
+      setCravings(existingEntry.cravings || [])
+      setDischarge(existingEntry.discharge || '')
+
+      setSkin(existingEntry.skin || [])
+      setHair(existingEntry.hair || [])
+      setWeight(existingEntry.weight || '')
+
+      setDigestion(existingEntry.digestion || [])
+      setStool(existingEntry.stool || '')
+
+      setMeditationMinutes(
+        existingEntry.meditationMinutes || ''
+      )
+
+      setSelfCare(existingEntry.selfCare || [])
+      setAilments(existingEntry.ailments || [])
+      setNotes(existingEntry.notes || '')
+
+    } else {
+
+      // No entry for this date → start with empty form
+      setMood('')
+      setEnergy(3)
+
+      setFeelings([])
+      setPain([])
+
+      setSleepQuality('')
+      setSleepHours('')
+      setSleepMinutes('')
+
+      setWater('')
+      setCravings([])
+      setDischarge('')
+
+      setSkin([])
+      setHair([])
+      setWeight('')
+
+      setDigestion([])
+      setStool('')
+
+      setMeditationMinutes('')
+
+      setSelfCare([])
+      setAilments([])
+      setNotes('')
+    }
+
+  }, [selectedDate, wellnessHistory])
+
+  // MULTI SELECT HANDLER
   const toggleSelection = (value, selected, setSelected, max = null) => {
     if (selected.includes(value)) {
       setSelected(selected.filter((item) => item !== value))
@@ -53,15 +148,18 @@ function DailyWellness({ onBack, onSaveWellness }) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    // Format selectedDate for display/storage
+    const parsedDate = new Date(selectedDate)
+    const formattedDate = parsedDate.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    })
+
     const checkIn = {
       id: Date.now(),
-      date: new Date().toLocaleString('en-IN', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      selectedDate: selectedDate, // Stored as YYYY-MM-DD for easy filtering/querying
+      date: formattedDate,
       mood,
       energy,
       feelings,
@@ -85,13 +183,14 @@ function DailyWellness({ onBack, onSaveWellness }) {
 
     console.log("Daily wellness check-in:", checkIn)
 
-if (onSaveWellness) {
-  onSaveWellness(checkIn)
-}
+    if (onSaveWellness) {
+      onSaveWellness(checkIn)
+    }
 
-alert("Today's wellness check-in has been saved successfully.")
+    alert(`Wellness check-in for ${formattedDate} has been saved successfully.`)
 
     // Reset form
+    setSelectedDate(getTodayString())
     setMood('')
     setEnergy(3)
     setFeelings([])
@@ -124,6 +223,30 @@ alert("Today's wellness check-in has been saved successfully.")
           <p>Take a moment to record how you are feeling today.</p>
         </div>
         <div className="daily-wellness-header-icon">🌷</div>
+      </div>
+
+      {/* DATE PICKER BAR */}
+      <div className="wellness-question date-selection-wrapper" style={{ marginBottom: '1.5rem' }}>
+        <div className="question-heading">
+          <div>
+            <h3>📅 Select Date</h3>
+            <span>Choose the date for this wellness log</span>
+          </div>
+          <input
+            type="date"
+            className="wellness-date-input"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            style={{
+              padding: '8px 14px',
+              fontSize: '0.95rem',
+              borderRadius: '8px',
+              border: '1px solid #e2e8f0',
+              outline: 'none',
+              cursor: 'pointer'
+            }}
+          />
+        </div>
       </div>
 
       {/* FORM */}
@@ -180,7 +303,7 @@ alert("Today's wellness check-in has been saved successfully.")
           </div>
         </div>
 
-        {/* FEELINGS (UPDATED FOR MULTI-SELECT) */}
+        {/* FEELINGS */}
         <div className="wellness-question">
           <div className="question-heading">
             <div>
@@ -212,7 +335,7 @@ alert("Today's wellness check-in has been saved successfully.")
           </div>
         </div>
 
-        {/* PAIN & BODY COMFORT (UPDATED FOR MULTI-SELECT) */}
+        {/* PAIN & BODY COMFORT */}
         <div className="wellness-question">
           <div className="question-heading">
             <div>
@@ -378,7 +501,7 @@ alert("Today's wellness check-in has been saved successfully.")
           </div>
         </div>
 
-        {/* SKIN (UPDATED FOR MULTI-SELECT) */}
+        {/* SKIN */}
         <div className="wellness-question">
           <div className="question-heading">
             <div>
@@ -410,7 +533,7 @@ alert("Today's wellness check-in has been saved successfully.")
           </div>
         </div>
 
-        {/* HAIR (UPDATED FOR MULTI-SELECT) */}
+        {/* HAIR */}
         <div className="wellness-question">
           <div className="question-heading">
             <div>
@@ -464,7 +587,7 @@ alert("Today's wellness check-in has been saved successfully.")
           </div>
         </div>
 
-        {/* DIGESTION (UPDATED FOR MULTI-SELECT) */}
+        {/* DIGESTION */}
         <div className="wellness-question">
           <div className="question-heading">
             <div>
@@ -632,7 +755,7 @@ alert("Today's wellness check-in has been saved successfully.")
             type="submit"
             className="wellness-save-button"
           >
-            Save Today's Check-in
+            Save Check-in
             <span>→</span>
           </button>
         </div>

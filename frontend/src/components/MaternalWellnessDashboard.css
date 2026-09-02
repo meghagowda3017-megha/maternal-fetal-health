@@ -1,0 +1,901 @@
+/* ==================================================
+   MATERNAL WELLNESS DASHBOARD
+   ================================================== */
+
+.wellness-dashboard {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 45px;
+}
+
+
+/* ==================================================
+   HEADER
+   ================================================== */
+
+.wellness-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.wellness-dashboard-header h2 {
+  margin: 6px 0 8px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #17324d;
+  line-height: 1.2;
+}
+
+.wellness-dashboard-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.wellness-dashboard-back {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 11px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.wellness-dashboard-back:hover {
+  background: #fff5f8;
+  border-color: #f3c5d5;
+  transform: translateX(-2px);
+}
+
+.wellness-dashboard-back:focus-visible {
+  outline: 2px solid #d9467a;
+  outline-offset: 2px;
+}
+
+
+/* ==================================================
+   SECTION LABEL
+   ================================================== */
+
+.section-label {
+  display: block;
+  color: #d9467a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+
+/* ==================================================
+   PREGNANCY OVERVIEW
+   ================================================== */
+
+.dashboard-pregnancy-card {
+  background: #ffffff;
+  border: 1px solid #f0dfe5;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-pregnancy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.dashboard-pregnancy-header h3 {
+  margin: 5px 0 6px;
+  font-size: 22px;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.dashboard-pregnancy-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dashboard-pregnancy-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f8;
+  border-radius: 14px;
+  font-size: 27px;
+  flex-shrink: 0;
+}
+
+.dashboard-pregnancy-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.dashboard-pregnancy-item {
+  background: #fafafa;
+  border: 1px solid #f1f1f1;
+  border-radius: 13px;
+  padding: 17px;
+  min-height: 90px;
+}
+
+.dashboard-pregnancy-item span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.dashboard-pregnancy-item strong {
+  display: block;
+  color: #17324d;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.dashboard-pregnancy-item small {
+  display: block;
+  margin-top: 5px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.dashboard-pregnancy-progress {
+  width: 100%;
+  height: 7px;
+  margin-top: 12px;
+  background: #eeeeee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.dashboard-pregnancy-progress div {
+  height: 100%;
+  background: #f3a8bd;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+
+/* ==================================================
+   EMPTY STATE
+   ================================================== */
+
+.wellness-dashboard-empty {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 70px 30px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.wellness-dashboard-empty-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.wellness-dashboard-empty h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #17324d;
+}
+
+.wellness-dashboard-empty p {
+  margin: 0 auto;
+  max-width: 500px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+
+/* ==================================================
+   SUMMARY CARDS
+   ================================================== */
+
+.wellness-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.wellness-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  min-height: 95px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.wellness-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.wellness-stat-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f8;
+  border-radius: 14px;
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.wellness-stat-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.wellness-stat-card strong {
+  display: block;
+  font-size: 22px;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+
+/* ==================================================
+   WELLNESS OVERVIEW
+   ================================================== */
+
+.wellness-overview-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.wellness-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.wellness-overview-header h3 {
+  margin: 5px 0 0;
+  font-size: 22px;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.wellness-overview-icon {
+  font-size: 30px;
+}
+
+.wellness-overview-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.overview-item {
+  background: #fafafa;
+  border: 1px solid #f1f1f1;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.overview-item span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.overview-item strong {
+  font-size: 17px;
+  color: #17324d;
+}
+
+
+/* ==================================================
+   WELLNESS TRENDS
+   ================================================== */
+
+.wellness-trends-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.wellness-trends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.wellness-trends-header h3 {
+  margin: 5px 0 6px;
+  font-size: 22px;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.wellness-trends-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.wellness-trends-icon {
+  font-size: 30px;
+}
+
+
+/* ==================================================
+   TREND SECTION
+   ================================================== */
+
+.trend-section {
+  border-top: 1px solid #eeeeee;
+  padding: 22px 0;
+}
+
+.trend-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.trend-title span:first-child {
+  font-weight: 700;
+  font-size: 15px;
+  color: #17324d;
+}
+
+.trend-title span:last-child {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+
+/* ==================================================
+   TREND BARS
+   ================================================== */
+
+.trend-values {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  min-height: 190px;
+  padding: 10px 5px 0;
+  overflow-x: auto;
+}
+
+.trend-column {
+  flex: 1;
+  min-width: 65px;
+  max-width: 120px;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.trend-bar-area {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: linear-gradient(
+    to top,
+    #f9fafb,
+    #ffffff
+  );
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trend-bar {
+  width: 42px;
+  min-height: 5%;
+  border-radius: 8px 8px 3px 3px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: height 0.4s ease;
+}
+
+.energy-bar {
+  background: #f9c6d4;
+}
+
+.water-bar {
+  background: #b9dff5;
+}
+
+.sleep-bar {
+  background: #cfc4f3;
+}
+
+.trend-bar span {
+  color: #374151;
+}
+
+.trend-column small {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+/* ==================================================
+   MOOD TREND
+   ================================================== */
+
+.mood-trend-section {
+  border-top: 1px solid #eeeeee;
+  padding-top: 22px;
+}
+
+.mood-trend-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.mood-trend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #fafafa;
+  border: 1px solid #f1f1f1;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.mood-trend-item span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.mood-trend-item strong {
+  font-size: 14px;
+  color: #17324d;
+}
+
+
+/* ==================================================
+   WELLNESS INSIGHTS
+   ================================================== */
+
+.wellness-insights-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.wellness-insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.wellness-insights-header h3 {
+  margin: 5px 0 6px;
+  font-size: 22px;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.wellness-insights-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.wellness-insights-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5d9;
+  border-radius: 13px;
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.wellness-insights-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.wellness-insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 17px;
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  border-radius: 13px;
+  transition: all 0.2s ease;
+}
+
+.wellness-insight-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.insight-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 11px;
+  font-size: 21px;
+}
+
+.wellness-insight-item strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #17324d;
+}
+
+.wellness-insight-item p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* ==================================================
+   RECENT ACTIVITY
+   ================================================== */
+
+.wellness-recent-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.wellness-recent-header {
+  margin-bottom: 18px;
+}
+
+.wellness-recent-header h3 {
+  margin: 5px 0 0;
+  font-size: 22px;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.wellness-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wellness-recent-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: #fafafa;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.wellness-recent-item:hover {
+  background: #fff7fa;
+  border-color: #f5dce5;
+}
+
+.recent-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff2f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.recent-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-info strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #17324d;
+}
+
+.recent-info span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.recent-energy {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+
+/* ==================================================
+   DISCLAIMER
+   ================================================== */
+
+.wellness-dashboard-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 15px 18px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.wellness-dashboard-note span {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.wellness-dashboard-note p {
+  margin: 0;
+}
+
+
+/* ==================================================
+   RESPONSIVE — TABLET
+   ================================================== */
+
+@media (max-width: 900px) {
+
+  .wellness-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wellness-overview-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-pregnancy-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mood-trend-list {
+    grid-template-columns: 1fr;
+  }
+
+  .wellness-insights-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+
+  .wellness-dashboard {
+    padding: 5px 0 30px;
+  }
+
+  .wellness-dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .wellness-dashboard-header h2 {
+    font-size: 26px;
+  }
+
+  .wellness-dashboard-header p {
+    font-size: 14px;
+  }
+
+  .wellness-dashboard-back {
+    width: 100%;
+    text-align: center;
+  }
+
+  .wellness-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .wellness-stat-card {
+    padding: 17px;
+  }
+
+  .wellness-overview-content {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-pregnancy-card {
+    padding: 18px;
+  }
+
+  .dashboard-pregnancy-content {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dashboard-pregnancy-header {
+    gap: 12px;
+  }
+
+  .dashboard-pregnancy-header h3 {
+    font-size: 19px;
+  }
+
+  .dashboard-pregnancy-header p {
+    font-size: 13px;
+  }
+
+  .dashboard-pregnancy-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 23px;
+  }
+
+  .wellness-trends-card,
+  .wellness-overview-card,
+  .wellness-insights-card,
+  .wellness-recent-card {
+    padding: 18px;
+  }
+
+  .wellness-trends-header h3,
+  .wellness-overview-header h3,
+  .wellness-recent-header h3 {
+    font-size: 19px;
+  }
+
+  .wellness-insights-header h3 {
+    font-size: 19px;
+  }
+
+  .wellness-insight-item {
+    padding: 14px;
+  }
+
+  .trend-values {
+    gap: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .trend-column {
+    min-width: 55px;
+  }
+
+  .trend-bar {
+    width: 36px;
+  }
+
+  .wellness-recent-item {
+    align-items: flex-start;
+  }
+
+  .recent-energy {
+    font-size: 12px;
+  }
+
+  .wellness-dashboard-note {
+    padding: 14px;
+  }
+
+}
+
+
+/* ==================================================
+   EXTRA SMALL SCREENS
+   ================================================== */
+
+@media (max-width: 400px) {
+
+  .wellness-dashboard-header h2 {
+    font-size: 23px;
+  }
+
+  .dashboard-pregnancy-header {
+    flex-direction: column;
+  }
+
+  .dashboard-pregnancy-icon {
+    align-self: flex-start;
+  }
+
+  .wellness-stat-card {
+    gap: 12px;
+  }
+
+  .wellness-stat-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .wellness-stat-card strong {
+    font-size: 20px;
+  }
+
+  .trend-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .wellness-dashboard-note {
+    font-size: 11px;
+  }
+
+}

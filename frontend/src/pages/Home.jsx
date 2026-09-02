@@ -6,7 +6,8 @@ function Home({
   onHistoryClick,
   onPregnancyClick,
   onWellnessClick,
-  onDailyWellnessClick
+  onDailyWellnessClick,
+  onWellnessDashboardClick
 }) {
   return (
     <>
@@ -27,10 +28,13 @@ function Home({
         </p>
       </section>
 
+
       {/* PREGNANCY TRACKING CARD */}
       <section className="pregnancy-section">
         <div className="pregnancy-card">
+
           <div className="card-top">
+
             <div className="card-icon pregnancy-icon">
               🩺
             </div>
@@ -38,6 +42,7 @@ function Home({
             <span className="available-badge">
               Available
             </span>
+
           </div>
 
           <h3>
@@ -62,13 +67,17 @@ function Home({
             Track Pregnancy
             <span>→</span>
           </button>
+
         </div>
       </section>
+
 
       {/* TRIMESTER WELLNESS */}
       <section className="wellness-section">
         <div className="wellness-home-card">
+
           <div className="card-top">
+
             <div className="card-icon wellness-home-icon">
               🪷
             </div>
@@ -76,6 +85,7 @@ function Home({
             <span className="available-badge">
               Available
             </span>
+
           </div>
 
           <h3>
@@ -100,52 +110,112 @@ function Home({
             Explore Wellness
             <span>→</span>
           </button>
+
         </div>
       </section>
 
-      {/* DAILY WELLNESS CHECK-IN */}
-      <section className="checkin-section">
-        <div className="checkin-card">
-          <div className="card-top">
-            <div className="card-icon checkin-icon">
-              🌷
+
+      {/* ==================================================
+          SIDE-BY-SIDE WELLNESS GRID (HALF-HALF CONTAINER)
+          ================================================== */}
+      <div className="wellness-grid-container">
+
+        {/* DAILY WELLNESS CHECK-IN */}
+        <section className="checkin-section">
+          <div className="checkin-card">
+
+            <div className="card-top">
+
+              <div className="card-icon checkin-icon">
+                🌷
+              </div>
+
+              <span className="available-badge">
+                Available
+              </span>
+
             </div>
 
-            <span className="available-badge">
-              Available
-            </span>
+            <h3>
+              Daily Wellness Check-in
+            </h3>
+
+            <p>
+              Record your daily mood, energy, sleep, water intake
+              and personal wellness notes.
+            </p>
+
+            <div className="card-features">
+              <span>😊 Mood</span>
+              <span>💧 Hydration</span>
+              <span>😴 Sleep</span>
+            </div>
+
+            <button
+              className="primary-button checkin-button"
+              onClick={onDailyWellnessClick}
+            >
+              Daily Check-in
+              <span>→</span>
+            </button>
+
           </div>
+        </section>
 
-          <h3>
-            Daily Wellness Check-in
-          </h3>
 
-          <p>
-            Record your daily mood, energy, sleep, water intake
-            and personal wellness notes.
-          </p>
+        {/* MATERNAL WELLNESS DASHBOARD */}
+        <section className="wellness-dashboard-section">
+          <div className="wellness-dashboard-home-card">
 
-          <div className="card-features">
-            <span>😊 Mood</span>
-            <span>💧 Hydration</span>
-            <span>😴 Sleep</span>
+            <div className="card-top">
+
+              <div className="card-icon wellness-dashboard-icon">
+                📊
+              </div>
+
+              <span className="available-badge">
+                Available
+              </span>
+
+            </div>
+
+            <h3>
+              Maternal Wellness Dashboard
+            </h3>
+
+            <p>
+              View your saved wellness check-ins, daily patterns,
+              wellness summary and recent maternal health trends.
+            </p>
+
+            <div className="card-features">
+              <span>📈 Trends</span>
+              <span>🍓 Cravings</span>
+              <span>⚡ Energy</span>
+            </div>
+
+            <button
+              className="primary-button wellness-dashboard-button"
+              onClick={onWellnessDashboardClick}
+            >
+              View Wellness Dashboard
+              <span>→</span>
+            </button>
+
           </div>
+        </section>
 
-          <button
-            className="primary-button checkin-button"
-            onClick={onDailyWellnessClick}
-          >
-            Daily Check-in
-            <span>→</span>
-          </button>
-        </div>
-      </section>
+      </div>
+
 
       {/* MATERNAL + FETAL PREDICTION GRID */}
       <section className="prediction-grid">
+
         {/* MATERNAL */}
         <div className="prediction-card maternal-card">
+
           <div className="card-top">
+
             <div className="card-icon maternal-icon">
               🤰
             </div>
@@ -153,6 +223,7 @@ function Home({
             <span className="available-badge">
               Available
             </span>
+
           </div>
 
           <h3>
@@ -176,11 +247,15 @@ function Home({
             Start Assessment
             <span>→</span>
           </button>
+
         </div>
+
 
         {/* FETAL */}
         <div className="prediction-card fetal-card">
+
           <div className="card-top">
+
             <div className="card-icon fetal-icon">
               👶
             </div>
@@ -188,6 +263,7 @@ function Home({
             <span className="available-badge">
               Available
             </span>
+
           </div>
 
           <h3>
@@ -211,45 +287,86 @@ function Home({
             Start Assessment
             <span>→</span>
           </button>
+
         </div>
+
       </section>
+
 
       {/* HISTORY BUTTON */}
       <div className="history-button-wrapper">
+
         <button
           className="history-button"
           onClick={onHistoryClick}
         >
           View Assessment History →
         </button>
+
       </div>
+
 
       {/* INFO STRIP */}
       <section className="info-strip">
-        <div>
-          <span className="info-icon">🔒</span>
-          <div>
-            <strong>Secure Assessment</strong>
-            <p>Your information is processed securely.</p>
-          </div>
-        </div>
 
         <div>
-          <span className="info-icon">⚕</span>
+
+          <span className="info-icon">
+            🔒
+          </span>
+
           <div>
-            <strong>Decision Support</strong>
-            <p>Predictions are designed to support healthcare assessment.</p>
+            <strong>
+              Secure Assessment
+            </strong>
+
+            <p>
+              Your information is processed securely.
+            </p>
           </div>
+
         </div>
 
+
         <div>
-          <span className="info-icon">✓</span>
+
+          <span className="info-icon">
+            ⚕
+          </span>
+
           <div>
-            <strong>Machine Learning</strong>
-            <p>Powered by trained prediction models.</p>
+            <strong>
+              Decision Support
+            </strong>
+
+            <p>
+              Predictions are designed to support healthcare assessment.
+            </p>
           </div>
+
         </div>
+
+
+        <div>
+
+          <span className="info-icon">
+            ✓
+          </span>
+
+          <div>
+            <strong>
+              Machine Learning
+            </strong>
+
+            <p>
+              Powered by trained prediction models.
+            </p>
+          </div>
+
+        </div>
+
       </section>
+
     </>
   )
 }

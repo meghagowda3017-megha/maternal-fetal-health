@@ -770,3 +770,299 @@ button.daily-checkin-btn {
 .daily-checkin-btn:active {
   transform: translateY(0);
 }
+/* ==================================================
+   MATERNAL WELLNESS DASHBOARD
+   ================================================== */
+
+.wellness-dashboard-section {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.wellness-dashboard-home-card {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #fff7fa 0%,
+    #ffffff 55%,
+    #f9f4ff 100%
+  );
+
+  border: 1px solid #eadde5;
+  border-radius: 22px;
+
+  padding: 28px 30px;
+
+  /* Centering alignment */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0 8px 25px rgba(70, 45, 60, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.wellness-dashboard-home-card:hover {
+  transform: translateY(-4px);
+  border-color: #d9b8c8;
+
+  box-shadow:
+    0 14px 32px rgba(70, 45, 60, 0.11);
+}
+
+
+/* ==================================================
+   TOP AREA & DASHBOARD ICON
+   ================================================== */
+
+.wellness-dashboard-home-card .card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.wellness-dashboard-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #f7e7ef,
+    #eee7f8
+  );
+
+  font-size: 26px;
+
+  box-shadow:
+    0 5px 14px rgba(112, 77, 101, 0.10);
+
+  margin-bottom: 12px;
+}
+
+
+/* ==================================================
+   TITLE (Matched font-size and styling)
+   ================================================== */
+
+.wellness-dashboard-home-card h3 {
+  margin: 0 0 8px;
+
+  font-size: 26px; /* Matched top card heading size */
+  font-weight: 700;
+
+  color: #334155;
+  text-align: center;
+}
+
+
+/* ==================================================
+   DESCRIPTION (Matched font-size and centering)
+   ================================================== */
+
+.wellness-dashboard-home-card > p {
+  max-width: 600px;
+
+  margin: 0 auto 18px;
+
+  color: #64748b;
+
+  font-size: 15px; /* Matched top card subtext size */
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* ==================================================
+   FEATURES (Centered row)
+   ================================================== */
+
+.wellness-dashboard-home-card .card-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+
+  margin-bottom: 22px;
+}
+
+.wellness-dashboard-home-card .card-features span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 14px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  border: 1px solid #eadfe5;
+  border-radius: 50px;
+
+  color: #665c64;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ==================================================
+   BUTTON
+   ================================================== */
+
+.wellness-dashboard-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 200px;
+
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #9b5d78,
+    #81516d
+  );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(129, 81, 109, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.wellness-dashboard-button span {
+  font-size: 17px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.wellness-dashboard-button:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    135deg,
+    #8f526d,
+    #754861
+  );
+
+  box-shadow:
+    0 9px 20px rgba(129, 81, 109, 0.25);
+}
+
+.wellness-dashboard-button:hover span {
+  transform: translateX(4px);
+}
+
+.wellness-dashboard-button:active {
+  transform: translateY(0);
+}
+
+
+/* ==================================================
+   RESPONSIVE MEDIA QUERIES
+   ================================================== */
+
+@media (max-width: 768px) {
+  .wellness-dashboard-home-card {
+    padding: 24px;
+  }
+
+  .wellness-dashboard-home-card h3 {
+    font-size: 22px;
+  }
+
+  .wellness-dashboard-home-card > p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wellness-dashboard-section {
+    margin-top: 18px;
+  }
+
+  .wellness-dashboard-home-card {
+    padding: 21px 18px;
+    border-radius: 18px;
+  }
+
+  .wellness-dashboard-icon {
+    width: 47px;
+    height: 47px;
+    border-radius: 13px;
+    font-size: 22px;
+  }
+
+  .wellness-dashboard-home-card h3 {
+    font-size: 20px;
+  }
+
+  .wellness-dashboard-home-card > p {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .wellness-dashboard-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+.wellness-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin: 28px 0;
+}
+
+.wellness-grid-container .checkin-section,
+.wellness-grid-container .wellness-dashboard-section {
+  margin: 0;
+  width: 100%;
+}
+
+.checkin-card,
+.wellness-dashboard-home-card {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .wellness-grid-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

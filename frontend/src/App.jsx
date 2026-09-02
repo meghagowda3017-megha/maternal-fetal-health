@@ -8,14 +8,25 @@ import History from './pages/History'
 import PregnancyOverview from './components/PregnancyOverview'
 import TrimesterWellness from './components/TrimesterWellness'
 import DailyWellness from './components/DailyWellness'
+import MaternalWellnessDashboard from './components/MaternalWellnessDashboard'
 
 function App() {
+  // ==================================================
+  // PAGE STATES
+  // ==================================================
+
   const [showMaternalForm, setShowMaternalForm] = useState(false)
   const [showFetalForm, setShowFetalForm] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const [showPregnancy, setShowPregnancy] = useState(false)
   const [showWellness, setShowWellness] = useState(false)
   const [showDailyWellness, setShowDailyWellness] = useState(false)
+  const [showWellnessDashboard, setShowWellnessDashboard] = useState(false)
+
+
+  // ==================================================
+  // SELECTED TRIMESTER
+  // ==================================================
 
   const [selectedWellnessTrimester, setSelectedWellnessTrimester] =
     useState(
@@ -23,52 +34,56 @@ function App() {
       'First Trimester'
     )
 
+
   // ==================================================
   // ASSESSMENT HISTORY
   // ==================================================
 
   const [history, setHistory] = useState(() => {
-  const savedHistory = localStorage.getItem('assessmentHistory')
+    const savedHistory = localStorage.getItem('assessmentHistory')
 
-  return savedHistory
-    ? JSON.parse(savedHistory)
-    : []
-})
+    return savedHistory
+      ? JSON.parse(savedHistory)
+      : []
+  })
+
 
   // ==================================================
   // WELLNESS HISTORY
   // ==================================================
 
   const [wellnessHistory, setWellnessHistory] = useState(() => {
-  const savedWellnessHistory =
-    localStorage.getItem('wellnessHistory')
+    const savedWellnessHistory =
+      localStorage.getItem('wellnessHistory')
 
-  return savedWellnessHistory
-    ? JSON.parse(savedWellnessHistory)
-    : []
-})
-// ==================================================
-// SAVE ASSESSMENT HISTORY
-// ==================================================
-
-useEffect(() => {
-  localStorage.setItem(
-    'assessmentHistory',
-    JSON.stringify(history)
-  )
-}, [history])
+    return savedWellnessHistory
+      ? JSON.parse(savedWellnessHistory)
+      : []
+  })
 
 
-// ==================================================
-// SAVE WELLNESS HISTORY
-// ==================================================
+  // ==================================================
+  // SAVE ASSESSMENT HISTORY TO LOCAL STORAGE
+  // ==================================================
 
-useEffect(() => {
-  localStorage.setItem(
-    'wellnessHistory',
-    JSON.stringify(wellnessHistory)
-  )
-}, [wellnessHistory])
+  useEffect(() => {
+    localStorage.setItem(
+      'assessmentHistory',
+      JSON.stringify(history)
+    )
+  }, [history])
+
+
+  // ==================================================
+  // SAVE WELLNESS HISTORY TO LOCAL STORAGE
+  // ==================================================
+
+  useEffect(() => {
+    localStorage.setItem(
+      'wellnessHistory',
+      JSON.stringify(wellnessHistory)
+    )
+  }, [wellnessHistory])
 
 
   // ==================================================
@@ -82,6 +97,7 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(false)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -96,6 +112,7 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(false)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -110,6 +127,7 @@ useEffect(() => {
     setShowPregnancy(true)
     setShowWellness(false)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -124,6 +142,7 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(true)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -138,6 +157,22 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(false)
     setShowDailyWellness(true)
+    setShowWellnessDashboard(false)
+  }
+
+
+  // ==================================================
+  // OPEN WELLNESS DASHBOARD
+  // ==================================================
+
+  const openWellnessDashboard = () => {
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
+    setShowWellness(false)
+    setShowDailyWellness(false)
+    setShowWellnessDashboard(true)
   }
 
 
@@ -152,6 +187,7 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(false)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -180,6 +216,7 @@ useEffect(() => {
     setShowPregnancy(false)
     setShowWellness(false)
     setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
   }
 
 
@@ -229,6 +266,15 @@ useEffect(() => {
 
 
   // ==================================================
+  // CLOSE WELLNESS DASHBOARD
+  // ==================================================
+
+  const closeWellnessDashboard = () => {
+    setShowWellnessDashboard(false)
+  }
+
+
+  // ==================================================
   // ASSESSMENT HISTORY FUNCTIONS
   // ==================================================
 
@@ -257,11 +303,37 @@ useEffect(() => {
   // ==================================================
 
   const addWellnessHistory = (checkIn) => {
-    setWellnessHistory((previous) => [
-      checkIn,
-      ...previous,
-    ])
-  }
+  setWellnessHistory((previous) => {
+
+    // Check whether this date already has a wellness entry
+    const existingEntry = previous.find(
+      (item) => item.selectedDate === checkIn.selectedDate
+    )
+
+    // If this is a new date, create a new entry
+    if (!existingEntry) {
+      return [
+        checkIn,
+        ...previous,
+      ]
+    }
+
+    // Same date already exists:
+    // replace the old entry instead of creating another one.
+    // Keep the original ID so it remains the same record.
+    const updatedEntry = {
+      ...checkIn,
+      id: existingEntry.id,
+    }
+
+    return [
+      updatedEntry,
+      ...previous.filter(
+        (item) => item.selectedDate !== checkIn.selectedDate
+      ),
+    ]
+  })
+}
 
 
   const clearWellnessHistory = () => {
@@ -344,7 +416,8 @@ useEffect(() => {
           !showHistory &&
           !showPregnancy &&
           !showWellness &&
-          !showDailyWellness && (
+          !showDailyWellness &&
+          !showWellnessDashboard && (
 
             <Home
               onMaternalClick={openMaternalForm}
@@ -353,6 +426,7 @@ useEffect(() => {
               onPregnancyClick={openPregnancy}
               onWellnessClick={openWellness}
               onDailyWellnessClick={openDailyWellness}
+              onWellnessDashboardClick={openWellnessDashboard}
             />
 
           )}
@@ -440,8 +514,23 @@ useEffect(() => {
         {showDailyWellness && (
 
           <DailyWellness
+            wellnessHistory={wellnessHistory}
             onBack={closeDailyWellness}
             onSaveWellness={addWellnessHistory}
+          />
+
+        )}
+
+
+        {/* ==================================================
+            MATERNAL WELLNESS DASHBOARD
+            ================================================== */}
+
+        {showWellnessDashboard && (
+
+          <MaternalWellnessDashboard
+            wellnessHistory={wellnessHistory}
+            onBack={closeWellnessDashboard}
           />
 
         )}
