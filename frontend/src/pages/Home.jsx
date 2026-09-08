@@ -7,12 +7,18 @@ function Home({
   onPregnancyClick,
   onWellnessClick,
   onDailyWellnessClick,
-  onWellnessDashboardClick
+  onWellnessDashboardClick,
+  onNutritionClick
 }) {
   return (
-    <>
-      {/* WELCOME */}
+    <div className="home-page">
+
+      {/* ==================================================
+          WELCOME
+          ================================================== */}
+
       <section className="welcome">
+
         <span className="welcome-label">
           HEALTH ASSESSMENT
         </span>
@@ -26,11 +32,16 @@ function Home({
           Use our prediction models to assess maternal health
           risk and fetal health status.
         </p>
+
       </section>
 
 
-      {/* PREGNANCY TRACKING CARD */}
+      {/* ==================================================
+          PREGNANCY TRACKING
+          ================================================== */}
+
       <section className="pregnancy-section">
+
         <div className="pregnancy-card">
 
           <div className="card-top">
@@ -55,12 +66,15 @@ function Home({
           </p>
 
           <div className="card-features">
+
             <span>📅 LMP</span>
             <span>🌸 Trimester</span>
             <span>📈 Progress</span>
+
           </div>
 
           <button
+            type="button"
             className="primary-button pregnancy-button"
             onClick={onPregnancyClick}
           >
@@ -69,11 +83,16 @@ function Home({
           </button>
 
         </div>
+
       </section>
 
 
-      {/* TRIMESTER WELLNESS */}
+      {/* ==================================================
+          TRIMESTER WELLNESS
+          ================================================== */}
+
       <section className="wellness-section">
+
         <div className="wellness-home-card">
 
           <div className="card-top">
@@ -98,12 +117,15 @@ function Home({
           </p>
 
           <div className="card-features">
+
             <span>🥗 Nutrition</span>
             <span>🧘 Wellness</span>
             <span>💡 Tips</span>
+
           </div>
 
           <button
+            type="button"
             className="primary-button wellness-home-button"
             onClick={onWellnessClick}
           >
@@ -112,16 +134,20 @@ function Home({
           </button>
 
         </div>
+
       </section>
 
 
       {/* ==================================================
-          SIDE-BY-SIDE WELLNESS GRID (HALF-HALF CONTAINER)
+          DAILY WELLNESS + DASHBOARD
           ================================================== */}
+
       <div className="wellness-grid-container">
 
-        {/* DAILY WELLNESS CHECK-IN */}
+        {/* DAILY WELLNESS */}
+
         <section className="checkin-section">
+
           <div className="checkin-card">
 
             <div className="card-top">
@@ -146,12 +172,15 @@ function Home({
             </p>
 
             <div className="card-features">
+
               <span>😊 Mood</span>
               <span>💧 Hydration</span>
               <span>😴 Sleep</span>
+
             </div>
 
             <button
+              type="button"
               className="primary-button checkin-button"
               onClick={onDailyWellnessClick}
             >
@@ -160,11 +189,14 @@ function Home({
             </button>
 
           </div>
+
         </section>
 
 
         {/* MATERNAL WELLNESS DASHBOARD */}
+
         <section className="wellness-dashboard-section">
+
           <div className="wellness-dashboard-home-card">
 
             <div className="card-top">
@@ -189,12 +221,15 @@ function Home({
             </p>
 
             <div className="card-features">
+
               <span>📈 Trends</span>
               <span>🍓 Cravings</span>
               <span>⚡ Energy</span>
+
             </div>
 
             <button
+              type="button"
               className="primary-button wellness-dashboard-button"
               onClick={onWellnessDashboardClick}
             >
@@ -203,15 +238,71 @@ function Home({
             </button>
 
           </div>
+
         </section>
 
       </div>
 
 
-      {/* MATERNAL + FETAL PREDICTION GRID */}
+      {/* ==================================================
+          NUTRITION
+          ================================================== */}
+
+      <section className="nutrition-section">
+
+        <div className="nutrition-home-card">
+
+          <div className="card-top">
+
+            <div className="card-icon nutrition-home-icon">
+              🥗
+            </div>
+
+            <span className="available-badge">
+              Available
+            </span>
+
+          </div>
+
+          <h3>
+            Nutrition & Pregnancy
+          </h3>
+
+          <p>
+            Explore pregnancy-friendly nutrition guidance based
+            on your pregnancy stage, cravings and food preferences.
+          </p>
+
+          <div className="card-features">
+
+            <span>🥑 Nutrition</span>
+            <span>🍓 Cravings</span>
+            <span>💧 Hydration</span>
+
+          </div>
+
+          <button
+            type="button"
+            className="primary-button nutrition-home-button"
+            onClick={onNutritionClick}
+          >
+            Explore Nutrition
+            <span>→</span>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      {/* ==================================================
+          MATERNAL + FETAL PREDICTION
+          ================================================== */}
+
       <section className="prediction-grid">
 
         {/* MATERNAL */}
+
         <div className="prediction-card maternal-card">
 
           <div className="card-top">
@@ -236,11 +327,14 @@ function Home({
           </p>
 
           <div className="card-features">
+
             <span>♥ Vital Signs</span>
             <span>◉ ML Prediction</span>
+
           </div>
 
           <button
+            type="button"
             className="primary-button maternal-button"
             onClick={onMaternalClick}
           >
@@ -252,6 +346,7 @@ function Home({
 
 
         {/* FETAL */}
+
         <div className="prediction-card fetal-card">
 
           <div className="card-top">
@@ -276,16 +371,20 @@ function Home({
           </p>
 
           <div className="card-features">
+
             <span>⌁ CTG Analysis</span>
             <span>◉ ML Prediction</span>
+
           </div>
 
           <button
+            type="button"
             className="primary-button fetal-button"
             onClick={onFetalClick}
           >
             Start Assessment
             <span>→</span>
+
           </button>
 
         </div>
@@ -293,10 +392,14 @@ function Home({
       </section>
 
 
-      {/* HISTORY BUTTON */}
+      {/* ==================================================
+          HISTORY
+          ================================================== */}
+
       <div className="history-button-wrapper">
 
         <button
+          type="button"
           className="history-button"
           onClick={onHistoryClick}
         >
@@ -306,7 +409,10 @@ function Home({
       </div>
 
 
-      {/* INFO STRIP */}
+      {/* ==================================================
+          INFORMATION STRIP
+          ================================================== */}
+
       <section className="info-strip">
 
         <div>
@@ -316,6 +422,7 @@ function Home({
           </span>
 
           <div>
+
             <strong>
               Secure Assessment
             </strong>
@@ -323,6 +430,7 @@ function Home({
             <p>
               Your information is processed securely.
             </p>
+
           </div>
 
         </div>
@@ -335,6 +443,7 @@ function Home({
           </span>
 
           <div>
+
             <strong>
               Decision Support
             </strong>
@@ -342,6 +451,7 @@ function Home({
             <p>
               Predictions are designed to support healthcare assessment.
             </p>
+
           </div>
 
         </div>
@@ -354,6 +464,7 @@ function Home({
           </span>
 
           <div>
+
             <strong>
               Machine Learning
             </strong>
@@ -361,13 +472,14 @@ function Home({
             <p>
               Powered by trained prediction models.
             </p>
+
           </div>
 
         </div>
 
       </section>
 
-    </>
+    </div>
   )
 }
 

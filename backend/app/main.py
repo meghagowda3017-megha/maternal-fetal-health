@@ -1,10 +1,14 @@
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 import joblib
 import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+from app.recommendation_engine import generate_nutrition_recommendations
+from app.nutrition_safety import build_safety_summary
 
 
 # --------------------------------------------------
@@ -48,13 +52,17 @@ app = FastAPI(
     description="Backend API for Maternal-Fetal Health Prediction System"
 )
 
+
 # --------------------------------------------------
 # CORS configuration
 # --------------------------------------------------
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -104,6 +112,18 @@ class MaternalHealthInput(BaseModel):
 
 
 # --------------------------------------------------
+# Nutrition recommendation input data model
+# --------------------------------------------------
+
+class NutritionRecommendationInput(BaseModel):
+    pregnancy_info: Optional[Dict[str, Any]] = None
+    wellness: Optional[Dict[str, Any]] = None
+    dietary_preference: Optional[str] = None
+    food_allergies: Optional[List[str]] = None
+    limit: int = 8
+
+
+# --------------------------------------------------
 # Home endpoint
 # --------------------------------------------------
 
@@ -113,12 +133,19 @@ def home():
         "message": "Welcome to Maternal-Fetal Health API"
     }
 
+
+# --------------------------------------------------
+# Health check endpoint
+# --------------------------------------------------
+
 @app.get("/health")
 def health_check():
     return {
         "status": "healthy",
         "ctg_model": "loaded",
-        "maternal_model": "loaded"
+        "maternal_model": "loaded",
+        "nutrition_engine": "loaded",
+        "nutrition_safety": "loaded"
     }
 
 
@@ -174,6 +201,7 @@ def predict_fetal_health(data: CTGInput):
         probability_values
     ):
         class_value = int(class_value)
+
         probabilities[labels[class_value]] = round(
             float(probability),
             2
@@ -223,4 +251,39 @@ def predict_maternal_risk(data: MaternalHealthInput):
     return {
         "prediction": prediction,
         "probabilities": probabilities
+    }
+
+
+# --------------------------------------------------
+# Nutrition recommendation endpoint
+# --------------------------------------------------
+
+@app.post("/nutrition/recommendations")
+def nutrition_recommendations(
+    data: NutritionRecommendationInput
+):
+
+    wellness = data.wellness or {}
+
+    pregnancy_info = data.pregnancy_info or {}
+
+    dietary_preference = data.dietary_preference or ""
+
+    food_allergies = data.food_allergies or []
+
+    recommendations = generate_nutrition_recommendations(
+        pregnancy_info=pregnancy_info,
+        wellness=wellness,
+        dietary_preference=dietary_preference,
+        food_allergies=food_allergies,
+        limit=data.limit
+    )
+
+    safety_summary = build_safety_summary(
+        wellness
+    )
+
+    return {
+        **recommendations,
+        "safety": safety_summary
     }

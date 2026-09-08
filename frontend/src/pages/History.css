@@ -702,6 +702,42 @@
   transform: translateY(-2px);
 }
 
+/* ============================================
+   NUTRITION HISTORY
+   ============================================ */
+
+.nutrition-history-block {
+  margin-top: 35px;
+}
+
+.nutrition-history-icon {
+  background: #f3eee2;
+}
+
+.nutrition-item-icon {
+  background: #f3eee2;
+}
+
+.nutrition-history-item:hover {
+  border-color: rgba(190, 175, 135, 0.7);
+}
+
+.nutrition-history-container {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.nutrition-empty {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(250, 247, 237, 0.95),
+      rgba(238, 247, 255, 0.9)
+    );
+}
+
+.nutrition-modal {
+  max-width: 760px;
+}
 
 /* ============================================
    RESPONSIVE

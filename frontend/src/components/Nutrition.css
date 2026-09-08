@@ -1,0 +1,1504 @@
+/* ==================================================
+   NUTRITION PAGE
+   ================================================== */
+
+.nutrition-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 40px;
+}
+
+
+/* ==================================================
+   HEADER
+   ================================================== */
+
+.nutrition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.nutrition-header h2 {
+  margin: 6px 0 8px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #17324d;
+}
+
+.nutrition-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.nutrition-header-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f8;
+  border-radius: 16px;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+
+/* ==================================================
+   INTRO CARD
+   ================================================== */
+
+.nutrition-intro-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  padding: 24px;
+  margin-bottom: 28px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.nutrition-intro-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff5f8;
+  border-radius: 14px;
+
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.nutrition-intro-card h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+  color: #17324d;
+}
+
+.nutrition-intro-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ==================================================
+   GENERAL SECTION
+   ================================================== */
+
+.nutrition-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  padding: 25px;
+  margin-bottom: 28px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.nutrition-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.nutrition-section-header h3 {
+  margin: 5px 0 6px;
+  font-size: 22px;
+  color: #17324d;
+}
+
+.nutrition-section-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.nutrition-section-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff5d9;
+  border-radius: 13px;
+
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+
+/* ==================================================
+   PREGNANCY CONTEXT
+   ================================================== */
+
+.nutrition-pregnancy-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 28px;
+  margin-bottom: 28px;
+
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #eadff0;
+
+  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
+}
+
+.nutrition-pregnancy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.nutrition-pregnancy-header h3 {
+  margin: 8px 0 8px;
+  font-size: 1.4rem;
+  color: #17324d;
+}
+
+.nutrition-pregnancy-header p {
+  margin: 0;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.nutrition-pregnancy-icon {
+  width: 54px;
+  height: 54px;
+
+  border-radius: 16px;
+  background: #f8edf5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.7rem;
+  flex-shrink: 0;
+}
+
+.nutrition-pregnancy-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.nutrition-pregnancy-item {
+  padding: 18px;
+  border-radius: 16px;
+
+  background: #faf7fb;
+  border: 1px solid #eee5f2;
+}
+
+.nutrition-pregnancy-item span {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.nutrition-pregnancy-item strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #17324d;
+}
+
+.nutrition-pregnancy-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.nutrition-no-pregnancy {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 24px;
+  margin-bottom: 28px;
+
+  border-radius: 20px;
+  background: #fffaf2;
+  border: 1px solid #f0e2c8;
+}
+
+.nutrition-no-pregnancy > span {
+  font-size: 2rem;
+}
+
+.nutrition-no-pregnancy h3 {
+  margin: 0 0 6px;
+  color: #17324d;
+}
+
+.nutrition-no-pregnancy p {
+  margin: 0;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+
+/* ==================================================
+   TODAY'S WELLNESS
+   ================================================== */
+
+.nutrition-wellness-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 28px;
+  margin-bottom: 28px;
+
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #eadff0;
+
+  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
+}
+
+.nutrition-wellness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.nutrition-wellness-header h3 {
+  margin: 8px 0;
+  font-size: 1.4rem;
+  color: #17324d;
+}
+
+.nutrition-wellness-header p {
+  margin: 0;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.nutrition-wellness-icon {
+  width: 54px;
+  height: 54px;
+
+  border-radius: 16px;
+  background: #f8edf5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.7rem;
+  flex-shrink: 0;
+}
+
+.nutrition-wellness-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.nutrition-wellness-item {
+  padding: 18px;
+  border-radius: 16px;
+
+  background: #faf7fb;
+  border: 1px solid #eee5f2;
+}
+
+.nutrition-wellness-item span {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.nutrition-wellness-item strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #17324d;
+}
+
+.nutrition-wellness-item p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.nutrition-no-wellness {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-top: 22px;
+  padding: 20px;
+
+  border-radius: 16px;
+  background: #fffaf2;
+  border: 1px solid #f0e2c8;
+}
+
+.nutrition-no-wellness > span {
+  font-size: 1.8rem;
+}
+
+.nutrition-no-wellness strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #17324d;
+}
+
+.nutrition-no-wellness p {
+  margin: 0;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+
+/* ==================================================
+   TODAY'S CRAVINGS
+   ================================================== */
+
+.nutrition-cravings-section {
+  grid-column: 1 / -1;
+
+  margin-top: 8px;
+  padding-top: 24px;
+
+  border-top: 1px solid #eee5f2;
+}
+
+.nutrition-cravings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.nutrition-cravings-header h3 {
+  margin: 8px 0;
+  font-size: 1.25rem;
+  color: #17324d;
+}
+
+.nutrition-cravings-header p {
+  margin: 0;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.nutrition-cravings-icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 15px;
+  background: #fff1f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.nutrition-cravings-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nutrition-craving-tag {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: #fff1f5;
+  border: 1px solid #f2d7e3;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8c4f72;
+}
+
+.nutrition-no-cravings {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 20px;
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background: #faf7fb;
+  border: 1px solid #eee5f2;
+}
+
+.nutrition-no-cravings span {
+  font-size: 1.4rem;
+}
+
+.nutrition-no-cravings p {
+  margin: 0;
+  color: #6b7280;
+}
+
+
+/* ==================================================
+   FOOD PREFERENCES
+   ================================================== */
+
+.nutrition-preferences-section {
+  margin-top: 24px;
+  margin-bottom: 28px;
+
+  padding: 28px;
+
+  border-radius: 20px;
+
+  background: #fff;
+  border: 1px solid #eadff0;
+
+  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
+}
+
+.nutrition-preferences-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.nutrition-preferences-header h3 {
+  margin: 8px 0;
+  font-size: 1.25rem;
+  color: #17324d;
+}
+
+.nutrition-preferences-header p {
+  margin: 0;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.nutrition-preferences-icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 15px;
+  background: #f3f8ed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+
+/* ==================================================
+   PREFERENCE GROUP
+   ================================================== */
+
+.nutrition-preference-group {
+  margin-top: 24px;
+}
+
+.nutrition-preference-group h4 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #17324d;
+}
+
+.nutrition-preference-help {
+  margin: -4px 0 14px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+
+/* ==================================================
+   PREFERENCE OPTIONS
+   ================================================== */
+
+.nutrition-preference-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nutrition-preference-option {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  border: 1px solid #e6dce9;
+  background: #fff;
+
+  color: #4f4a55;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.nutrition-preference-option:hover {
+  transform: translateY(-2px);
+  border-color: #d7b8d0;
+  background: #fff8fc;
+}
+
+.nutrition-preference-option.selected {
+  background: #f8eaf3;
+  border-color: #d99abd;
+  color: #8c4f72;
+}
+
+.nutrition-preference-option.allergy-selected {
+  background: #fff1f1;
+  border-color: #e6aaaa;
+  color: #a34f4f;
+}
+
+
+/* ==================================================
+   SAVE PREFERENCES
+   ================================================== */
+
+.nutrition-save-preferences {
+  margin-top: 28px;
+
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #d98caf;
+  color: white;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nutrition-save-preferences:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(150, 90, 120, 0.18);
+}
+
+
+/* ==================================================
+   PERSONALIZED FOOD RECOMMENDATIONS
+   ================================================== */
+
+.nutrition-recommendation-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 24px;
+}
+
+
+/* ==================================================
+   RECOMMENDATION CARD
+   ================================================== */
+
+.nutrition-recommendation-card {
+  padding: 20px;
+
+  border-radius: 17px;
+
+  background: #fff;
+
+  border: 1px solid #eee5f2;
+
+  box-shadow: 0 5px 18px rgba(120, 90, 130, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nutrition-recommendation-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 24px rgba(120, 90, 130, 0.1);
+}
+
+
+/* ==================================================
+   RECOMMENDATION TOP
+   ================================================== */
+
+.nutrition-recommendation-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+.nutrition-food-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f8edf5;
+
+  font-size: 1.5rem;
+}
+
+.nutrition-score {
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background: #fff8df;
+
+  color: #856d27;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+
+/* ==================================================
+   FOOD NAME
+   ================================================== */
+
+.nutrition-recommendation-card h4 {
+  margin: 0 0 5px;
+
+  font-size: 1.15rem;
+
+  color: #17324d;
+}
+
+.nutrition-food-category {
+  margin: 0 0 16px;
+
+  color: #9a6a86;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+/* ==================================================
+   FOOD DETAILS
+   ================================================== */
+
+.nutrition-food-detail {
+  padding: 12px 14px;
+
+  margin-top: 10px;
+
+  border-radius: 12px;
+
+  background: #faf7fb;
+
+  border: 1px solid #eee5f2;
+}
+
+.nutrition-food-detail strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 0.82rem;
+
+  color: #4f4a55;
+}
+
+.nutrition-food-detail p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   WHY THIS FOOD WAS SUGGESTED
+   ================================================== */
+
+.nutrition-food-reasons {
+  margin-top: 14px;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  background: #fff7fa;
+
+  border: 1px solid #f2dce5;
+}
+
+.nutrition-food-reasons strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #8c4f72;
+
+  font-size: 0.85rem;
+}
+
+.nutrition-food-reasons ul {
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+.nutrition-food-reasons li {
+  margin-bottom: 5px;
+
+  color: #6b7280;
+
+  font-size: 0.83rem;
+
+  line-height: 1.45;
+}
+
+.nutrition-food-reasons li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==================================================
+   FOOD PREPARATION SAFETY
+   ================================================== */
+
+.nutrition-food-safety {
+  margin-top: 14px;
+
+  padding: 13px 14px;
+
+  border-radius: 12px;
+
+  background: #f5faf4;
+
+  border: 1px solid #dfeedd;
+}
+
+.nutrition-food-safety strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #52734e;
+
+  font-size: 0.82rem;
+}
+
+.nutrition-food-safety p {
+  margin: 0;
+
+  color: #637160;
+
+  font-size: 0.82rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   LOADING STATE
+   ================================================== */
+
+.nutrition-loading {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 180px;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  background: #faf7fb;
+
+  border: 1px solid #eee5f2;
+
+  text-align: center;
+}
+
+.nutrition-loading span {
+  font-size: 2rem;
+
+  margin-bottom: 10px;
+}
+
+.nutrition-loading p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 0.9rem;
+}
+
+
+/* ==================================================
+   ERROR STATE
+   ================================================== */
+
+.nutrition-error {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background: #fff7f7;
+
+  border: 1px solid #efcccc;
+}
+
+.nutrition-error > span {
+  font-size: 1.5rem;
+}
+
+.nutrition-error p {
+  flex: 1;
+
+  margin: 0;
+
+  color: #8a4b4b;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+.nutrition-retry-button {
+  padding: 9px 15px;
+
+  border: 1px solid #d9a7a7;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #8a4b4b;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.nutrition-retry-button:hover {
+  background: #fff0f0;
+}
+
+
+/* ==================================================
+   NO RECOMMENDATIONS
+   ================================================== */
+
+.nutrition-no-recommendations {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background: #faf7fb;
+
+  border: 1px solid #eee5f2;
+}
+
+.nutrition-no-recommendations > span {
+  font-size: 2rem;
+}
+
+.nutrition-no-recommendations h4 {
+  margin: 0 0 6px;
+
+  color: #17324d;
+
+  font-size: 1rem;
+}
+
+.nutrition-no-recommendations p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 0.88rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   REFRESH SUGGESTIONS
+   ================================================== */
+
+.nutrition-refresh-button {
+  display: block;
+
+  margin: 22px auto 0;
+
+  padding: 11px 20px;
+
+  border: 1px solid #e1c8d7;
+
+  border-radius: 11px;
+
+  background: #fff8fc;
+
+  color: #8c4f72;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.nutrition-refresh-button:hover {
+  transform: translateY(-2px);
+
+  background: #f8eaf3;
+}
+
+
+/* ==================================================
+   SAFETY / RED FLAGS
+   ================================================== */
+
+.nutrition-red-flags {
+  margin-top: 24px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background: #fffaf2;
+
+  border: 1px solid #eeddbd;
+}
+
+.nutrition-red-flags-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 15px;
+}
+
+.nutrition-red-flags-header > span {
+  font-size: 1.5rem;
+}
+
+.nutrition-red-flags-header h4 {
+  margin: 0 0 5px;
+
+  color: #765c2f;
+
+  font-size: 1rem;
+}
+
+.nutrition-red-flags-header p {
+  margin: 0;
+
+  color: #806f51;
+
+  font-size: 0.84rem;
+
+  line-height: 1.5;
+}
+
+.nutrition-red-flags-list {
+  display: grid;
+
+  gap: 10px;
+}
+
+.nutrition-red-flag {
+  padding: 13px 15px;
+
+  border-radius: 11px;
+
+  background: white;
+
+  border: 1px solid #eee1c9;
+}
+
+.nutrition-red-flag strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #765c2f;
+
+  font-size: 0.88rem;
+}
+
+.nutrition-red-flag p {
+  margin: 0;
+
+  color: #706653;
+
+  font-size: 0.83rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   ACTIONS
+   ================================================== */
+
+.nutrition-actions {
+  display: flex;
+
+  justify-content: flex-start;
+
+  margin-bottom: 22px;
+}
+
+.nutrition-back-button {
+  border: 1px solid #e5e7eb;
+
+  background: white;
+
+  padding: 11px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #374151;
+
+  transition: 0.2s ease;
+}
+
+.nutrition-back-button:hover {
+  background: #fff5f8;
+
+  border-color: #f3c5d5;
+
+  transform: translateX(-2px);
+}
+
+
+/* ==================================================
+   DISCLAIMER
+   ================================================== */
+
+.nutrition-disclaimer {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 15px 18px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  color: #6b7280;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.nutrition-disclaimer span {
+  font-size: 16px;
+}
+
+.nutrition-disclaimer p {
+  margin: 0;
+}
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 900px) {
+
+  .nutrition-pregnancy-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-wellness-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-recommendation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+
+  .nutrition-page {
+    padding: 5px 0 30px;
+  }
+
+
+  /* HEADER */
+
+  .nutrition-header {
+    flex-direction: column;
+  }
+
+  .nutrition-header h2 {
+    font-size: 26px;
+  }
+
+
+  /* INTRO */
+
+  .nutrition-intro-card {
+    align-items: flex-start;
+
+    padding: 18px;
+  }
+
+
+  /* GENERAL SECTION */
+
+  .nutrition-section {
+    padding: 18px;
+  }
+
+  .nutrition-section-header {
+    flex-direction: column;
+  }
+
+  .nutrition-section-header h3 {
+    font-size: 19px;
+  }
+
+
+  /* PREGNANCY */
+
+  .nutrition-pregnancy-card {
+    padding: 20px;
+  }
+
+  .nutrition-pregnancy-header {
+    flex-direction: column;
+  }
+
+  .nutrition-pregnancy-details {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-no-pregnancy {
+    align-items: flex-start;
+  }
+
+
+  /* WELLNESS */
+
+  .nutrition-wellness-card {
+    padding: 20px;
+  }
+
+  .nutrition-wellness-header {
+    flex-direction: column;
+  }
+
+  .nutrition-wellness-details {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-no-wellness {
+    align-items: flex-start;
+  }
+
+
+  /* CRAVINGS */
+
+  .nutrition-cravings-header {
+    flex-direction: column;
+  }
+
+
+  /* FOOD PREFERENCES */
+
+  .nutrition-preferences-section {
+    padding: 20px;
+  }
+
+  .nutrition-preferences-header {
+    flex-direction: column;
+  }
+
+  .nutrition-preference-option {
+    width: 100%;
+
+    text-align: left;
+  }
+
+  .nutrition-save-preferences {
+    width: 100%;
+  }
+
+
+  /* RECOMMENDATIONS */
+
+  .nutrition-recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-recommendation-card {
+    padding: 18px;
+  }
+
+
+  /* ERROR */
+
+  .nutrition-error {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .nutrition-retry-button {
+    width: 100%;
+  }
+
+
+  /* NO RECOMMENDATIONS */
+
+  .nutrition-no-recommendations {
+    align-items: flex-start;
+  }
+
+
+  /* SAFETY */
+
+  .nutrition-red-flags {
+    padding: 17px;
+  }
+
+
+  /* DISCLAIMER */
+
+  .nutrition-disclaimer {
+    align-items: flex-start;
+  }
+
+}
+/* ============================================
+   SAVE NUTRITION PLAN
+   ============================================ */
+
+.nutrition-save-plan-section {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #fff8f2,
+    #f4f9ff
+  );
+  border: 1px solid #eadff0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nutrition-save-plan-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.nutrition-save-plan-info > span {
+  font-size: 25px;
+}
+
+.nutrition-save-plan-info h4 {
+  margin: 0 0 6px;
+  color: #344054;
+  font-size: 16px;
+}
+
+.nutrition-save-plan-info p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.nutrition-save-plan-button {
+  flex-shrink: 0;
+
+  border: none;
+  padding: 12px 20px;
+
+  border-radius: 50px;
+
+  background: #6d9fd0;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow: 0 7px 18px rgba(100, 155, 205, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.nutrition-save-plan-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 23px rgba(100, 155, 205, 0.28);
+}
+
+.nutrition-save-plan-button.saved {
+  background: #78a987;
+}
+
+.nutrition-save-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 18px;
+  padding: 13px 17px;
+
+  border-radius: 15px;
+
+  background: #effaf4;
+  border: 1px solid #d9f0e1;
+
+  color: #5b9d77;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.nutrition-save-message span {
+  font-size: 17px;
+}
+
+.nutrition-save-message p {
+  margin: 0;
+}
+
+
+/* ============================================
+   RESPONSIVE SAVE PLAN
+   ============================================ */
+
+@media (max-width: 700px) {
+
+  .nutrition-save-plan-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nutrition-save-plan-button {
+    width: 100%;
+  }
+
+}

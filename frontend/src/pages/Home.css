@@ -1,68 +1,61 @@
-/* ============================================
-   1. GLOBAL RESETS & SCOPED HOME BASE
-   ============================================ */
+/* =========================================================
+   HOME PAGE
+   All styles are scoped under .home-page
+   ========================================================= */
 
-.home-container button {
+.home-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BUTTON RESET
+   ========================================================= */
+
+.home-page button {
   font-family: inherit;
-  border: none;
-  outline: none;
-  background: none;
   cursor: pointer;
 }
 
-/* Base Pill / Badge Style */
-.card-features span,
-.wellness-home-card .card-features span,
-.home-badge,
-.tag-badge {
+
+/* =========================================================
+   WELCOME HEADER
+   ========================================================= */
+
+.home-page .welcome {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.home-page .welcome-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  color: #475569;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  backdrop-filter: blur(8px);
-}
+  justify-content: center;
 
-.card-icon {
-  user-select: none;
-}
-
-
-/* ============================================
-   2. WELCOME HEADER
-   ============================================ */
-
-.welcome {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.welcome::before {
-  content: "✦  YOUR WELLNESS, OUR PRIORITY  ✦";
-  display: inline-block;
   padding: 9px 17px;
   margin-bottom: 22px;
+
   border-radius: 50px;
+
   background: var(--pink-light);
   color: var(--pink-dark);
+
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.7px;
 }
 
-.welcome h2 {
+.home-page .welcome h2 {
   max-width: 850px;
   margin: 0 auto;
+
   font-size: clamp(42px, 5.3vw, 65px);
   line-height: 1.08;
   letter-spacing: -2.5px;
   font-weight: 750;
+
   background: linear-gradient(
     90deg,
     #303b4d 15%,
@@ -70,999 +63,1605 @@
     #d68fa7 70%,
     #303b4d 95%
   );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.welcome p {
+.home-page .welcome h2 span {
+  display: inline;
+}
+
+.home-page .welcome p {
   max-width: 680px;
+
   margin: 23px auto 0;
+
   font-size: 17px;
   line-height: 1.7;
+
   color: var(--text-soft);
 }
 
 
-/* ============================================
-   3. PREGNANCY TRACKING SECTION
-   ============================================ */
+/* =========================================================
+   COMMON CARD TOP
+   ========================================================= */
 
-.pregnancy-section {
+.home-page .card-top {
+  position: relative;
+  z-index: 3;
+
   width: 100%;
-  margin-bottom: 28px;
-}
 
-.pregnancy-card {
-  position: relative;
-  padding: 36px 38px 38px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  border-radius: 32px;
-  background: linear-gradient(145deg, rgba(255, 240, 245, 0.6), rgba(238, 247, 255, 0.6));
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pregnancy-card::before {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  top: -110px;
-  right: -60px;
-  border-radius: 50%;
-  background: var(--pink-light);
-  opacity: 0.6;
-  z-index: 0;
-}
-
-.pregnancy-card::after {
-  content: "";
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  bottom: -90px;
-  left: -40px;
-  border-radius: 50%;
-  background: var(--mint-light);
-  opacity: 0.5;
-  z-index: 0;
-}
-
-.pregnancy-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 65px rgba(72, 92, 120, 0.15);
-}
-
-.pregnancy-icon {
-  background: linear-gradient(145deg, #ffe6ee, #fcd3e1) !important;
-  box-shadow: 0 10px 25px rgba(220, 145, 170, 0.2) !important;
-}
-
-.pregnancy-card h3 {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 13px;
-  font-size: 27px;
-  letter-spacing: -0.6px;
-  color: #344054;
-}
-
-.pregnancy-card p {
-  position: relative;
-  z-index: 1;
-  max-width: 650px;
-  margin: 0 auto 24px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-soft);
-}
-
-.pregnancy-card button,
-.pregnancy-button {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  border: none;
-  padding: 14px 27px;
-  min-width: 190px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #e29bb3, #c57690) !important;
-  color: white;
-  font-size: 15px;
-  font-weight: 750;
-  cursor: pointer;
-  box-shadow: 0 9px 22px rgba(215, 140, 165, 0.25) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.pregnancy-card button:hover:not(:disabled),
-.pregnancy-button:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 28px rgba(215, 140, 165, 0.35) !important;
 }
 
 
-/* ============================================
-   4. PREDICTION GRID & CARDS
-   ============================================ */
+/* =========================================================
+   AVAILABLE BADGE
+   ========================================================= */
 
-.prediction-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-}
-
-.prediction-card {
-  position: relative;
-  padding: 36px 38px 38px;
-  min-height: 410px;
-  display: flex;
-  flex-direction: column;
+.home-page .available-badge {
+  display: inline-flex;
   align-items: center;
-  text-align: center;
-  border-radius: 32px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  justify-content: center;
 
-.prediction-card::before {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  top: -85px;
-  right: -70px;
-  border-radius: 50%;
-  background: var(--pink-light);
-  opacity: 0.9;
-}
+  margin-top: 3px;
 
-.prediction-card::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  bottom: -85px;
-  left: -65px;
-  border-radius: 50%;
-  background: var(--blue-light);
-  opacity: 0.9;
-}
-
-.prediction-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 65px rgba(72, 92, 120, 0.15);
-}
-
-/* Card Variations */
-.prediction-card:nth-child(1) {
-  background: linear-gradient(145deg, rgba(255, 240, 245, 0.95), rgba(255, 255, 255, 0.85));
-}
-
-.prediction-card:nth-child(2) {
-  background: linear-gradient(145deg, rgba(238, 247, 255, 0.95), rgba(255, 255, 255, 0.85));
-}
-
-.card-top {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.available-badge {
-  margin-top: 4px;
   padding: 6px 12px;
+
   border-radius: 50px;
+
   background: #effaf4;
   color: #5fa57c;
+
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.5px;
 }
 
-.card-icon {
-  position: relative;
-  z-index: 1;
+
+/* =========================================================
+   COMMON CARD ICON
+   ========================================================= */
+
+.home-page .card-icon {
   width: 82px;
   height: 82px;
-  margin-bottom: 23px;
+
+  margin-bottom: 18px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 27px;
+
   font-size: 39px;
-  background: linear-gradient(145deg, #ffe6ee, #f8dce6);
-  box-shadow: 0 10px 25px rgba(220, 145, 170, 0.16);
-  transition: transform 0.3s ease;
-}
 
-.prediction-card:nth-child(2) .card-icon {
-  background: linear-gradient(145deg, #e3f2ff, #d5eafa);
-  box-shadow: 0 10px 25px rgba(100, 160, 210, 0.16);
-}
+  user-select: none;
 
-.pregnancy-card:hover .card-icon,
-.prediction-card:hover .card-icon {
-  transform: rotate(-4deg) scale(1.06);
-}
-
-.prediction-card h3 {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 13px;
-  font-size: 27px;
-  letter-spacing: -0.6px;
-  color: #344054;
-}
-
-.prediction-card p {
-  position: relative;
-  z-index: 1;
-  max-width: 470px;
-  margin: 0 auto 28px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-soft);
-}
-
-.card-features {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  color: #68778b;
-  font-size: 13px;
-  font-weight: 650;
-}
-
-/* Prediction Buttons */
-.prediction-card button {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  border: none;
-  padding: 14px 27px;
-  min-width: 190px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #72a9dc, #6598ca);
-  color: white;
-  font-size: 15px;
-  font-weight: 750;
-  cursor: pointer;
-  box-shadow: 0 9px 22px rgba(100, 155, 205, 0.28);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.prediction-card:nth-child(1) button {
-  background: linear-gradient(135deg, #e29bb3, #d98ba5);
-  box-shadow: 0 9px 22px rgba(215, 140, 165, 0.25);
-}
-
-.prediction-card button:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 28px rgba(100, 140, 180, 0.3);
-}
-
-.prediction-card:nth-child(1) button:hover:not(:disabled) {
-  box-shadow: 0 13px 28px rgba(215, 140, 165, 0.3);
-}
-
-.pregnancy-card button:disabled,
-.prediction-card button:disabled {
-  background: #edf0f3;
-  color: #9aa5b1;
-  cursor: not-allowed;
-  box-shadow: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 
-/* ============================================
-   5. TRIMESTER WELLNESS SECTION
-   ============================================ */
+/* =========================================================
+   PREGNANCY TRACKING
+   ========================================================= */
 
-.wellness-section {
+.home-page .pregnancy-section {
   width: 100%;
-  margin: 28px 0;
+  margin-bottom: 28px;
 }
 
-.wellness-home-card {
+.home-page .pregnancy-card {
   position: relative;
-  padding: 32px 38px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 30px;
-  background: linear-gradient(145deg, rgba(246, 252, 246, 0.96), rgba(255, 255, 255, 0.88));
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.wellness-home-card::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  top: -90px;
-  right: -70px;
-  border-radius: 50%;
-  background: var(--mint-light);
-  opacity: 0.8;
-}
-
-.wellness-home-card::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  bottom: -80px;
-  left: -60px;
-  border-radius: 50%;
-  background: var(--pink-light);
-  opacity: 0.55;
-}
-
-.wellness-home-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 25px 65px rgba(72, 120, 95, 0.13);
-}
-
-.wellness-home-card .card-top {
-  position: relative;
-  z-index: 2;
-}
-
-.wellness-home-icon {
-  background: linear-gradient(145deg, #e6f6eb, #d7eedf);
-  box-shadow: 0 10px 25px rgba(105, 169, 137, 0.15);
-}
-
-.wellness-home-card h3 {
-  position: relative;
-  z-index: 2;
-  margin: 0 0 13px;
-  color: #344054;
-  font-size: 27px;
-  letter-spacing: -0.6px;
-}
-
-.wellness-home-card p {
-  position: relative;
-  z-index: 2;
-  max-width: 650px;
-  margin: 0 auto 24px;
-  color: var(--text-soft);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.wellness-home-card .card-features {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 23px;
-}
-
-/* Explore Wellness Button */
-.wellness-home-card .wellness-home-button {
-  position: relative;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  min-width: 190px;
-  border: none !important;
-  border-radius: 14px !important;
-  background: linear-gradient(135deg, #78b59a, #63a989) !important;
-  color: white !important;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(99, 169, 137, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.wellness-home-card .wellness-home-button span {
-  color: white !important;
-  font-size: 18px;
-  font-weight: 700;
-  transition: transform 0.25s ease;
-}
-
-.wellness-home-card .wellness-home-button:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #69a989, #579878) !important;
-  box-shadow: 0 12px 28px rgba(99, 169, 137, 0.32);
-}
-
-.wellness-home-card .wellness-home-button:hover span {
-  transform: translateX(4px);
-}
-
-.wellness-home-card .wellness-home-button:active {
-  transform: translateY(0);
-}
-
-.wellness-home-card .wellness-home-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(99, 169, 137, 0.18), 0 8px 20px rgba(99, 169, 137, 0.25);
-}
-
-
-/* ============================================
-   6. INFORMATION STRIP
-   ============================================ */
-
-.info-strip {
-  width: 100%;
-  max-width: 1100px;
-  margin: 55px auto 0;
-  padding: 28px 35px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 12px 35px rgba(72, 92, 120, 0.07);
-  backdrop-filter: blur(16px);
-}
-
-.info-strip > div {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 8px 15px;
-}
-
-.info-icon {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  font-size: 18px;
-  background: var(--pink-light);
-  color: var(--pink-dark);
-}
-
-.info-strip > div:nth-child(2) .info-icon {
-  background: var(--blue-light);
-  color: var(--blue-dark);
-}
-
-.info-strip > div:nth-child(3) .info-icon {
-  background: var(--mint-light);
-  color: var(--mint-dark);
-}
-
-.info-strip strong {
-  display: block;
-  margin: 1px 0 5px;
-  color: #344054;
-  font-size: 15px;
-  font-weight: 750;
-}
-
-.info-strip p {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-
-/* ============================================
-   7. HISTORY BUTTON SECTION
-   ============================================ */
-
-.history-button-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 45px 0 20px 0;
-}
-
-.history-button {
-  background: rgba(255, 255, 255, 0.8);
-  color: #4a5568;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  padding: 13px 32px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(148, 163, 184, 0.08);
-  backdrop-filter: blur(8px);
-  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.history-button:hover {
-  transform: translateY(-2px);
-  background: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 8px 24px rgba(148, 163, 184, 0.16);
-  color: #1a202c;
-}
-
-.history-button:active {
-  transform: translateY(0);
-}
-
-
-/* ============================================
-   8. RESPONSIVE MEDIA QUERIES
-   ============================================ */
-
-@media (max-width: 800px) {
-  .prediction-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .welcome h2 {
-    font-size: 42px;
-  }
-
-  .pregnancy-card,
-  .prediction-card {
-    min-height: 390px;
-  }
-
-  .info-strip {
-    grid-template-columns: 1fr;
-    margin-top: 40px;
-    padding: 22px;
-    gap: 8px;
-  }
-
-  .info-strip > div {
-    padding: 10px;
-  }
-}
-/* ============================================
-   6. DAILY WELLNESS CHECK-IN SECTION
-   ============================================ */
-
-.checkin-section,
-.daily-checkin-section {
-  width: 100%;
-  margin: 28px 0;
-}
-
-.checkin-card,
-.daily-checkin-card {
-  position: relative;
-  padding: 32px 38px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 30px;
-  background: linear-gradient(145deg, rgba(255, 245, 248, 0.96), rgba(255, 255, 255, 0.88));
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.checkin-card::before,
-.daily-checkin-card::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  top: -90px;
-  right: -70px;
-  border-radius: 50%;
-  background: var(--pink-light);
-  opacity: 0.7;
-}
-
-.checkin-card::after,
-.daily-checkin-card::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  bottom: -80px;
-  left: -60px;
-  border-radius: 50%;
-  background: var(--blue-light);
-  opacity: 0.5;
-}
-
-.checkin-card:hover,
-.daily-checkin-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 25px 65px rgba(215, 140, 165, 0.15);
-}
-
-.checkin-icon,
-.daily-checkin-icon {
-  background: linear-gradient(145deg, #ffe6ee, #fcd3e1);
-  box-shadow: 0 10px 25px rgba(220, 145, 170, 0.18);
-}
-
-.checkin-card h3,
-.daily-checkin-card h3 {
-  position: relative;
-  z-index: 2;
-  margin: 0 0 13px;
-  color: #344054;
-  font-size: 27px;
-  letter-spacing: -0.6px;
-}
-
-.checkin-card p,
-.daily-checkin-card p {
-  position: relative;
-  z-index: 2;
-  max-width: 650px;
-  margin: 0 auto 24px;
-  color: var(--text-soft);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Daily Check-in Button Styling */
-.checkin-card button,
-.daily-checkin-card button,
-.daily-checkin-btn,
-button.daily-checkin-btn {
-  position: relative;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  min-width: 190px;
-  border: none !important;
-  border-radius: 14px !important;
-  background: linear-gradient(135deg,#d9b3e8, #bc67f5) !important;
-  color: white !important;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(215, 140, 165, 0.25) !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.checkin-card button:hover,
-.daily-checkin-card button:hover,
-.daily-checkin-btn:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #e29bb3, #c57690) !important;
-  box-shadow: 0 12px 28px rgba(215, 140, 165, 0.35) !important;
-}
-
-.checkin-card button:active,
-.daily-checkin-card button:active,
-.daily-checkin-btn:active {
-  transform: translateY(0);
-}
-/* ==================================================
-   MATERNAL WELLNESS DASHBOARD
-   ================================================== */
-
-.wellness-dashboard-section {
-  width: 100%;
-  margin-top: 24px;
-}
-
-.wellness-dashboard-home-card {
-  position: relative;
   width: 100%;
   box-sizing: border-box;
 
-  background: linear-gradient(
-    135deg,
-    #fff7fa 0%,
-    #ffffff 55%,
-    #f9f4ff 100%
-  );
+  padding: 36px 38px 38px;
 
-  border: 1px solid #eadde5;
-  border-radius: 22px;
+  min-height: 360px;
 
-  padding: 28px 30px;
-
-  /* Centering alignment */
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  box-shadow: 0 8px 25px rgba(70, 45, 60, 0.07);
+  text-align: center;
+
+  border-radius: 32px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 240, 245, 0.96),
+      rgba(238, 247, 255, 0.96)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-page .pregnancy-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  top: -110px;
+  right: -60px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.6;
+}
+
+.home-page .pregnancy-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  bottom: -90px;
+  left: -40px;
+
+  border-radius: 50%;
+
+  background: var(--mint-light);
+
+  opacity: 0.5;
+}
+
+.home-page .pregnancy-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 65px rgba(72, 92, 120, 0.15);
+}
+
+.home-page .pregnancy-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #ffe6ee,
+      #fcd3e1
+    );
+
+  box-shadow:
+    0 10px 25px rgba(220, 145, 170, 0.2);
+}
+
+.home-page .pregnancy-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 13px;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+
+  color: #344054;
+}
+
+.home-page .pregnancy-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  margin: 0 auto 24px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   COMMON FEATURES
+   ========================================================= */
+
+.home-page .card-features {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+.home-page .card-features span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 7px 14px;
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  border: 1px solid rgba(226, 232, 240, 0.85);
+
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.02);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   PREGNANCY BUTTON
+   ========================================================= */
+
+.home-page .pregnancy-button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 14px 27px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e29bb3,
+      #c57690
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  box-shadow:
+    0 9px 22px rgba(215, 140, 165, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-page .pregnancy-button span {
+  color: white;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.home-page .pregnancy-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 13px 28px rgba(215, 140, 165, 0.35);
+}
+
+.home-page .pregnancy-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TRIMESTER WELLNESS
+   ========================================================= */
+
+.home-page .wellness-section {
+  width: 100%;
+  margin: 28px 0;
+}
+
+.home-page .wellness-home-card {
+  position: relative;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 32px 38px;
+
+  min-height: 340px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 252, 246, 0.96),
+      rgba(255, 255, 255, 0.95)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-page .wellness-home-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: var(--mint-light);
+
+  opacity: 0.8;
+}
+
+.home-page .wellness-home-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.55;
+}
+
+.home-page .wellness-home-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 25px 65px rgba(72, 120, 95, 0.13);
+}
+
+.home-page .wellness-home-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #e6f6eb,
+      #d7eedf
+    );
+
+  box-shadow:
+    0 10px 25px rgba(105, 169, 137, 0.15);
+}
+
+.home-page .wellness-home-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 13px;
+
+  color: #344054;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+}
+
+.home-page .wellness-home-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  margin: 0 auto 24px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.home-page .wellness-home-button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #78b59a,
+      #63a989
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(99, 169, 137, 0.25);
 
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
-.wellness-dashboard-home-card:hover {
-  transform: translateY(-4px);
-  border-color: #d9b8c8;
+.home-page .wellness-home-button span {
+  color: white;
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.home-page .wellness-home-button:hover {
+  transform: translateY(-3px);
 
   box-shadow:
-    0 14px 32px rgba(70, 45, 60, 0.11);
+    0 12px 28px rgba(99, 169, 137, 0.32);
+}
+
+.home-page .wellness-home-button:hover span {
+  transform: translateX(4px);
 }
 
 
-/* ==================================================
-   TOP AREA & DASHBOARD ICON
-   ================================================== */
+/* =========================================================
+   DAILY WELLNESS + DASHBOARD GRID
+   ========================================================= */
 
-.wellness-dashboard-home-card .card-top {
+.home-page .wellness-grid-container {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+
+  margin: 28px 0;
+}
+
+
+/* =========================================================
+   DAILY WELLNESS CARD
+   ========================================================= */
+
+.home-page .checkin-section {
+  width: 100%;
+  margin: 0;
+}
+
+.home-page .checkin-card {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 360px;
+
+  box-sizing: border-box;
+
+  padding: 32px 38px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 245, 248, 0.96),
+      rgba(255, 255, 255, 0.95)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.wellness-dashboard-icon {
-  width: 54px;
-  height: 54px;
+.home-page .checkin-card::before {
+  content: "";
 
-  display: flex;
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.7;
+}
+
+.home-page .checkin-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--blue-light);
+
+  opacity: 0.5;
+}
+
+.home-page .checkin-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 25px 65px rgba(215, 140, 165, 0.15);
+}
+
+.home-page .checkin-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #ffe6ee,
+      #fcd3e1
+    );
+
+  box-shadow:
+    0 10px 25px rgba(220, 145, 170, 0.18);
+}
+
+.home-page .checkin-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 13px;
+
+  color: #344054;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+}
+
+.home-page .checkin-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  margin: 0 auto 24px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.home-page .checkin-button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 16px;
+  gap: 10px;
 
-  background: linear-gradient(
-    135deg,
-    #f7e7ef,
-    #eee7f8
-  );
+  min-width: 190px;
 
-  font-size: 26px;
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9b3e8,
+      #bc67f5
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
 
   box-shadow:
-    0 5px 14px rgba(112, 77, 101, 0.10);
+    0 8px 20px rgba(188, 103, 245, 0.25);
 
-  margin-bottom: 12px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-page .checkin-button span {
+  color: white;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.home-page .checkin-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(188, 103, 245, 0.35);
+}
+
+.home-page .checkin-button:hover span {
+  transform: translateX(4px);
 }
 
 
-/* ==================================================
-   TITLE (Matched font-size and styling)
-   ================================================== */
+/* =========================================================
+   WELLNESS DASHBOARD HOME CARD
+   ========================================================= */
 
-.wellness-dashboard-home-card h3 {
-  margin: 0 0 8px;
+.home-page .wellness-dashboard-section {
+  width: 100%;
+  margin: 0;
+}
 
-  font-size: 26px; /* Matched top card heading size */
+.home-page .wellness-dashboard-home-card {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 360px;
+
+  box-sizing: border-box;
+
+  padding: 32px 38px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7fa 0%,
+      #ffffff 55%,
+      #f9f4ff 100%
+    );
+
+  border: 1px solid #eadde5;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 8px 25px rgba(70, 45, 60, 0.07);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-page .wellness-dashboard-home-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 38px rgba(70, 45, 60, 0.11);
+}
+
+.home-page .wellness-dashboard-icon {
+  background:
+    linear-gradient(
+      135deg,
+      #f7e7ef,
+      #eee7f8
+    );
+
+  box-shadow:
+    0 5px 14px rgba(112, 77, 101, 0.1);
+}
+
+.home-page .wellness-dashboard-home-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 10px;
+
+  font-size: 26px;
   font-weight: 700;
 
   color: #334155;
-  text-align: center;
 }
 
+.home-page .wellness-dashboard-home-card > p {
+  position: relative;
+  z-index: 2;
 
-/* ==================================================
-   DESCRIPTION (Matched font-size and centering)
-   ================================================== */
-
-.wellness-dashboard-home-card > p {
   max-width: 600px;
 
   margin: 0 auto 18px;
 
   color: #64748b;
 
-  font-size: 15px; /* Matched top card subtext size */
+  font-size: 15px;
   line-height: 1.6;
-  text-align: center;
 }
 
+.home-page .wellness-dashboard-button {
+  position: relative;
+  z-index: 5;
 
-/* ==================================================
-   FEATURES (Centered row)
-   ================================================== */
+  margin-top: auto;
 
-.wellness-dashboard-home-card .card-features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 9px;
-
-  margin-bottom: 22px;
-}
-
-.wellness-dashboard-home-card .card-features span {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 7px 14px;
-
-  background: rgba(255, 255, 255, 0.85);
-
-  border: 1px solid #eadfe5;
-  border-radius: 50px;
-
-  color: #665c64;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-
-/* ==================================================
-   BUTTON
-   ================================================== */
-
-.wellness-dashboard-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 10px;
 
   min-width: 200px;
 
-  padding: 12px 24px;
+  padding: 14px 24px;
 
   border: none;
   border-radius: 50px;
 
-  background: linear-gradient(
-    135deg,
-    #9b5d78,
-    #81516d
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #9b5d78,
+      #81516d
+    );
 
-  color: #ffffff;
+  color: white;
 
   font-size: 14px;
   font-weight: 600;
-
-  cursor: pointer;
 
   box-shadow:
     0 6px 15px rgba(129, 81, 109, 0.18);
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
-.wellness-dashboard-button span {
+.home-page .wellness-dashboard-button span {
+  color: white;
+
   font-size: 17px;
 
   transition:
     transform 0.2s ease;
 }
 
-.wellness-dashboard-button:hover {
+.home-page .wellness-dashboard-button:hover {
   transform: translateY(-2px);
-
-  background: linear-gradient(
-    135deg,
-    #8f526d,
-    #754861
-  );
 
   box-shadow:
     0 9px 20px rgba(129, 81, 109, 0.25);
 }
 
-.wellness-dashboard-button:hover span {
+.home-page .wellness-dashboard-button:hover span {
   transform: translateX(4px);
 }
 
-.wellness-dashboard-button:active {
-  transform: translateY(0);
-}
 
+/* =========================================================
+   NUTRITION HOME CARD
+   IMPORTANT:
+   Scoped under .home-page so it CANNOT affect Nutrition.jsx
+   ========================================================= */
 
-/* ==================================================
-   RESPONSIVE MEDIA QUERIES
-   ================================================== */
-
-@media (max-width: 768px) {
-  .wellness-dashboard-home-card {
-    padding: 24px;
-  }
-
-  .wellness-dashboard-home-card h3 {
-    font-size: 22px;
-  }
-
-  .wellness-dashboard-home-card > p {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .wellness-dashboard-section {
-    margin-top: 18px;
-  }
-
-  .wellness-dashboard-home-card {
-    padding: 21px 18px;
-    border-radius: 18px;
-  }
-
-  .wellness-dashboard-icon {
-    width: 47px;
-    height: 47px;
-    border-radius: 13px;
-    font-size: 22px;
-  }
-
-  .wellness-dashboard-home-card h3 {
-    font-size: 20px;
-  }
-
-  .wellness-dashboard-home-card > p {
-    font-size: 13px;
-    margin-bottom: 16px;
-  }
-
-  .wellness-dashboard-button {
-    width: 100%;
-    min-width: 0;
-  }
-}
-.wellness-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+.home-page .nutrition-section {
   width: 100%;
   margin: 28px 0;
 }
 
-.wellness-grid-container .checkin-section,
-.wellness-grid-container .wellness-dashboard-section {
-  margin: 0;
-  width: 100%;
-}
+.home-page .nutrition-home-card {
+  position: relative;
 
-.checkin-card,
-.wellness-dashboard-home-card {
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
+
+  min-height: 340px;
+
+  padding: 32px 38px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(250, 247, 238, 0.98),
+      rgba(255, 255, 255, 0.96)
+    );
+
+  border: 1px solid #eadff0;
+
+  box-shadow:
+    0 8px 25px rgba(120, 90, 130, 0.08);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-@media (max-width: 800px) {
-  .wellness-grid-container {
+.home-page .nutrition-home-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: #f3eee2;
+
+  opacity: 0.8;
+}
+
+.home-page .nutrition-home-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--mint-light);
+
+  opacity: 0.45;
+}
+
+.home-page .nutrition-home-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 45px rgba(120, 90, 130, 0.12);
+}
+
+.home-page .nutrition-home-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #f3eee2,
+      #ebe2cd
+    );
+
+  box-shadow:
+    0 10px 25px rgba(160, 140, 90, 0.14);
+}
+
+.home-page .nutrition-home-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 10px;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+
+  color: #344054;
+}
+
+.home-page .nutrition-home-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 850px;
+
+  margin: 0 auto 18px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.home-page .nutrition-home-button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #b79b61,
+      #9f844d
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(150, 125, 75, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-page .nutrition-home-button span {
+  color: white;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.home-page .nutrition-home-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(150, 125, 75, 0.3);
+}
+
+.home-page .nutrition-home-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   MATERNAL + FETAL PREDICTION GRID
+   ========================================================= */
+
+.home-page .prediction-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   PREDICTION CARD
+   ========================================================= */
+
+.home-page .prediction-card {
+  position: relative;
+
+  min-height: 410px;
+
+  box-sizing: border-box;
+
+  padding: 36px 38px 38px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border-radius: 32px;
+
+  background:
+    rgba(255, 255, 255, 0.88);
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-page .prediction-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -85px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.9;
+}
+
+.home-page .prediction-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -85px;
+  left: -65px;
+
+  border-radius: 50%;
+
+  background: var(--blue-light);
+
+  opacity: 0.9;
+}
+
+.home-page .prediction-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 65px rgba(72, 92, 120, 0.15);
+}
+
+
+/* Maternal */
+
+.home-page .maternal-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 240, 245, 0.95),
+      rgba(255, 255, 255, 0.88)
+    );
+}
+
+.home-page .maternal-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #ffe6ee,
+      #f8dce6
+    );
+
+  box-shadow:
+    0 10px 25px rgba(220, 145, 170, 0.16);
+}
+
+
+/* Fetal */
+
+.home-page .fetal-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(238, 247, 255, 0.95),
+      rgba(255, 255, 255, 0.88)
+    );
+}
+
+.home-page .fetal-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #e3f2ff,
+      #d5eafa
+    );
+
+  box-shadow:
+    0 10px 25px rgba(100, 160, 210, 0.16);
+}
+
+
+/* Prediction heading */
+
+.home-page .prediction-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 13px;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+
+  color: #344054;
+}
+
+
+/* Prediction text */
+
+.home-page .prediction-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 470px;
+
+  margin: 0 auto 28px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: var(--text-soft);
+}
+
+
+/* Prediction buttons */
+
+.home-page .prediction-card button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 14px 27px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #72a9dc,
+      #6598ca
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  box-shadow:
+    0 9px 22px rgba(100, 155, 205, 0.28);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-page .prediction-card button span {
+  color: white;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.home-page .prediction-card button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 13px 28px rgba(100, 140, 180, 0.3);
+}
+
+.home-page .prediction-card button:hover span {
+  transform: translateX(4px);
+}
+
+.home-page .maternal-card button {
+  background:
+    linear-gradient(
+      135deg,
+      #e29bb3,
+      #d98ba5
+    );
+
+  box-shadow:
+    0 9px 22px rgba(215, 140, 165, 0.25);
+}
+
+.home-page .maternal-card button:hover {
+  box-shadow:
+    0 13px 28px rgba(215, 140, 165, 0.3);
+}
+
+
+/* =========================================================
+   ICON HOVER
+   ========================================================= */
+
+.home-page .pregnancy-card:hover .card-icon,
+.home-page .wellness-home-card:hover .card-icon,
+.home-page .checkin-card:hover .card-icon,
+.home-page .wellness-dashboard-home-card:hover .card-icon,
+.home-page .nutrition-home-card:hover .card-icon,
+.home-page .prediction-card:hover .card-icon {
+  transform:
+    rotate(-4deg)
+    scale(1.06);
+}
+
+
+/* =========================================================
+   HISTORY BUTTON
+   ========================================================= */
+
+.home-page .history-button-wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  margin: 45px 0 20px;
+}
+
+.home-page .history-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 32px;
+
+  border-radius: 50px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  color: #4a5568;
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 4px 15px rgba(148, 163, 184, 0.08);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-page .history-button:hover {
+  transform: translateY(-2px);
+
+  background: #ffffff;
+
+  border-color: #cbd5e1;
+
+  box-shadow:
+    0 8px 24px rgba(148, 163, 184, 0.16);
+
+  color: #1a202c;
+}
+
+
+/* =========================================================
+   INFORMATION STRIP
+   ========================================================= */
+
+.home-page .info-strip {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 55px auto 0;
+
+  padding: 28px 35px;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 12px 35px rgba(72, 92, 120, 0.07);
+
+  backdrop-filter: blur(16px);
+}
+
+.home-page .info-strip > div {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 8px 15px;
+}
+
+.home-page .info-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  font-size: 18px;
+
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+
+.home-page .info-strip > div:nth-child(2) .info-icon {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+}
+
+.home-page .info-strip > div:nth-child(3) .info-icon {
+  background: var(--mint-light);
+  color: var(--mint-dark);
+}
+
+.home-page .info-strip strong {
+  display: block;
+
+  margin: 1px 0 5px;
+
+  color: #344054;
+
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.home-page .info-strip p {
+  margin: 0;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-page .wellness-grid-container {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
+
+  .home-page .prediction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .info-strip {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .home-page .welcome {
+    margin-bottom: 40px;
+  }
+
+  .home-page .welcome h2 {
+    font-size: 42px;
+  }
+
+  .home-page .pregnancy-card,
+  .home-page .wellness-home-card,
+  .home-page .checkin-card,
+  .home-page .wellness-dashboard-home-card {
+    min-height: 360px;
+  }
+
+  .home-page .prediction-card {
+    min-height: 390px;
+  }
+
+  .home-page .info-strip {
+    margin-top: 40px;
+    padding: 22px;
+    gap: 8px;
+  }
+
+  .home-page .info-strip > div {
+    padding: 10px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .home-page .welcome h2 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  .home-page .welcome p {
+    font-size: 15px;
+  }
+
+  .home-page .pregnancy-card,
+  .home-page .wellness-home-card,
+  .home-page .checkin-card,
+  .home-page .wellness-dashboard-home-card,
+  .home-page .nutrition-home-card,
+  .home-page .prediction-card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+
+  .home-page .card-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 23px;
+
+    font-size: 33px;
+  }
+
+  .home-page .pregnancy-card h3,
+  .home-page .wellness-home-card h3,
+  .home-page .checkin-card h3,
+  .home-page .nutrition-home-card h3,
+  .home-page .prediction-card h3 {
+    font-size: 23px;
+  }
+
+  .home-page .wellness-dashboard-home-card h3 {
+    font-size: 22px;
+  }
+
+  .home-page .card-features {
+    gap: 7px;
+  }
+
+  .home-page .card-features span {
+    font-size: 12px;
+    padding: 6px 11px;
+  }
+
+  .home-page .pregnancy-button,
+  .home-page .wellness-home-button,
+  .home-page .checkin-button,
+  .home-page .wellness-dashboard-button,
+  .home-page .nutrition-home-button,
+  .home-page .prediction-card button {
+    width: 100%;
+    min-width: 0;
+  }
+
 }

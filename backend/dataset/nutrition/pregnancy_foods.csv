@@ -1,0 +1,221 @@
+﻿Food_Name,Food_Category,Dietary_Type,Key_Nutrients,Craving_Tags,Meal_Types,Pregnancy_Safety,Preparation_Safety,Allergen_Tags,Fish_Mercury_Category
+Banana,Fruit,Vegan,carbohydrates;potassium;fiber,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Apple,Fruit,Vegan,fiber;carbohydrates,Sweet;Fruits;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Orange,Fruit,Vegan,vitamin C;fiber;carbohydrates,Sweet;Sour;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Mango,Fruit,Vegan,carbohydrates;vitamin C,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Guava,Fruit,Vegan,vitamin C;fiber,Sweet;Sour;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pear,Fruit,Vegan,fiber;carbohydrates,Sweet;Fruits;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pomegranate,Fruit,Vegan,fiber;vitamin C,Sweet;Sour;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Watermelon,Fruit,Vegan,water;carbohydrates,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Muskmelon,Fruit,Vegan,water;vitamin C;carbohydrates,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cantaloupe,Fruit,Vegan,water;vitamin C;carbohydrates,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Kiwi,Fruit,Vegan,vitamin C;fiber,Sour;Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pineapple,Fruit,Vegan,vitamin C;carbohydrates,Sweet;Sour;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Strawberries,Fruit,Vegan,vitamin C;fiber,Sweet;Sour;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Blueberries,Fruit,Vegan,fiber;vitamin C,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Raspberries,Fruit,Vegan,fiber;vitamin C,Sweet;Sour;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Blackberries,Fruit,Vegan,fiber;vitamin C,Sweet;Sour;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Peach,Fruit,Vegan,fiber;vitamin C,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Plum,Fruit,Vegan,fiber;vitamin C,Sweet;Sour;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cherries,Fruit,Vegan,fiber;vitamin C,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Grapes,Fruit,Vegan,carbohydrates;vitamin K,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Amla,Fruit,Vegan,vitamin C;fiber,Sour;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Dates,Fruit,Vegan,carbohydrates;fiber,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Figs,Fruit,Vegan,fiber;calcium;carbohydrates,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Apricot,Fruit,Vegan,fiber;vitamin A;carbohydrates,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Nectarine,Fruit,Vegan,fiber;vitamin C,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Raisins,Fruit,Vegan,carbohydrates;fiber;iron,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Prunes,Fruit,Vegan,fiber;carbohydrates,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Dragon fruit,Fruit,Vegan,fiber;vitamin C,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Papaya,Fruit,Vegan,fiber;vitamin C;carbohydrates,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Custard apple,Fruit,Vegan,carbohydrates;fiber,Sweet;Fruits,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Spinach,Vegetable,Vegan,folate;iron;fiber,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Broccoli,Vegetable,Vegan,fiber;vitamin C;folate,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Carrot,Vegetable,Vegan,beta-carotene;fiber,Crunchy;Sweet,snack;lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Sweet potato,Vegetable,Vegan,carbohydrates;fiber;beta-carotene,Sweet;Carbs,lunch;dinner;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Peas,Vegetable,Vegan,protein;fiber;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Tomato,Vegetable,Vegan,vitamin C;potassium,Sour,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bell pepper,Vegetable,Vegan,vitamin C;fiber,Crunchy;Sweet,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cucumber,Vegetable,Vegan,water;fiber,Crunchy,snack;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Beetroot,Vegetable,Vegan,folate;fiber,Sweet,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cauliflower,Vegetable,Vegan,fiber;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cabbage,Vegetable,Vegan,fiber;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Green beans,Vegetable,Vegan,fiber;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bottle gourd,Vegetable,Vegan,water;fiber,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Ridge gourd,Vegetable,Vegan,fiber;water,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pumpkin,Vegetable,Vegan,beta-carotene;fiber,Sweet,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Zucchini,Vegetable,Vegan,fiber;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Okra,Vegetable,Vegan,fiber;folate,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Brussels sprouts,Vegetable,Vegan,fiber;vitamin C;folate,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Kale,Vegetable,Vegan,vitamin K;folate;fiber,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Corn,Vegetable,Vegan,carbohydrates;fiber,Sweet;Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Mushrooms,Vegetable,Vegan,protein;B vitamins,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Eggplant,Vegetable,Vegan,fiber;carbohydrates,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Radish,Vegetable,Vegan,fiber;vitamin C,Crunchy;Spicy,lunch;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Turnip,Vegetable,Vegan,fiber;vitamin C,Sweet;Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Drumstick pods,Vegetable,Vegan,fiber;folate;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Green peas,Vegetable,Vegan,protein;fiber;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bitter gourd,Vegetable,Vegan,fiber;vitamin C,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Ash gourd,Vegetable,Vegan,water;fiber,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+French beans,Vegetable,Vegan,fiber;vitamin C,Crunchy,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Lettuce,Vegetable,Vegan,water;folate;fiber,Crunchy,lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Oats,Grains,Vegan,carbohydrates;fiber;iron,Sweet;Carbs;Crunchy,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Brown rice,Grains,Vegan,carbohydrates;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Quinoa,Grains,Vegan,protein;fiber;carbohydrates,Carbs;Crunchy,breakfast;lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Whole-wheat chapati,Grains,Vegan,carbohydrates;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Whole-grain bread,Grains,Vegan,carbohydrates;fiber,Carbs;Crunchy,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Barley,Grains,Vegan,fiber;carbohydrates,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Millet,Grains,Vegan,fiber;iron;carbohydrates,Carbs,breakfast;lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Ragi,Grains,Vegan,calcium;fiber;iron,Carbs,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bajra,Grains,Vegan,fiber;iron;carbohydrates,Carbs,breakfast;lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Jowar,Grains,Vegan,fiber;carbohydrates,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Buckwheat,Grains,Vegan,fiber;magnesium;protein,Carbs,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bulgur,Grains,Vegan,fiber;carbohydrates,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Wild rice,Grains,Vegan,fiber;carbohydrates,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Cornmeal,Grains,Vegan,carbohydrates;fiber,Carbs,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Whole-grain cereal,Grains,Vegan,iron;folic acid;fiber,Sweet;Crunchy,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat;Soy,Not applicable
+Whole-grain crackers,Grains,Vegan,fiber;carbohydrates,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Whole-grain pasta,Grains,Vegan,carbohydrates;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Poha,Grains,Vegan,carbohydrates;iron,Carbs;Salty,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Idli,Grains,Vegan,carbohydrates;protein,Carbs,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Dosa,Grains,Vegan,carbohydrates;protein,Carbs;Salty,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Upma,Grains,Vegan,carbohydrates;fiber,Carbs;Salty,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Amaranth,Grains,Vegan,protein;fiber;iron,Carbs,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Semolina,Grains,Vegan,carbohydrates;protein,Carbs,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Whole-grain tortilla,Grains,Vegan,carbohydrates;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Lentils,Legumes,Vegan,protein;iron;folate;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Chickpeas,Legumes,Vegan,protein;fiber;iron,Carbs;Crunchy,lunch;snack;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Kidney beans,Legumes,Vegan,protein;fiber;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Black beans,Legumes,Vegan,protein;fiber;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Black-eyed peas,Legumes,Vegan,protein;fiber;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Green gram,Legumes,Vegan,protein;fiber;folate,Carbs,breakfast;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Mung beans,Legumes,Vegan,protein;fiber;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Soybeans,Legumes,Vegan,protein;iron;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Edamame,Legumes,Vegan,protein;fiber;folate,Salty;Crunchy,snack;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Split peas,Legumes,Vegan,protein;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pigeon peas,Legumes,Vegan,protein;fiber;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Urad dal,Legumes,Vegan,protein;iron;fiber,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Masoor dal,Legumes,Vegan,protein;iron;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Moong dal,Legumes,Vegan,protein;fiber;folate,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Chana dal,Legumes,Vegan,protein;fiber;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Toor dal,Legumes,Vegan,protein;fiber;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Plain yogurt,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Greek yogurt,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Pasteurized milk,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Pasteurized cheese,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Salty;Crunchy,snack;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Pasteurized paneer,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Cottage cheese,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Salty,snack;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Buttermilk,Dairy / Fortified Alternative,Vegetarian,protein;calcium;water,Salty,lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Kefir,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Fortified soy beverage,Dairy / Fortified Alternative,Vegan,protein;calcium,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Fortified oat beverage,Dairy / Fortified Alternative,Vegan,calcium;carbohydrates,Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Plain lassi,Dairy / Fortified Alternative,Vegetarian,protein;calcium,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Unsweetened yogurt,Dairy / Fortified Alternative,Vegetarian,protein;calcium,None,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Eggs,Protein,Eggetarian,protein;choline;vitamin B12,Salty,breakfast;lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,Egg,Not applicable
+Chicken,Protein,Non-vegetarian,protein;iron;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Turkey,Protein,Non-vegetarian,protein;iron;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Lean beef,Protein,Non-vegetarian,protein;iron;zinc;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Lean pork,Protein,Non-vegetarian,protein;iron;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Lamb,Protein,Non-vegetarian,protein;iron;zinc;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Chicken breast,Protein,Non-vegetarian,protein;vitamin B6;niacin,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Lean ground turkey,Protein,Non-vegetarian,protein;iron;vitamin B12,Salty;Spicy,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,None,Not applicable
+Salmon,Fish / Seafood,Pescatarian,protein;DHA/EPA;vitamin D,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Sardines,Fish / Seafood,Pescatarian,protein;omega-3;calcium,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Tilapia,Fish / Seafood,Pescatarian,protein,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Freshwater trout,Fish / Seafood,Pescatarian,protein;omega-3,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Canned light tuna,Fish / Seafood,Pescatarian,protein,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Pollock,Fish / Seafood,Pescatarian,protein,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Cod,Fish / Seafood,Pescatarian,protein;vitamin B12,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Haddock,Fish / Seafood,Pescatarian,protein;vitamin B12,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Shrimp,Fish / Seafood,Pescatarian,protein;selenium,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Crustacean shellfish,Best Choice
+Crab,Fish / Seafood,Pescatarian,protein;zinc;vitamin B12,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Crustacean shellfish,Best Choice
+Scallops,Fish / Seafood,Pescatarian,protein;vitamin B12,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Crustacean shellfish,Best Choice
+Catfish,Fish / Seafood,Pescatarian,protein;vitamin B12,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Anchovies,Fish / Seafood,Pescatarian,protein;omega-3;calcium,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Herring,Fish / Seafood,Pescatarian,protein;omega-3;vitamin D,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Atlantic mackerel,Fish / Seafood,Pescatarian,protein;omega-3;vitamin D,Salty,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish,Best Choice
+Almonds,Nuts & Seeds,Vegan,protein;unsaturated fats;fiber,Crunchy;Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Walnuts,Nuts & Seeds,Vegan,protein;unsaturated fats;fiber,Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Peanuts,Nuts & Seeds,Vegan,protein;unsaturated fats,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Peanuts,Not applicable
+Cashews,Nuts & Seeds,Vegan,protein;unsaturated fats,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Pistachios,Nuts & Seeds,Vegan,protein;fiber;unsaturated fats,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Hazelnuts,Nuts & Seeds,Vegan,protein;unsaturated fats;fiber,Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Chia seeds,Nuts & Seeds,Vegan,fiber;omega-3 fats,Crunchy,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Flax seeds,Nuts & Seeds,Vegan,fiber;omega-3 fats,Crunchy,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Pumpkin seeds,Nuts & Seeds,Vegan,protein;iron;magnesium,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Sunflower seeds,Nuts & Seeds,Vegan,protein;vitamin E;magnesium,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Sesame seeds,Nuts & Seeds,Vegan,calcium;healthy fats,Salty;Crunchy,lunch;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Sesame,Not applicable
+Tahini,Nuts & Seeds,Vegan,unsaturated fats;protein,Salty,lunch;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Sesame,Not applicable
+Pecan,Nuts & Seeds,Vegan,protein;unsaturated fats;fiber,Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Macadamia nuts,Nuts & Seeds,Vegan,unsaturated fats;fiber,Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Brazil nuts,Nuts & Seeds,Vegan,protein;selenium;unsaturated fats,Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Tree nuts,Not applicable
+Avocado,Other / Healthy Foods,Vegan,unsaturated fats;fiber,Crunchy,breakfast;lunch;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Olive oil,Other / Healthy Foods,Vegan,unsaturated fats,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Canola oil,Other / Healthy Foods,Vegan,unsaturated fats,None,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Hummus,Other / Healthy Foods,Vegan,protein;fiber,Salty;Crunchy,snack;lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Sesame,Not applicable
+Peanut butter,Other / Healthy Foods,Vegan,protein;unsaturated fats,Sweet;Salty,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Peanuts,Not applicable
+Soy nut butter,Other / Healthy Foods,Vegan,protein;unsaturated fats,Salty;Sweet,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Tofu,Other / Healthy Foods,Vegan,protein;iron,Carbs,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Tempeh,Other / Healthy Foods,Vegan,protein;fiber,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Soy,Not applicable
+Fortified nutritional yeast,Other / Healthy Foods,Vegan,protein;B vitamins,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Unsweetened applesauce,Other / Healthy Foods,Vegan,fiber;carbohydrates,Sweet,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Plain popcorn,Other / Healthy Foods,Vegan,whole grains;fiber,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Roasted chickpeas,Other / Healthy Foods,Vegan,protein;fiber;iron,Salty;Crunchy,snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Overnight oats,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Carbs,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy;Nuts,Not applicable
+Vegetable soup,Other / Healthy Foods,Vegan,vegetables;fiber,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Lentil soup,Other / Healthy Foods,Vegan,protein;iron;fiber,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Bean soup,Other / Healthy Foods,Vegan,protein;fiber,Salty,lunch;dinner,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Fruit salad,Other / Healthy Foods,Vegan,fiber;vitamin C;carbohydrates,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Yogurt with fruit,Other / Healthy Foods,Vegan,protein;calcium;fiber,Sweet;Fruits,breakfast;snack,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Milk / Dairy,Not applicable
+Oatmeal with banana,Other / Healthy Foods,Vegan,carbohydrates;fiber;potassium,Sweet;Carbs,breakfast,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,None,Not applicable
+Whole-grain vegetable sandwich,Other / Healthy Foods,Vegan,fiber;vegetables;carbohydrates,Salty;Crunchy,lunch,Generally suitable when safely prepared,Wash/prepare safely and store appropriately.,Wheat,Not applicable
+Chocolate brownie,Other / Healthy Foods,Vegetarian,carbohydrates;energy,Sweet;Carbs,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Egg;Wheat,Not applicable
+Eggless chocolate brownie,Other / Healthy Foods,Vegetarian,carbohydrates;energy,Sweet;Carbs,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Vegan chocolate brownie,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Carbs,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Wheat,Not applicable
+Banana oat pancakes,Other / Healthy Foods,Vegan,carbohydrates;fiber;potassium,Sweet;Carbs,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Classic pancakes,Other / Healthy Foods,Vegetarian,carbohydrates;protein,Sweet;Carbs;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Egg;Wheat,Not applicable
+Fruit yogurt parfait,Other / Healthy Foods,Vegetarian,protein;calcium;fiber,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Vegan fruit parfait,Other / Healthy Foods,Vegan,fiber;vitamin C,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Banana milkshake,Other / Healthy Foods,Vegetarian,protein;calcium;potassium,Sweet;Fruits;Dairy,snack;breakfast,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Strawberry milkshake,Other / Healthy Foods,Vegetarian,protein;calcium;vitamin C,Sweet;Fruits;Dairy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Mango smoothie with yogurt,Other / Healthy Foods,Vegetarian,protein;calcium;vitamin C,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Oat milk banana smoothie,Other / Healthy Foods,Vegan,carbohydrates;fiber;potassium,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Almond milk fruit smoothie,Other / Healthy Foods,Vegan,fiber;vitamin C;healthy fats,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Tree nuts,Not applicable
+Soy milk banana smoothie,Other / Healthy Foods,Vegan,protein;potassium,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Soy,Not applicable
+Rice pudding,Other / Healthy Foods,Vegetarian,carbohydrates;protein;calcium,Sweet;Carbs;Dairy,snack;breakfast,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Vegan rice pudding,Other / Healthy Foods,Vegan,carbohydrates,Sweet;Carbs;Dairy,snack;breakfast,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Banana bread,Other / Healthy Foods,Vegetarian,carbohydrates;fiber,Sweet;Carbs;Fruits,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Egg;Wheat;Milk / Dairy,Not applicable
+Vegan banana bread,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Carbs;Fruits,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Wheat,Not applicable
+Apple cinnamon oats,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Carbs;Fruits,breakfast,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Chocolate chip cookies,Other / Healthy Foods,Vegetarian,carbohydrates;energy,Sweet;Carbs;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Egg;Wheat,Not applicable
+Vegan oatmeal cookies,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Carbs;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Peanut butter banana toast,Other / Healthy Foods,Vegan,protein;healthy fats;potassium,Sweet;Carbs;Fruits,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Peanuts;Wheat,Not applicable
+Almond butter apple toast,Other / Healthy Foods,Vegan,fiber;healthy fats,Sweet;Fruits;Carbs;Crunchy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Tree nuts;Wheat,Not applicable
+Cheese vegetable sandwich,Other / Healthy Foods,Vegetarian,protein;calcium;fiber,Salty;Carbs;Dairy;Crunchy,breakfast;lunch,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Paneer vegetable wrap,Other / Healthy Foods,Vegetarian,protein;calcium;fiber,Salty;Carbs;Dairy,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Spicy paneer sandwich,Other / Healthy Foods,Vegetarian,protein;calcium;carbohydrates,Salty;Spicy;Carbs;Dairy,lunch;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Tofu vegetable wrap,Other / Healthy Foods,Vegan,protein;iron;fiber,Salty;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Soy;Wheat,Not applicable
+Spicy tofu sandwich,Other / Healthy Foods,Vegan,protein;iron;fiber,Salty;Spicy;Carbs,lunch;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Soy;Wheat,Not applicable
+Vegetable pasta,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Wheat,Not applicable
+Creamy vegetable pasta,Other / Healthy Foods,Vegetarian,carbohydrates;protein;calcium,Salty;Carbs;Dairy,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Spicy vegetable pasta,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Spicy;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Wheat,Not applicable
+Vegetable fried rice,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Soy,Not applicable
+Lemon rice with vegetables,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sour;Salty;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Spicy vegetable rice,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Spicy;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Chickpea salad with lemon,Other / Healthy Foods,Vegan,protein;fiber;vitamin C,Sour;Salty;Crunchy,lunch;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Spicy chickpea chaat,Other / Healthy Foods,Vegan,protein;fiber;iron,Salty;Spicy;Sour;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Bhel puri,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Sour;Spicy;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Vegetable chaat,Other / Healthy Foods,Vegan,fiber;vitamin C,Salty;Sour;Spicy;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Corn chaat,Other / Healthy Foods,Vegan,carbohydrates;fiber,Sweet;Salty;Sour;Crunchy,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Fruit chaat,Other / Healthy Foods,Vegan,fiber;vitamin C,Sweet;Sour;Fruits,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Spicy fruit chaat,Other / Healthy Foods,Vegan,fiber;vitamin C,Sweet;Sour;Spicy;Fruits,snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Greek yogurt with berries,Other / Healthy Foods,Vegetarian,protein;calcium;fiber,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Cottage cheese with fruit,Other / Healthy Foods,Vegetarian,protein;calcium;fiber,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy,Not applicable
+Cheese toast,Other / Healthy Foods,Vegetarian,protein;calcium;carbohydrates,Salty;Carbs;Dairy;Crunchy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Milk / Dairy;Wheat,Not applicable
+Peanut butter oatmeal,Other / Healthy Foods,Vegan,protein;fiber;healthy fats,Sweet;Carbs,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Peanuts,Not applicable
+Chia pudding with fruit,Other / Healthy Foods,Vegan,fiber;omega-3 fats;vitamin C,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Mango coconut smoothie,Other / Healthy Foods,Vegan,fiber;vitamin C,Sweet;Fruits;Dairy,breakfast;snack,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,None,Not applicable
+Spicy vegetable noodles,Other / Healthy Foods,Vegan,carbohydrates;fiber,Salty;Spicy;Carbs,lunch;dinner,Generally suitable when safely prepared,Prepare hygienically and store appropriately.,Wheat,Not applicable
+Egg vegetable sandwich,Other / Healthy Foods,Eggetarian,protein;carbohydrates;fiber,Salty;Carbs,lunch;breakfast,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,Egg;Wheat,Not applicable
+Tuna vegetable sandwich,Other / Healthy Foods,Pescatarian,protein;carbohydrates;fiber,Salty;Carbs;Crunchy,lunch,Generally suitable when safely prepared,Cook thoroughly; avoid raw or undercooked seafood.,Fish;Wheat,Best Choice
+Grilled chicken wrap,Other / Healthy Foods,Non-vegetarian,protein;iron;carbohydrates,Salty;Spicy;Carbs,lunch;dinner,Generally suitable when safely prepared,Cook thoroughly and prevent cross-contamination with raw animal products.,Wheat,Not applicable

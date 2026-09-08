@@ -4,14 +4,18 @@ import './History.css'
 function History({
   history,
   wellnessHistory,
+  nutritionHistory,
   onBack,
   onClear,
   onDelete,
   onClearWellness,
   onDeleteWellness,
+  onClearNutrition,
+  onDeleteNutrition,
 }) {
   const [selectedItem, setSelectedItem] = useState(null)
   const [selectedWellness, setSelectedWellness] = useState(null)
+  const [selectedNutrition, setSelectedNutrition] = useState(null)
 
   // ==================================================
   // ASSESSMENT DETAILS
@@ -45,6 +49,23 @@ function History({
   const handleWellnessDelete = (id) => {
     setSelectedWellness(null)
     onDeleteWellness(id)
+  }
+
+  // ==================================================
+  // NUTRITION DETAILS
+  // ==================================================
+
+  const openNutritionDetails = (item) => {
+    setSelectedNutrition(item)
+  }
+
+  const closeNutritionDetails = () => {
+    setSelectedNutrition(null)
+  }
+
+  const handleNutritionDelete = (id) => {
+    setSelectedNutrition(null)
+    onDeleteNutrition(id)
   }
 
   // ==================================================
@@ -88,7 +109,8 @@ function History({
           </h2>
 
           <p>
-            View your previous health assessments and daily wellness check-ins.
+            View your previous health assessments, daily wellness
+            check-ins, and nutrition plans.
           </p>
 
         </div>
@@ -116,6 +138,7 @@ function History({
           </div>
 
           <div>
+
             <h2>
               Assessment History
             </h2>
@@ -123,6 +146,7 @@ function History({
             <p>
               Previous maternal and fetal health assessments
             </p>
+
           </div>
 
         </div>
@@ -387,6 +411,149 @@ function History({
 
 
       {/* ==================================================
+          NUTRITION HISTORY
+          ================================================== */}
+
+      <div className="history-section-block nutrition-history-block">
+
+        <div className="history-section-title">
+
+          <div className="history-section-icon nutrition-history-icon">
+            🥗
+          </div>
+
+          <div>
+
+            <h2>
+              Nutrition History
+            </h2>
+
+            <p>
+              Your saved personalized nutrition plans
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* EMPTY NUTRITION HISTORY */}
+
+        {nutritionHistory.length === 0 && (
+
+          <div className="history-empty nutrition-empty">
+
+            <div className="history-empty-icon">
+              🥗
+            </div>
+
+            <h3>
+              No Nutrition Plans Yet
+            </h3>
+
+            <p>
+              Your saved nutrition plans will appear here after you save one.
+            </p>
+
+          </div>
+
+        )}
+
+
+        {/* NUTRITION HISTORY LIST */}
+
+        {nutritionHistory.length > 0 && (
+
+          <div className="history-container nutrition-history-container">
+
+            <div className="history-top-bar">
+
+              <div>
+
+                <strong>
+                  {nutritionHistory.length} Nutrition Plan
+                  {nutritionHistory.length !== 1 ? 's' : ''}
+                </strong>
+
+                <span>
+                  Click a nutrition plan to view details
+                </span>
+
+              </div>
+
+              <button
+                className="clear-history-button"
+                onClick={onClearNutrition}
+              >
+                Clear Nutrition History
+              </button>
+
+            </div>
+
+
+            <div className="history-list">
+
+              {nutritionHistory.map((item) => (
+
+                <div
+                  className="history-item nutrition-history-item"
+                  key={item.id}
+                  onClick={() => openNutritionDetails(item)}
+                >
+
+                  <div className="history-item-icon nutrition-item-icon">
+                    🥗
+                  </div>
+
+
+                  <div className="history-item-info">
+
+                    <div className="history-item-title">
+                      Personalized Nutrition Plan
+                    </div>
+
+                    <div className="history-item-date">
+                      {item.date || item.selectedDate}
+                    </div>
+
+                  </div>
+
+
+                  <div className="wellness-summary">
+
+                    {item.pregnancyInfo?.trimester && (
+                      <span>
+                        🤰 {item.pregnancyInfo.trimester}
+                      </span>
+                    )}
+
+                    {item.recommendations && (
+                      <span>
+                        🍎 {item.recommendations.length} foods
+                      </span>
+                    )}
+
+                  </div>
+
+
+                  <div className="history-item-arrow">
+                    →
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        )}
+
+      </div>
+
+
+      {/* ==================================================
           ASSESSMENT DETAILS MODAL
           ================================================== */}
 
@@ -603,233 +770,132 @@ function History({
               <div className="history-data-grid">
 
                 <div className="history-data-item">
-
-                  <span>
-                    😊 Mood
-                  </span>
-
+                  <span>😊 Mood</span>
                   <strong>
                     {displayValue(selectedWellness.mood)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    ⚡ Energy
-                  </span>
-
+                  <span>⚡ Energy</span>
                   <strong>
                     {displayValue(selectedWellness.energy)}
                     {selectedWellness.energy && ' / 5'}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    💭 Feelings
-                  </span>
-
+                  <span>💭 Feelings</span>
                   <strong>
                     {displayValue(selectedWellness.feelings)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🩹 Pain
-                  </span>
-
+                  <span>🩹 Pain</span>
                   <strong>
                     {displayValue(selectedWellness.pain)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    😴 Sleep Quality
-                  </span>
-
+                  <span>😴 Sleep Quality</span>
                   <strong>
                     {displayValue(selectedWellness.sleepQuality)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🕐 Sleep Duration
-                  </span>
-
+                  <span>🕐 Sleep Duration</span>
                   <strong>
                     {selectedWellness.sleepHours ||
                     selectedWellness.sleepMinutes
                       ? `${selectedWellness.sleepHours || 0}h ${selectedWellness.sleepMinutes || 0}m`
                       : 'Not entered'}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    💧 Water
-                  </span>
-
+                  <span>💧 Water</span>
                   <strong>
                     {selectedWellness.water
                       ? `${selectedWellness.water} glasses`
                       : 'Not entered'}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🍓 Cravings
-                  </span>
-
+                  <span>🍓 Cravings</span>
                   <strong>
                     {displayValue(selectedWellness.cravings)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    💧 Discharge
-                  </span>
-
+                  <span>💧 Discharge</span>
                   <strong>
                     {displayValue(selectedWellness.discharge)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    ✨ Skin
-                  </span>
-
+                  <span>✨ Skin</span>
                   <strong>
                     {displayValue(selectedWellness.skin)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    💇‍♀️ Hair
-                  </span>
-
+                  <span>💇‍♀️ Hair</span>
                   <strong>
                     {displayValue(selectedWellness.hair)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    ⚖️ Weight
-                  </span>
-
+                  <span>⚖️ Weight</span>
                   <strong>
                     {selectedWellness.weight
                       ? `${selectedWellness.weight} kg`
                       : 'Not entered'}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🍽️ Digestion
-                  </span>
-
+                  <span>🍽️ Digestion</span>
                   <strong>
                     {displayValue(selectedWellness.digestion)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🚽 Stool
-                  </span>
-
+                  <span>🚽 Stool</span>
                   <strong>
                     {displayValue(selectedWellness.stool)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🧘 Meditation
-                  </span>
-
+                  <span>🧘 Meditation</span>
                   <strong>
                     {selectedWellness.meditationMinutes
                       ? `${selectedWellness.meditationMinutes} minutes`
                       : 'Not entered'}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🧘 Self-care
-                  </span>
-
+                  <span>🧘 Self-care</span>
                   <strong>
                     {displayValue(selectedWellness.selfCare)}
                   </strong>
-
                 </div>
 
-
                 <div className="history-data-item">
-
-                  <span>
-                    🤒 Ailments
-                  </span>
-
+                  <span>🤒 Ailments</span>
                   <strong>
                     {displayValue(selectedWellness.ailments)}
                   </strong>
-
                 </div>
 
               </div>
@@ -872,6 +938,355 @@ function History({
               <button
                 className="modal-done-button"
                 onClick={closeWellnessDetails}
+              >
+                Close
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* ==================================================
+          NUTRITION DETAILS MODAL
+          ================================================== */}
+
+      {selectedNutrition && (
+
+        <div className="history-modal-overlay">
+
+          <div className="history-modal nutrition-modal">
+
+            <div className="history-modal-header">
+
+              <div>
+
+                <span className="section-label">
+                  NUTRITION PLAN
+                </span>
+
+                <h2>
+                  🥗 Personalized Nutrition Plan
+                </h2>
+
+              </div>
+
+              <button
+                className="modal-close-button"
+                onClick={closeNutritionDetails}
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            {/* DATE */}
+
+            <div className="history-detail-date">
+
+              <strong>
+                📅 Date
+              </strong>
+
+              <span>
+                {selectedNutrition.date ||
+                  selectedNutrition.selectedDate ||
+                  'Not entered'}
+              </span>
+
+            </div>
+
+
+            {/* PREGNANCY CONTEXT */}
+
+            <div className="history-data-section">
+
+              <h3>
+                🤰 Pregnancy Context
+              </h3>
+
+              <div className="history-data-grid">
+
+                <div className="history-data-item">
+
+                  <span>
+                    Pregnancy Week
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.pregnancyInfo?.weeks
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    Trimester
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.pregnancyInfo?.trimester
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    Due Date
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.pregnancyInfo?.dueDate
+                    )}
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* FOOD PREFERENCES */}
+
+            <div className="history-data-section">
+
+              <h3>
+                🥑 Food Preferences
+              </h3>
+
+              <div className="history-data-grid">
+
+                <div className="history-data-item">
+
+                  <span>
+                    Dietary Preference
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.dietaryPreference
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    Food Allergies
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.foodAllergies
+                    )}
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* WELLNESS CONTEXT */}
+
+            <div className="history-data-section">
+
+              <h3>
+                🌸 Wellness Context
+              </h3>
+
+              <div className="history-data-grid">
+
+                <div className="history-data-item">
+
+                  <span>
+                    😊 Mood
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.mood
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    ⚡ Energy
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.energy
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    💧 Water
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.water
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    🍓 Cravings
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.cravings
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    🍽️ Digestion
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.digestion
+                    )}
+                  </strong>
+
+                </div>
+
+                <div className="history-data-item">
+
+                  <span>
+                    💭 Feelings
+                  </span>
+
+                  <strong>
+                    {displayValue(
+                      selectedNutrition.wellness?.feelings
+                    )}
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* RECOMMENDATIONS */}
+
+            <div className="history-data-section">
+
+              <h3>
+                🍎 Recommended Foods
+              </h3>
+
+              {selectedNutrition.recommendations?.length > 0 ? (
+
+                <div className="history-data-grid">
+
+                  {selectedNutrition.recommendations.map(
+                    (food, index) => (
+
+                      <div
+                        className="history-data-item"
+                        key={food.food_name || index}
+                      >
+
+                        <span>
+                          {food.category || 'Food'}
+                        </span>
+
+                        <strong>
+                          {food.food_name ||
+                            food.Food_Name ||
+                            'Food'}
+                        </strong>
+
+                      </div>
+
+                    )
+                  )}
+
+                </div>
+
+              ) : (
+
+                <p>
+                  No recommendations were saved for this plan.
+                </p>
+
+              )}
+
+            </div>
+
+
+            {/* SAFETY */}
+
+            {selectedNutrition.safety && (
+
+              <div className="history-data-section">
+
+                <h3>
+                  🛡️ Food Safety
+                </h3>
+
+                <div className="wellness-history-notes">
+
+                  {selectedNutrition.safety.disclaimer ||
+                    'Nutrition guidance is educational and not a substitute for prenatal medical care.'}
+
+                </div>
+
+              </div>
+
+            )}
+
+
+            {/* ACTIONS */}
+
+            <div className="history-modal-actions">
+
+              <button
+                className="modal-delete-button"
+                onClick={() =>
+                  handleNutritionDelete(selectedNutrition.id)
+                }
+              >
+                Delete This Nutrition Plan
+              </button>
+
+              <button
+                className="modal-done-button"
+                onClick={closeNutritionDetails}
               >
                 Close
               </button>
