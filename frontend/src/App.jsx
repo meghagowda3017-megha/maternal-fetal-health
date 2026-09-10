@@ -610,7 +610,9 @@ function App() {
 
           <MaternalWellnessDashboard
             wellnessHistory={wellnessHistory}
+            nutritionHistory={nutritionHistory}
             onBack={closeWellnessDashboard}
+            onNutritionClick={() => setShowNutrition(true)}
           />
 
         )}
