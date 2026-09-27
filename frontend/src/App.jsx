@@ -10,6 +10,7 @@ import TrimesterWellness from './components/TrimesterWellness'
 import DailyWellness from './components/DailyWellness'
 import MaternalWellnessDashboard from './components/MaternalWellnessDashboard'
 import Nutrition from './components/Nutrition'
+import ActivityExercise from './components/ActivityExercise'
 
 function App() {
   // ==================================================
@@ -22,8 +23,10 @@ function App() {
   const [showPregnancy, setShowPregnancy] = useState(false)
   const [showWellness, setShowWellness] = useState(false)
   const [showDailyWellness, setShowDailyWellness] = useState(false)
-  const [showWellnessDashboard, setShowWellnessDashboard] = useState(false)
+  const [showWellnessDashboard, setShowWellnessDashboard] =
+    useState(false)
   const [showNutrition, setShowNutrition] = useState(false)
+  const [showActivity, setShowActivity] = useState(false)
 
   // ==================================================
   // SELECTED TRIMESTER
@@ -32,7 +35,7 @@ function App() {
   const [selectedWellnessTrimester, setSelectedWellnessTrimester] =
     useState(
       localStorage.getItem('selectedWellnessTrimester') ||
-      'First Trimester'
+        'First Trimester'
     )
 
   // ==================================================
@@ -40,7 +43,8 @@ function App() {
   // ==================================================
 
   const [history, setHistory] = useState(() => {
-    const savedHistory = localStorage.getItem('assessmentHistory')
+    const savedHistory =
+      localStorage.getItem('assessmentHistory')
 
     return savedHistory
       ? JSON.parse(savedHistory)
@@ -70,6 +74,19 @@ function App() {
 
     return savedNutritionHistory
       ? JSON.parse(savedNutritionHistory)
+      : []
+  })
+
+  // ==================================================
+  // ACTIVITY HISTORY
+  // ==================================================
+
+  const [activityHistory, setActivityHistory] = useState(() => {
+    const savedActivityHistory =
+      localStorage.getItem('activityHistory')
+
+    return savedActivityHistory
+      ? JSON.parse(savedActivityHistory)
       : []
   })
 
@@ -107,6 +124,17 @@ function App() {
   }, [nutritionHistory])
 
   // ==================================================
+  // SAVE ACTIVITY HISTORY TO LOCAL STORAGE
+  // ==================================================
+
+  useEffect(() => {
+    localStorage.setItem(
+      'activityHistory',
+      JSON.stringify(activityHistory)
+    )
+  }, [activityHistory])
+
+  // ==================================================
   // OPEN MATERNAL ASSESSMENT
   // ==================================================
 
@@ -119,6 +147,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -134,6 +163,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -149,6 +179,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -164,6 +195,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -179,6 +211,7 @@ function App() {
     setShowDailyWellness(true)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -194,6 +227,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(true)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -209,6 +243,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -224,6 +259,23 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(true)
+    setShowActivity(false)
+  }
+
+  // ==================================================
+  // OPEN ACTIVITY & EXERCISE
+  // ==================================================
+
+  const openActivity = () => {
+    setShowMaternalForm(false)
+    setShowFetalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
+    setShowWellness(false)
+    setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
+    setShowNutrition(false)
+    setShowActivity(true)
   }
 
   // ==================================================
@@ -252,6 +304,7 @@ function App() {
     setShowDailyWellness(false)
     setShowWellnessDashboard(false)
     setShowNutrition(false)
+    setShowActivity(false)
   }
 
   // ==================================================
@@ -311,6 +364,14 @@ function App() {
   }
 
   // ==================================================
+  // CLOSE ACTIVITY & EXERCISE
+  // ==================================================
+
+  const closeActivity = () => {
+    setShowActivity(false)
+  }
+
+  // ==================================================
   // ASSESSMENT HISTORY FUNCTIONS
   // ==================================================
 
@@ -320,7 +381,9 @@ function App() {
 
   const deleteHistoryItem = (id) => {
     setHistory((previous) =>
-      previous.filter((item) => item.id !== id)
+      previous.filter(
+        (item) => item.id !== id
+      )
     )
   }
 
@@ -337,13 +400,12 @@ function App() {
 
   const addWellnessHistory = (checkIn) => {
     setWellnessHistory((previous) => {
-
-      // Check whether this date already has a wellness entry
       const existingEntry = previous.find(
-        (item) => item.selectedDate === checkIn.selectedDate
+        (item) =>
+          item.selectedDate ===
+          checkIn.selectedDate
       )
 
-      // If this is a new date, create a new entry
       if (!existingEntry) {
         return [
           checkIn,
@@ -351,9 +413,6 @@ function App() {
         ]
       }
 
-      // Same date already exists:
-      // replace the old entry instead of creating another one.
-      // Keep the original ID so it remains the same record.
       const updatedEntry = {
         ...checkIn,
         id: existingEntry.id,
@@ -362,7 +421,9 @@ function App() {
       return [
         updatedEntry,
         ...previous.filter(
-          (item) => item.selectedDate !== checkIn.selectedDate
+          (item) =>
+            item.selectedDate !==
+            checkIn.selectedDate
         ),
       ]
     })
@@ -374,7 +435,9 @@ function App() {
 
   const deleteWellnessHistoryItem = (id) => {
     setWellnessHistory((previous) =>
-      previous.filter((item) => item.id !== id)
+      previous.filter(
+        (item) => item.id !== id
+      )
     )
   }
 
@@ -384,14 +447,12 @@ function App() {
 
   const addNutritionHistory = (entry) => {
     setNutritionHistory((previous) => {
-
-      // Check whether nutrition history already exists
-      // for this date.
       const existingEntry = previous.find(
-        (item) => item.selectedDate === entry.selectedDate
+        (item) =>
+          item.selectedDate ===
+          entry.selectedDate
       )
 
-      // New date → create a new nutrition history entry
       if (!existingEntry) {
         return [
           entry,
@@ -399,8 +460,6 @@ function App() {
         ]
       }
 
-      // Same date → update the existing entry
-      // instead of creating a duplicate.
       const updatedEntry = {
         ...entry,
         id: existingEntry.id,
@@ -409,7 +468,9 @@ function App() {
       return [
         updatedEntry,
         ...previous.filter(
-          (item) => item.selectedDate !== entry.selectedDate
+          (item) =>
+            item.selectedDate !==
+            entry.selectedDate
         ),
       ]
     })
@@ -421,8 +482,86 @@ function App() {
 
   const deleteNutritionHistoryItem = (id) => {
     setNutritionHistory((previous) =>
-      previous.filter((item) => item.id !== id)
+      previous.filter(
+        (item) => item.id !== id
+      )
     )
+  }
+
+  // ==================================================
+  // ACTIVITY HISTORY FUNCTIONS
+  // ==================================================
+
+  const addActivityHistory = (entry) => {
+    setActivityHistory((previous) => {
+      // Check whether an activity plan already
+      // exists for this date.
+      const existingEntry = previous.find(
+        (item) =>
+          item.selectedDate ===
+          entry.selectedDate
+      )
+
+      // New date → create a new activity plan.
+      if (!existingEntry) {
+        return [
+          entry,
+          ...previous,
+        ]
+      }
+
+      // Same date → update the existing activity plan
+      // instead of creating a duplicate.
+      const updatedEntry = {
+        ...entry,
+        id: existingEntry.id,
+      }
+
+      return [
+        updatedEntry,
+        ...previous.filter(
+          (item) =>
+            item.selectedDate !==
+            entry.selectedDate
+        ),
+      ]
+    })
+  }
+
+  const clearActivityHistory = () => {
+    setActivityHistory([])
+  }
+
+  const deleteActivityHistoryItem = (id) => {
+    setActivityHistory((previous) =>
+      previous.filter(
+        (item) => item.id !== id
+      )
+    )
+  }
+
+  // ==================================================
+  // PREGNANCY INFORMATION
+  // ==================================================
+
+  const getPregnancyInfo = () => {
+    const savedPregnancyInfo =
+      localStorage.getItem('pregnancyInfo')
+
+    if (!savedPregnancyInfo) {
+      return null
+    }
+
+    try {
+      return JSON.parse(savedPregnancyInfo)
+    } catch (error) {
+      console.error(
+        'Unable to read pregnancy information:',
+        error
+      )
+
+      return null
+    }
   }
 
   // ==================================================
@@ -493,7 +632,8 @@ function App() {
           !showWellness &&
           !showDailyWellness &&
           !showWellnessDashboard &&
-          !showNutrition && (
+          !showNutrition &&
+          !showActivity && (
 
             <Home
               onMaternalClick={openMaternalForm}
@@ -502,8 +642,11 @@ function App() {
               onPregnancyClick={openPregnancy}
               onWellnessClick={openWellness}
               onDailyWellnessClick={openDailyWellness}
-              onWellnessDashboardClick={openWellnessDashboard}
+              onWellnessDashboardClick={
+                openWellnessDashboard
+              }
               onNutritionClick={openNutrition}
+              onActivityClick={openActivity}
             />
 
           )}
@@ -545,7 +688,9 @@ function App() {
 
           <PregnancyOverview
             onBack={closePregnancyOverview}
-            onTrimesterChange={handleTrimesterChange}
+            onTrimesterChange={
+              handleTrimesterChange
+            }
           />
 
         )}
@@ -561,13 +706,28 @@ function App() {
             history={history}
             wellnessHistory={wellnessHistory}
             nutritionHistory={nutritionHistory}
+            activityHistory={activityHistory}
             onBack={goHome}
             onClear={clearHistory}
             onDelete={deleteHistoryItem}
-            onClearWellness={clearWellnessHistory}
-            onDeleteWellness={deleteWellnessHistoryItem}
-            onClearNutrition={clearNutritionHistory}
-            onDeleteNutrition={deleteNutritionHistoryItem}
+            onClearWellness={
+              clearWellnessHistory
+            }
+            onDeleteWellness={
+              deleteWellnessHistoryItem
+            }
+            onClearNutrition={
+              clearNutritionHistory
+            }
+            onDeleteNutrition={
+              deleteNutritionHistoryItem
+            }
+            onClearActivity={
+              clearActivityHistory
+            }
+            onDeleteActivity={
+              deleteActivityHistoryItem
+            }
           />
 
         )}
@@ -581,7 +741,9 @@ function App() {
 
           <TrimesterWellness
             onBack={closeWellness}
-            initialTrimester={selectedWellnessTrimester}
+            initialTrimester={
+              selectedWellnessTrimester
+            }
           />
 
         )}
@@ -596,7 +758,9 @@ function App() {
           <DailyWellness
             wellnessHistory={wellnessHistory}
             onBack={closeDailyWellness}
-            onSaveWellness={addWellnessHistory}
+            onSaveWellness={
+              addWellnessHistory
+            }
           />
 
         )}
@@ -609,10 +773,33 @@ function App() {
         {showWellnessDashboard && (
 
           <MaternalWellnessDashboard
-            wellnessHistory={wellnessHistory}
-            nutritionHistory={nutritionHistory}
-            onBack={closeWellnessDashboard}
-            onNutritionClick={() => setShowNutrition(true)}
+            wellnessHistory={
+              wellnessHistory
+            }
+
+            pregnancyInfo={
+              getPregnancyInfo()
+            }
+
+            nutritionHistory={
+              nutritionHistory
+            }
+
+            activityHistory={
+              activityHistory
+            }
+
+            onBack={
+              closeWellnessDashboard
+            }
+
+            onNutritionClick={
+              openNutrition
+            }
+
+            onActivityClick={
+              openActivity
+            }
           />
 
         )}
@@ -625,9 +812,36 @@ function App() {
         {showNutrition && (
 
           <Nutrition
-            nutritionHistory={nutritionHistory}
-            onSaveNutrition={addNutritionHistory}
-            onBack={closeNutrition}
+            nutritionHistory={
+              nutritionHistory
+            }
+            onSaveNutrition={
+              addNutritionHistory
+            }
+            onBack={
+              closeNutrition
+            }
+          />
+
+        )}
+
+
+        {/* ==================================================
+            ACTIVITY & EXERCISE
+            ================================================== */}
+
+        {showActivity && (
+
+          <ActivityExercise
+            activityHistory={
+              activityHistory
+            }
+            onSaveActivity={
+              addActivityHistory
+            }
+            onBack={
+              closeActivity
+            }
           />
 
         )}
@@ -642,11 +856,13 @@ function App() {
       <footer className="footer">
 
         <p>
-          Maternal-Fetal Health Prediction &amp; Monitoring System
+          Maternal-Fetal Health Prediction &amp;
+          Monitoring System
         </p>
 
         <span>
-          For educational and decision-support purposes only.
+          For educational and decision-support
+          purposes only.
         </span>
 
       </footer>

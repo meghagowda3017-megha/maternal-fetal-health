@@ -8,7 +8,8 @@ function Home({
   onWellnessClick,
   onDailyWellnessClick,
   onWellnessDashboardClick,
-  onNutritionClick
+  onNutritionClick,
+  onActivityClick
 }) {
   return (
     <div className="home-page">
@@ -244,55 +245,111 @@ function Home({
       </div>
 
 
-      {/* ==================================================
-          NUTRITION
-          ================================================== */}
+{/* ==================================================
+    NUTRITION + ACTIVITY & EXERCISE
+    ================================================== */}
 
-      <section className="nutrition-section">
+<div className="nutrition-activity-grid">
 
-        <div className="nutrition-home-card">
+  {/* NUTRITION */}
 
-          <div className="card-top">
+  <section className="nutrition-section">
 
-            <div className="card-icon nutrition-home-icon">
-              🥗
-            </div>
+    <div className="nutrition-home-card">
 
-            <span className="available-badge">
-              Available
-            </span>
+      <div className="card-top">
 
-          </div>
-
-          <h3>
-            Nutrition & Pregnancy
-          </h3>
-
-          <p>
-            Explore pregnancy-friendly nutrition guidance based
-            on your pregnancy stage, cravings and food preferences.
-          </p>
-
-          <div className="card-features">
-
-            <span>🥑 Nutrition</span>
-            <span>🍓 Cravings</span>
-            <span>💧 Hydration</span>
-
-          </div>
-
-          <button
-            type="button"
-            className="primary-button nutrition-home-button"
-            onClick={onNutritionClick}
-          >
-            Explore Nutrition
-            <span>→</span>
-          </button>
-
+        <div className="card-icon nutrition-home-icon">
+          🥗
         </div>
 
-      </section>
+        <span className="available-badge">
+          Available
+        </span>
+
+      </div>
+
+      <h3>
+        Nutrition & Pregnancy
+      </h3>
+
+      <p>
+        Explore pregnancy-friendly nutrition guidance based
+        on your pregnancy stage, cravings and food preferences.
+      </p>
+
+      <div className="card-features">
+
+        <span>🥑 Nutrition</span>
+        <span>🍓 Cravings</span>
+        <span>💧 Hydration</span>
+
+      </div>
+
+      <button
+        type="button"
+        className="primary-button nutrition-home-button"
+        onClick={onNutritionClick}
+      >
+        Explore Nutrition
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  {/* ACTIVITY & EXERCISE */}
+
+  <section className="activity-home-section">
+
+    <div className="activity-home-card">
+
+      <div className="card-top">
+
+        <div className="card-icon activity-home-icon">
+          🏃‍♀️
+        </div>
+
+        <span className="available-badge">
+          Available
+        </span>
+
+      </div>
+
+      <h3>
+        Activity & Exercise
+      </h3>
+
+      <p>
+        Explore pregnancy-friendly movement, gentle exercises,
+        relaxation activities and wellness guidance.
+      </p>
+
+      <div className="card-features">
+
+        <span>🚶 Walking</span>
+        <span>🧘 Yoga</span>
+        <span>🏊 Swimming</span>
+
+      </div>
+
+      <button
+        type="button"
+        className="primary-button activity-home-button"
+        onClick={onActivityClick}
+      >
+        Explore Activity
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
+
 
 
       {/* ==================================================
@@ -384,7 +441,6 @@ function Home({
           >
             Start Assessment
             <span>→</span>
-
           </button>
 
         </div>

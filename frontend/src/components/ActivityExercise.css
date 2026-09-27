@@ -1,0 +1,3353 @@
+/* =========================================================
+   ACTIVITY & EXERCISE PAGE
+   Maternal-Fetal Health Project
+   ========================================================= */
+
+
+/* =========================================================
+   1. MAIN PAGE
+   ========================================================= */
+
+.activity-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 45px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. PAGE HEADER
+   ========================================================= */
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.activity-label {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: #9a6a85;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.activity-header h2 {
+  margin: 0 0 8px;
+
+  color: #4d3d47;
+
+  font-size: 2rem;
+}
+
+.activity-header p {
+  max-width: 650px;
+  margin: 0;
+
+  color: #756771;
+
+  line-height: 1.6;
+}
+
+.activity-header-icon {
+  width: 75px;
+  height: 75px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 22px;
+
+  background: #f7e9f0;
+
+  font-size: 2.2rem;
+}
+
+
+/* =========================================================
+   3. PREGNANCY CONTEXT
+   ========================================================= */
+
+.activity-pregnancy-card {
+  margin-bottom: 24px;
+  padding: 22px;
+
+  border: 1px solid #f5dce7;
+  border-radius: 20px;
+
+  background: #fff8fb;
+
+  box-shadow:
+    0 8px 20px rgba(120, 70, 90, 0.06);
+}
+
+.activity-pregnancy-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.activity-pregnancy-title {
+  min-width: 0;
+}
+
+.activity-pregnancy-small {
+  display: inline-block;
+
+  margin-bottom: 5px;
+
+  color: #b06b8b;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.activity-pregnancy-header h3 {
+  margin: 0;
+
+  color: #57434e;
+
+  font-size: 1.2rem;
+}
+
+.activity-pregnancy-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #fdebf3;
+
+  font-size: 26px;
+}
+
+.activity-pregnancy-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.activity-pregnancy-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 14px;
+
+  border: 1px solid #f2e2e9;
+  border-radius: 14px;
+
+  background: #ffffff;
+}
+
+.activity-pregnancy-item > span {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #fff1f6;
+
+  font-size: 17px;
+}
+
+.activity-pregnancy-item div {
+  min-width: 0;
+}
+
+.activity-pregnancy-item strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #57434e;
+
+  font-size: 0.78rem;
+}
+
+.activity-pregnancy-item p {
+  margin: 0;
+
+  color: #756771;
+
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PREGNANCY INFORMATION UNAVAILABLE
+   ========================================================= */
+
+.activity-no-pregnancy {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-bottom: 24px;
+  padding: 20px;
+
+  border: 1px dashed #ead7e0;
+  border-radius: 18px;
+
+  background: #fffafd;
+}
+
+.activity-no-pregnancy > span {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f9eaf1;
+
+  font-size: 21px;
+}
+
+.activity-no-pregnancy h3 {
+  margin: 0 0 5px;
+
+  color: #57434e;
+
+  font-size: 1rem;
+}
+
+.activity-no-pregnancy p {
+  margin: 0;
+
+  color: #81727a;
+
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   4. DAILY WELLNESS
+   ========================================================= */
+
+.activity-wellness-card {
+  position: relative;
+
+  margin-bottom: 30px;
+  padding: 26px 28px;
+
+  border: 1px solid #eadfe7;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 247, 250, 0.98),
+      rgba(247, 252, 255, 0.98)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(70, 85, 110, 0.07);
+
+  overflow: hidden;
+}
+
+.activity-wellness-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -65px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background: #e8f5ff;
+
+  opacity: 0.65;
+
+  pointer-events: none;
+}
+
+.activity-wellness-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.activity-section-label {
+  display: inline-block;
+
+  margin-bottom: 6px;
+
+  color: #c56b91;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.activity-wellness-header h3 {
+  margin: 0 0 6px;
+
+  color: #344054;
+
+  font-size: 20px;
+}
+
+.activity-wellness-header p {
+  margin: 0;
+
+  color: #718096;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.activity-wellness-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe8f0,
+      #f7e8f8
+    );
+
+  font-size: 27px;
+}
+
+
+/* Wellness values */
+
+.activity-wellness-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.activity-wellness-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px 12px;
+
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 3px 10px rgba(70, 85, 110, 0.03);
+}
+
+.activity-wellness-item > span {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #f8edf4;
+
+  font-size: 17px;
+}
+
+.activity-wellness-item div {
+  min-width: 0;
+}
+
+.activity-wellness-item small {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #8a97a8;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.activity-wellness-item strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #40516a;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* Wellness note */
+
+.activity-wellness-note {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-top: 15px;
+  padding: 11px 13px;
+
+  border: 1px solid rgba(214, 231, 246, 0.8);
+  border-radius: 13px;
+
+  background: rgba(239, 247, 255, 0.75);
+}
+
+.activity-wellness-note span {
+  flex-shrink: 0;
+
+  font-size: 14px;
+}
+
+.activity-wellness-note p {
+  margin: 0;
+
+  color: #718096;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* No wellness */
+
+.activity-wellness-empty {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 18px;
+
+  border: 1px dashed #dddfe7;
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.activity-wellness-empty-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #fff0f5;
+
+  font-size: 22px;
+}
+
+.activity-wellness-empty h4 {
+  margin: 0 0 4px;
+
+  color: #40516a;
+
+  font-size: 14px;
+}
+
+.activity-wellness-empty p {
+  margin: 0;
+
+  color: #8491a1;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   5. PERSONALIZED RECOMMENDATIONS
+   ========================================================= */
+
+.activity-recommendations-card {
+  margin-bottom: 30px;
+  padding: 28px;
+
+  border: 1px solid #f0dce7;
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8fb 0%,
+      #f8fbff 100%
+    );
+
+  box-shadow:
+    0 8px 24px rgba(170, 120, 145, 0.08);
+}
+
+.activity-recommendations-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.activity-recommendations-header h3 {
+  margin: 6px 0 8px;
+
+  color: #493746;
+
+  font-size: 22px;
+}
+
+.activity-recommendations-header p {
+  margin: 0;
+
+  color: #766a73;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.activity-recommendations-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #fff0f7;
+
+  font-size: 25px;
+
+  box-shadow:
+    0 5px 14px rgba(220, 130, 170, 0.12);
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.activity-recommendations-loading {
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 1px solid #f0e3ea;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  color: #766a73;
+}
+
+.activity-recommendations-loading span {
+  font-size: 24px;
+}
+
+.activity-recommendations-loading p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.activity-recommendation-error {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  padding: 18px;
+
+  border: 1px solid #f1d4cc;
+  border-radius: 16px;
+
+  background: #fff7f5;
+}
+
+.activity-recommendation-error > span {
+  font-size: 22px;
+}
+
+.activity-recommendation-error p {
+  flex: 1;
+  min-width: 220px;
+
+  margin: 0;
+
+  color: #7a514a;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.activity-recommendation-error button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 9px 16px;
+
+  background: #e89ab7;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.activity-recommendation-error button:hover {
+  background: #dc83a5;
+}
+
+
+/* =========================================================
+   RECOMMENDATION STATUS
+   ========================================================= */
+
+.activity-recommendation-status {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 16px;
+  padding: 12px 15px;
+
+  border: 1px solid #f2dce7;
+  border-radius: 13px;
+
+  background: #fdf2f7;
+
+  color: #725267;
+
+  font-size: 14px;
+}
+
+.activity-recommendation-status span {
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   RECOMMENDATION LIST
+   ========================================================= */
+
+.activity-recommendations-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.activity-recommendation-item {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  border: 1px solid #eee1e8;
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.activity-recommendation-item:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(160, 120, 140, 0.09);
+}
+
+.activity-recommendation-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #fff1f7;
+
+  font-size: 21px;
+}
+
+.activity-recommendation-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-recommendation-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.activity-recommendation-top h4 {
+  margin: 0;
+
+  color: #493746;
+
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.activity-recommendation-top > span {
+  flex-shrink: 0;
+
+  padding: 4px 8px;
+
+  border-radius: 8px;
+
+  background: #f3f8ee;
+
+  color: #63764d;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.activity-recommendation-content > small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #b17692;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.activity-recommendation-content > p {
+  margin: 9px 0 0;
+
+  color: #756b72;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.activity-recommendation-reason {
+  color: #766078 !important;
+}
+
+.activity-recommendation-modification {
+  padding: 9px 11px;
+
+  border-radius: 10px;
+
+  background: #fff8ed;
+
+  color: #7b674d !important;
+}
+
+.activity-recommendation-safety {
+  display: inline-block;
+
+  margin-top: 10px;
+  padding: 5px 9px;
+
+  border-radius: 8px;
+
+  background: #eef8f1;
+
+  color: #5f765f;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   MEDICAL ADVICE
+   ========================================================= */
+
+.activity-medical-advice {
+  display: flex;
+
+  gap: 16px;
+
+  padding: 20px;
+
+  border: 1px solid #f0d4c8;
+  border-radius: 17px;
+
+  background: #fff8f4;
+}
+
+.activity-medical-advice-icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #fff0e9;
+
+  font-size: 22px;
+}
+
+.activity-medical-advice h4 {
+  margin: 0 0 9px;
+
+  color: #70483e;
+
+  font-size: 16px;
+}
+
+.activity-medical-advice p {
+  margin: 5px 0;
+
+  color: #765e58;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.activity-medical-advice-note {
+  margin-top: 12px !important;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   NO RECOMMENDATIONS
+   ========================================================= */
+
+.activity-no-recommendations {
+  padding: 25px;
+
+  border: 1px dashed #dfd3da;
+  border-radius: 16px;
+
+  background: #faf8f9;
+
+  text-align: center;
+
+  color: #766a73;
+}
+
+.activity-no-recommendations span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 25px;
+}
+
+.activity-no-recommendations p {
+  margin: 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   REST DAY
+   ========================================================= */
+
+.activity-rest-day-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  padding: 24px;
+
+  border: 1px solid #dfeadf;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f9fff9,
+      #f4fbf7
+    );
+}
+
+.activity-rest-day-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #edf8ef;
+
+  font-size: 28px;
+}
+
+.activity-rest-day-card h3 {
+  margin: 0 0 7px;
+
+  color: #4f6755;
+
+  font-size: 18px;
+}
+
+.activity-rest-day-card p {
+  margin: 0;
+
+  color: #68756b;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   WELLNESS CONTEXT MISSING
+   ========================================================= */
+
+.activity-wellness-context-missing {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  border: 1px dashed #ead9df;
+  border-radius: 17px;
+
+  background: #fffafd;
+}
+
+.activity-wellness-context-missing-icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #fff0f5;
+
+  font-size: 22px;
+}
+
+.activity-wellness-context-missing h4 {
+  margin: 0 0 6px;
+
+  color: #57434e;
+
+  font-size: 16px;
+}
+
+.activity-wellness-context-missing p {
+  margin: 0;
+
+  color: #786c73;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   ACTIVITY PREFERENCE MISSING
+   ========================================================= */
+
+.activity-preference-missing {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  border: 1px dashed #e6d7df;
+  border-radius: 17px;
+
+  background: #fffafd;
+}
+
+.activity-preference-missing-icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #fff0f6;
+
+  font-size: 22px;
+}
+
+.activity-preference-missing h4 {
+  margin: 0 0 6px;
+
+  color: #57434e;
+
+  font-size: 16px;
+}
+
+.activity-preference-missing p {
+  margin: 0;
+
+  color: #786c73;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   6. SAVE ACTIVITY PLAN
+   ========================================================= */
+
+.activity-save-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  padding: 23px 25px;
+
+  border: 1px solid #e7dce3;
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8fb 0%,
+      #f9fdf8 100%
+    );
+}
+
+.activity-save-card h3 {
+  margin: 6px 0 7px;
+
+  color: #493746;
+
+  font-size: 18px;
+}
+
+.activity-save-card p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: #766a73;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.activity-save-button {
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 19px;
+
+  background: #d989aa;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(210, 125, 160, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.activity-save-button:hover {
+  background: #cc759a;
+
+  transform: translateY(-1px);
+}
+
+.activity-save-message {
+  width: 100%;
+
+  margin-top: -4px;
+
+  color: #64805f;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   7. ACTIVITY CATEGORIES
+   ========================================================= */
+
+.activity-section {
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.section-heading > span {
+  font-size: 1.4rem;
+}
+
+.section-heading h3 {
+  margin: 0 0 3px;
+
+  color: #4d3d47;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: #81727a;
+
+  font-size: 0.9rem;
+}
+
+.activity-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   CLICKABLE ACTIVITY CARDS
+   ========================================================= */
+
+.activity-card {
+  min-width: 0;
+
+  position: relative;
+
+  padding: 22px;
+
+  border: 1px solid #eadde3;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(92, 67, 79, 0.06);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  text-align: left;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #e5bfd0;
+
+  box-shadow:
+    0 10px 25px rgba(92, 67, 79, 0.12);
+}
+
+.activity-card:active {
+  transform: translateY(-1px);
+}
+
+.activity-card-icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #f7edf2;
+
+  font-size: 1.7rem;
+}
+
+.activity-category {
+  display: inline-block;
+
+  margin-bottom: 6px;
+  padding: 4px 9px;
+
+  border-radius: 20px;
+
+  background: #fff1f6;
+
+  color: #bd6d8d;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+}
+
+.activity-card h4 {
+  margin: 0 0 8px;
+
+  color: #55434c;
+
+  font-size: 1.05rem;
+}
+
+.activity-card p {
+  margin: 0 0 14px;
+
+  color: #756971;
+
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.activity-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-status {
+  display: inline-block;
+
+  color: #8b7080;
+
+  font-size: 0.78rem;
+}
+
+
+/* Click hint hidden by default, shown on hover */
+
+.activity-card::after {
+  content: "View exercises →";
+
+  display: block;
+
+  margin-top: 10px;
+
+  color: #c27497;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  opacity: 0;
+
+  transform: translateY(4px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-card:hover::after {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   8. EXERCISE DETAIL MODAL
+   ========================================================= */
+
+.activity-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(58, 43, 52, 0.48);
+
+  backdrop-filter: blur(6px);
+
+  -webkit-backdrop-filter: blur(6px);
+
+  box-sizing: border-box;
+}
+
+
+/* Main modal */
+
+.activity-modal {
+  width: min(760px, 100%);
+
+  max-height: 88vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #eadce4;
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 24px 70px rgba(60, 40, 52, 0.24);
+
+  animation:
+    activityModalIn 0.22s ease-out;
+}
+
+@keyframes activityModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Modal header */
+
+.activity-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px 24px 18px;
+
+  border-bottom: 1px solid #f0e4ea;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8fb,
+      #f9fbff
+    );
+
+  flex-shrink: 0;
+}
+
+.activity-modal-header-left {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  min-width: 0;
+}
+
+.activity-modal-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #fff0f6;
+
+  font-size: 25px;
+}
+
+.activity-modal-header h2 {
+  margin: 2px 0 5px;
+
+  color: #493746;
+
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.activity-modal-header p {
+  margin: 0;
+
+  color: #7d7078;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* Close button */
+
+.activity-modal-close {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #f7edf2;
+
+  color: #745866;
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-modal-close:hover {
+  background: #f0dce5;
+
+  transform: scale(1.04);
+}
+
+
+/* Modal scrolling content */
+
+.activity-modal-body {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 22px 24px 26px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #dfc8d3 transparent;
+}
+
+.activity-modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.activity-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.activity-modal-body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: #dfc8d3;
+}
+
+
+/* =========================================================
+   MODAL EXERCISE INTRO
+   ========================================================= */
+
+.activity-modal-exercise-intro {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+  padding: 18px;
+
+  border: 1px solid #f0dfe7;
+  border-radius: 17px;
+
+  background: #fffafd;
+}
+
+.activity-modal-exercise-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #f9eaf1;
+
+  font-size: 25px;
+}
+
+.activity-modal-exercise-intro h3 {
+  margin: 0 0 5px;
+
+  color: #493746;
+
+  font-size: 18px;
+}
+
+.activity-modal-exercise-intro p {
+  margin: 0;
+
+  color: #756a72;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MODAL DETAIL GRID
+   ========================================================= */
+
+.activity-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.activity-detail-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 13px 14px;
+
+  border: 1px solid #eee4e9;
+  border-radius: 13px;
+
+  background: #ffffff;
+}
+
+.activity-detail-item > span:first-child {
+  flex-shrink: 0;
+
+  color: #b56f8f;
+
+  font-size: 14px;
+}
+
+.activity-detail-item > div {
+  min-width: 0;
+}
+
+.activity-detail-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #8c7d85;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.activity-detail-value {
+  display: block;
+
+  color: #4d4148;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.45;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   MODAL SECTIONS
+   ========================================================= */
+
+.activity-detail-section {
+  margin-top: 22px;
+  padding-top: 20px;
+
+  border-top: 1px solid #eee5e9;
+}
+
+.activity-detail-section h4 {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0 0 10px;
+
+  color: #55434c;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.activity-detail-section p {
+  margin: 0;
+
+  color: #71656c;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* Benefits */
+
+.activity-modal-benefits {
+  padding: 14px 16px;
+
+  border-radius: 13px;
+
+  background: #f8fbf5;
+
+  color: #63735e;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* Instructions */
+
+.activity-modal-instructions {
+  padding: 14px 16px;
+
+  border-radius: 13px;
+
+  background: #f8faff;
+
+  color: #647083;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* Modifications */
+
+.activity-modal-modifications {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.activity-modal-modification {
+  padding: 12px 14px;
+
+  border-left: 3px solid #d99ab4;
+  border-radius: 10px;
+
+  background: #fff8ed;
+
+  color: #74634f;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   TRIMESTER INFORMATION
+   ========================================================= */
+
+.activity-trimester-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.activity-trimester-item {
+  padding: 12px;
+
+  border: 1px solid #eee3e8;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+.activity-trimester-item span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #927c87;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.activity-trimester-item strong {
+  color: #55434c;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MODAL SAFETY
+   ========================================================= */
+
+.activity-modal-safety {
+  margin-top: 20px;
+  padding: 15px 16px;
+
+  border: 1px solid #dcebdc;
+  border-radius: 14px;
+
+  background: #f7fcf7;
+}
+
+.activity-modal-safety-title {
+  margin-bottom: 6px;
+
+  color: #58705a;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.activity-modal-safety p {
+  margin: 0;
+
+  color: #687569;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   MODAL SOURCE
+   ========================================================= */
+
+.activity-modal-source {
+  margin-top: 22px;
+  padding-top: 15px;
+
+  border-top: 1px solid #eee5e9;
+
+  color: #8d7d85;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.activity-modal-source strong {
+  color: #6e5d66;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+   ========================================================= */
+
+.activity-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 15px 24px;
+
+  border-top: 1px solid #f0e4ea;
+
+  background: #fffafd;
+
+  flex-shrink: 0;
+}
+
+.activity-modal-done-button {
+  border: none;
+  border-radius: 11px;
+
+  padding: 10px 18px;
+
+  background: #eadde5;
+
+  color: #5b4852;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease;
+}
+
+.activity-modal-done-button:hover {
+  background: #dfced9;
+}
+
+
+/* =========================================================
+   9. SAFETY GUIDANCE
+   ========================================================= */
+
+.activity-safety-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+  padding: 20px;
+
+  border: 1px solid #eadfce;
+  border-radius: 18px;
+
+  background: #fffaf1;
+}
+
+.safety-icon {
+  flex-shrink: 0;
+
+  font-size: 1.5rem;
+}
+
+.activity-safety-card h3 {
+  margin: 0 0 7px;
+
+  color: #5e5144;
+}
+
+.activity-safety-card p {
+  margin: 0;
+
+  color: #756b60;
+
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   10. NAVIGATION
+   ========================================================= */
+
+.activity-footer-actions {
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+.activity-back-button {
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #eadde5;
+
+  color: #5b4852;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activity-back-button:hover {
+  background: #dfced9;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   11. DISCLAIMER
+   ========================================================= */
+
+.activity-disclaimer {
+  margin: 18px 0 0;
+
+  text-align: center;
+
+  color: #9a8c93;
+
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   12. TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .activity-wellness-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .activity-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   13. MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .activity-page {
+    padding: 22px 14px 35px;
+  }
+
+
+  /* Header */
+
+  .activity-header {
+    align-items: flex-start;
+  }
+
+  .activity-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .activity-header-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 1.7rem;
+  }
+
+
+  /* Pregnancy */
+
+  .activity-pregnancy-card {
+    padding: 18px;
+  }
+
+  .activity-pregnancy-details {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Wellness */
+
+  .activity-wellness-card {
+    padding: 22px 18px;
+  }
+
+  .activity-wellness-header {
+    align-items: flex-start;
+  }
+
+  .activity-wellness-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 16px;
+
+    font-size: 23px;
+  }
+
+  .activity-wellness-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* Activity cards */
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Recommendations */
+
+  .activity-recommendations-card {
+    padding: 20px;
+  }
+
+  .activity-recommendations-list {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Save */
+
+  .activity-save-card {
+    align-items: flex-start;
+  }
+
+  .activity-save-button {
+    width: 100%;
+  }
+
+
+  /* Modal */
+
+  .activity-modal-overlay {
+    padding: 12px;
+  }
+
+  .activity-modal {
+    max-height: 92vh;
+
+    border-radius: 20px;
+  }
+
+  .activity-modal-header {
+    padding: 18px;
+  }
+
+  .activity-modal-body {
+    padding: 18px;
+  }
+
+  .activity-modal-footer {
+    padding: 13px 18px;
+  }
+
+  .activity-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-trimester-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-modal-exercise-intro {
+    padding: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   14. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .activity-header {
+    gap: 14px;
+  }
+
+  .activity-header-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 17px;
+
+    font-size: 1.5rem;
+  }
+
+  .activity-pregnancy-header {
+    align-items: flex-start;
+  }
+
+  .activity-pregnancy-icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 14px;
+
+    font-size: 22px;
+  }
+
+  .activity-wellness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-wellness-item {
+    padding: 12px;
+  }
+
+  .activity-wellness-empty {
+    align-items: flex-start;
+  }
+
+  .activity-safety-card {
+    padding: 17px;
+  }
+
+  .activity-rest-day-card {
+    padding: 17px;
+  }
+
+  .activity-modal-header {
+    gap: 10px;
+  }
+
+  .activity-modal-header h2 {
+    font-size: 17px;
+  }
+
+  .activity-modal-close {
+    width: 34px;
+    height: 34px;
+
+    font-size: 21px;
+  }
+
+  .activity-modal-body {
+    padding: 16px;
+  }
+
+}
+/* =========================================================
+   EXERCISE LIBRARY — NEW CARD DESIGN
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   MODAL OVERLAY
+   --------------------------------------------------------- */
+
+.activity-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(55, 42, 49, 0.52);
+
+  backdrop-filter: blur(5px);
+
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN MODAL
+   --------------------------------------------------------- */
+
+.activity-modal {
+  width: min(900px, 100%);
+
+  max-height: 90vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #efdce5;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(70, 45, 58, 0.22);
+
+  animation: exerciseLibraryModalIn 0.22s ease-out;
+}
+
+
+@keyframes exerciseLibraryModalIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(16px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MODAL HEADER
+   --------------------------------------------------------- */
+
+.activity-modal-header {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px 26px 20px;
+
+  border-bottom: 1px solid #f0e2e8;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8fb 0%,
+      #f9fbff 100%
+    );
+}
+
+
+.activity-modal-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #a26b87;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+
+.activity-modal-header h3 {
+  margin: 0 0 6px;
+
+  color: #493746;
+
+  font-size: 20px;
+
+  line-height: 1.35;
+}
+
+
+.activity-modal-header p {
+  margin: 0;
+
+  color: #83737c;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE BUTTON
+   --------------------------------------------------------- */
+
+.activity-modal-close {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f8edf2;
+
+  color: #765766;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.activity-modal-close:hover {
+  background: #f0dce5;
+
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   MODAL BODY
+   ========================================================= */
+
+.activity-modal-body {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 22px 24px 28px;
+
+  background: #fcfbfc;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    #dcbfcc
+    transparent;
+}
+
+
+.activity-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.activity-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.activity-modal-body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: #dcbfcc;
+}
+
+
+/* =========================================================
+   EXERCISE LIST
+   ========================================================= */
+
+.exercise-library-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   EACH EXERCISE = SEPARATE CARD
+   ========================================================= */
+
+.exercise-library-card {
+  position: relative;
+
+  padding: 24px;
+
+  border: 1px solid #eadde4;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 18px rgba(105, 76, 91, 0.06);
+
+  overflow: hidden;
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.exercise-library-card:hover {
+  box-shadow:
+    0 9px 25px rgba(105, 76, 91, 0.09);
+
+  transform: translateY(-1px);
+}
+
+
+/* Small decorative line on top */
+
+.exercise-library-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #efb8ce,
+      #dcbce8,
+      #bcdce8
+    );
+}
+
+
+/* =========================================================
+   EXERCISE CARD HEADER
+   ========================================================= */
+
+.exercise-library-card-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #f0e5ea;
+}
+
+
+.exercise-number-badge {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fdebf3,
+      #f3eaf8
+    );
+
+  color: #9b6380;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 110, 145, 0.08);
+}
+
+
+.exercise-library-title {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.exercise-number-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #b27691;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.exercise-library-title h4 {
+  margin: 0 0 6px;
+
+  color: #493746;
+
+  font-size: 18px;
+
+  line-height: 1.4;
+}
+
+
+.exercise-library-category {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 8px;
+
+  background: #faf1f6;
+
+  color: #806273;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GENERAL EXERCISE SECTIONS
+   ========================================================= */
+
+.exercise-library-section {
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #f0e5ea;
+}
+
+
+.exercise-library-section h5 {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0 0 9px;
+
+  color: #55434c;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+.exercise-library-section p {
+  margin: 0;
+
+  color: #6f636b;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.exercise-description-section {
+  margin-top: 18px;
+
+  padding: 15px 16px;
+
+  border: 1px solid #eee3e8;
+
+  border-top: 1px solid #eee3e8;
+
+  border-radius: 14px;
+
+  background: #fffafd;
+}
+
+
+.exercise-description-section h5 {
+  margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   QUICK DETAILS
+   ========================================================= */
+
+.exercise-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 11px;
+
+  margin-top: 18px;
+}
+
+
+.exercise-detail {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  border: 1px solid #eee3e8;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+}
+
+
+.exercise-detail-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #faf0f5;
+
+  font-size: 15px;
+}
+
+
+.exercise-detail > div {
+  min-width: 0;
+}
+
+
+.exercise-detail small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #93838c;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+.exercise-detail strong {
+  display: block;
+
+  color: #4e4249;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.exercise-library-section h5 + p {
+  max-width: 760px;
+}
+
+/* =========================================================
+   INSTRUCTIONS
+   ========================================================= */
+
+.exercise-instructions-box {
+  padding: 15px 16px;
+
+  border: 1px solid #e1e9f3;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fbff,
+      #fbfaff
+    );
+}
+
+
+.exercise-instructions-box p {
+  color: #657083;
+}
+
+
+/* =========================================================
+   TRIMESTER SUITABILITY
+   ========================================================= */
+
+.trimester-tags {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: 4px;
+}
+
+
+.trimester-tag {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 11px 12px;
+
+  border: 1px solid #e7e0e5;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+
+.trimester-tag span {
+  width: 30px;
+  height: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f8edf3;
+
+  color: #a16a85;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.trimester-tag strong {
+  color: #59616a;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MODIFICATIONS
+   ========================================================= */
+
+.exercise-modification-section {
+  padding: 17px;
+
+  border: 1px solid #f0dfbd;
+
+  border-top: 1px solid #f0dfbd;
+
+  border-radius: 15px;
+
+  background: #fffaf1;
+}
+
+
+.exercise-modification-section h5 {
+  color: #715f4c;
+}
+
+
+.modification-row {
+  margin-top: 12px;
+
+  padding: 11px 13px;
+
+  border-left: 3px solid #ddb47b;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+
+.modification-row:first-of-type {
+  margin-top: 4px;
+}
+
+
+.modification-row strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #685646;
+
+  font-size: 11px;
+}
+
+
+.modification-row p {
+  color: #756756;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   WELLNESS CONSIDERATIONS
+   ========================================================= */
+
+.exercise-wellness-section {
+  padding: 16px;
+
+  border: 1px solid #eadfed;
+
+  border-top: 1px solid #eadfed;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff9fc,
+      #f9f8ff
+    );
+}
+
+
+.exercise-wellness-section h5 {
+  color: #745d78;
+}
+
+
+/* =========================================================
+   SOURCE
+   ========================================================= */
+
+.exercise-library-source {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-top: 20px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #eee5e9;
+}
+
+
+.source-icon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #f5f0f7;
+
+  font-size: 15px;
+}
+
+
+.exercise-library-source > div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.exercise-library-source small {
+  color: #9a8992;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+.exercise-library-source strong,
+.exercise-library-source a {
+  color: #66505d;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  word-break: break-word;
+}
+
+
+.exercise-library-source a {
+  color: #a45f82;
+
+  text-decoration: none;
+}
+
+
+.exercise-library-source a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.activity-modal-empty {
+  padding: 50px 25px;
+
+  border: 1px dashed #dfd1d9;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+
+.activity-modal-empty > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 32px;
+}
+
+
+.activity-modal-empty h4 {
+  margin: 0 0 7px;
+
+  color: #51414a;
+
+  font-size: 16px;
+}
+
+
+.activity-modal-empty p {
+  margin: 0;
+
+  color: #80737b;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+   ========================================================= */
+
+.activity-modal-footer {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 15px 24px;
+
+  border-top: 1px solid #f0e4ea;
+
+  background: #fffafd;
+}
+
+
+.activity-modal-footer-note {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+
+.activity-modal-footer-note span {
+  flex-shrink: 0;
+
+  font-size: 15px;
+}
+
+
+.activity-modal-footer-note p {
+  margin: 0;
+
+  color: #756871;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+.activity-modal-footer-button {
+  flex-shrink: 0;
+
+  padding: 9px 17px;
+
+  border: 1px solid #d9cbd2;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #594851;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.activity-modal-footer-button:hover {
+  background: #f7eef2;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE EXERCISE LIBRARY
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .activity-modal-overlay {
+    align-items: center;
+
+    padding: 10px;
+  }
+
+
+  .activity-modal {
+    width: 100%;
+
+    max-height: 94vh;
+
+    border-radius: 20px;
+  }
+
+
+  .activity-modal-header {
+    padding: 18px;
+  }
+
+
+  .activity-modal-header h3 {
+    font-size: 17px;
+  }
+
+
+  .activity-modal-body {
+    padding: 16px;
+  }
+
+
+  .exercise-library-list {
+    gap: 15px;
+  }
+
+
+  .exercise-library-card {
+    padding: 18px;
+
+    border-radius: 17px;
+  }
+
+
+  .exercise-library-card-header {
+    gap: 12px;
+
+    padding-bottom: 15px;
+  }
+
+
+  .exercise-number-badge {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    font-size: 13px;
+  }
+
+
+  .exercise-library-title h4 {
+    font-size: 16px;
+  }
+
+
+  .exercise-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .trimester-tags {
+    grid-template-columns: 1fr;
+  }
+
+
+  .activity-modal-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 14px 18px;
+  }
+
+
+  .activity-modal-footer-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .exercise-library-card {
+    padding: 15px;
+  }
+
+
+  .exercise-library-card-header {
+    align-items: flex-start;
+  }
+
+
+  .exercise-number-badge {
+    width: 38px;
+    height: 38px;
+
+    font-size: 12px;
+  }
+
+
+  .exercise-library-title h4 {
+    font-size: 15px;
+  }
+
+
+  .exercise-library-section {
+    margin-top: 16px;
+
+    padding-top: 15px;
+  }
+
+}

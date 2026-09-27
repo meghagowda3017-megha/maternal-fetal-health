@@ -666,33 +666,66 @@ function DailyWellness({
           </div>
         </div>
 
-        {/* SELF CARE */}
-        <div className="wellness-question">
-          <div className="question-heading">
-            <div>
-              <h3>🧘 Self-care</h3>
-              <span>What did you do for yourself today?</span>
-            </div>
-          </div>
-          <div className="wellness-option-grid">
-            {[
-              ['🧘', 'Yoga'],
-              ['🚶', 'Walking'],
-              ['🤸', 'Stretching'],
-              ['🛌', 'Rest day'],
-            ].map(([emoji, label]) => (
-              <button
-                key={label}
-                type="button"
-                className={selfCare.includes(label) ? 'wellness-option selected' : 'wellness-option'}
-                onClick={() => toggleSelection(label, selfCare, setSelfCare)}
-              >
-                <span className="option-emoji">{emoji}</span>
-                <span>{label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+      {/* SELF CARE / ACTIVITY PREFERENCE */}
+<div className="wellness-question">
+  <div className="question-heading">
+    <div>
+      <h3>🧘 Self-care</h3>
+      <span>
+        What did you do for yourself today? You can choose more than one.
+      </span>
+    </div>
+  </div>
+
+  <div className="wellness-option-grid">
+    {[
+      ['🚶', 'Walking'],
+      ['🧘', 'Prenatal Yoga'],
+      ['🤸', 'Stretching'],
+      ['🪢', 'Pelvic Floor Exercises'],
+      ['💪', 'Light Strength'],
+      ['🫁', 'Breathing & Relaxation'],
+      ['🛌', 'Rest Day'],
+    ].map(([emoji, label]) => (
+      <button
+        key={label}
+        type="button"
+        className={
+          selfCare.includes(label)
+            ? 'wellness-option selected'
+            : 'wellness-option'
+        }
+        onClick={() => {
+          if (label === 'Rest Day') {
+            // Rest Day is exclusive.
+            // Selecting it removes other activity choices.
+            setSelfCare(
+              selfCare.includes('Rest Day')
+                ? []
+                : ['Rest Day']
+            )
+            return
+          }
+
+          // Selecting an activity removes Rest Day.
+          if (selfCare.includes('Rest Day')) {
+            setSelfCare([label])
+            return
+          }
+
+          toggleSelection(
+            label,
+            selfCare,
+            setSelfCare
+          )
+        }}
+      >
+        <span className="option-emoji">{emoji}</span>
+        <span>{label}</span>
+      </button>
+    ))}
+  </div>
+</div>
 
         {/* AILMENTS */}
         <div className="wellness-question">

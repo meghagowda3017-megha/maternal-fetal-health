@@ -1,19 +1,27 @@
-import { useState } from 'react'
 import './MaternalWellnessDashboard.css'
 
 function MaternalWellnessDashboard({
   wellnessHistory,
   pregnancyInfo,
   nutritionHistory,
+  activityHistory,
   onBack,
   onNutritionClick,
+  onActivityClick,
 }) {
   // ==================================================
   // SAFE DATA
   // ==================================================
 
-  const safeWellnessHistory = wellnessHistory || []
-  const safeNutritionHistory = nutritionHistory || []
+  const safeWellnessHistory =
+    wellnessHistory || []
+
+  const safeNutritionHistory =
+    nutritionHistory || []
+
+  const safeActivityHistory =
+    activityHistory || []
+
 
   // ==================================================
   // NUTRITION INFORMATION
@@ -37,6 +45,93 @@ function MaternalWellnessDashboard({
     latestNutritionPlan?.dietaryPreference ||
     'No specific preference'
 
+
+  // ==================================================
+  // ACTIVITY INFORMATION — 8.9
+  // ==================================================
+
+  const latestActivityPlan =
+    safeActivityHistory.length > 0
+      ? safeActivityHistory[0]
+      : null
+
+  const activityRecommendations =
+    latestActivityPlan?.recommendations || []
+
+  const activityStatus =
+    latestActivityPlan?.status || ''
+
+  const activityMessages =
+    latestActivityPlan?.messages || []
+
+  const activitySelfCare =
+    latestActivityPlan?.wellness?.selfCare || []
+
+
+  // ==================================================
+  // ACTIVITY DISPLAY HELPERS
+  // ==================================================
+
+  const getActivitySelfCareText = () => {
+    if (!activitySelfCare) {
+      return 'Not recorded'
+    }
+
+    if (Array.isArray(activitySelfCare)) {
+      if (activitySelfCare.length === 0) {
+        return 'Not recorded'
+      }
+
+      return activitySelfCare.join(', ')
+    }
+
+    return activitySelfCare
+  }
+
+
+  const getActivityStatusText = () => {
+    if (!latestActivityPlan) {
+      return 'No activity plan saved yet'
+    }
+
+    if (activityStatus === 'rest_day') {
+      return 'Rest Day'
+    }
+
+    if (activityStatus === 'medical_advice') {
+      return 'Medical advice recommended'
+    }
+
+    if (
+      activityStatus ===
+      'wellness_context_missing'
+    ) {
+      return 'Wellness information needed'
+    }
+
+    if (
+      activityStatus ===
+      'activity_preference_missing'
+    ) {
+      return 'Activity preference needed'
+    }
+
+    if (
+      activityStatus ===
+      'recommendations_available'
+    ) {
+      const count =
+        activityRecommendations.length
+
+      return `${count} exercise${
+        count !== 1 ? 's' : ''
+      } recommended`
+    }
+
+    return 'Activity plan saved'
+  }
+
+
   // ==================================================
   // BASIC CALCULATIONS
   // ==================================================
@@ -44,103 +139,163 @@ function MaternalWellnessDashboard({
   const totalCheckIns =
     safeWellnessHistory.length
 
+
   // ==================================================
   // WELLNESS TREND DATA
   // ==================================================
 
-  const trendData = safeWellnessHistory
-    .slice(0, 7)
-    .reverse()
-    .map((item) => ({
-      date: item.date || 'Unknown date',
-      energy: Number(item.energy) || 0,
-      water: Number(item.water) || 0,
-      sleep:
-        (Number(item.sleepHours) || 0) +
-        (Number(item.sleepMinutes) || 0) / 60,
-      mood: item.mood || 'Not entered',
-    }))
+  const trendData =
+    safeWellnessHistory
+      .slice(0, 7)
+      .reverse()
+      .map((item) => ({
+        date:
+          item.date ||
+          'Unknown date',
+
+        energy:
+          Number(item.energy) || 0,
+
+        water:
+          Number(item.water) || 0,
+
+        sleep:
+          (Number(item.sleepHours) || 0) +
+          (Number(item.sleepMinutes) || 0) /
+            60,
+
+        mood:
+          item.mood ||
+          'Not entered',
+      }))
+
 
   // ==================================================
   // AVERAGE ENERGY
   // ==================================================
 
-  const energyValues = safeWellnessHistory
-    .map((item) => Number(item.energy))
-    .filter((value) => !isNaN(value))
+  const energyValues =
+    safeWellnessHistory
+      .map((item) =>
+        Number(item.energy)
+      )
+      .filter(
+        (value) => !isNaN(value)
+      )
 
   const averageEnergy =
     energyValues.length > 0
       ? (
           energyValues.reduce(
-            (sum, value) => sum + value,
+            (sum, value) =>
+              sum + value,
             0
-          ) / energyValues.length
+          ) /
+          energyValues.length
         ).toFixed(1)
       : '—'
+
 
   // ==================================================
   // AVERAGE WATER
   // ==================================================
 
-  const waterValues = safeWellnessHistory
-    .map((item) => Number(item.water))
-    .filter((value) => !isNaN(value))
+  const waterValues =
+    safeWellnessHistory
+      .map((item) =>
+        Number(item.water)
+      )
+      .filter(
+        (value) => !isNaN(value)
+      )
 
   const averageWater =
     waterValues.length > 0
       ? (
           waterValues.reduce(
-            (sum, value) => sum + value,
+            (sum, value) =>
+              sum + value,
             0
-          ) / waterValues.length
+          ) /
+          waterValues.length
         ).toFixed(1)
       : '—'
+
 
   // ==================================================
   // AVERAGE SLEEP
   // ==================================================
 
-  const sleepValues = safeWellnessHistory
-    .map((item) => {
-      const hours = Number(item.sleepHours) || 0
-      const minutes = Number(item.sleepMinutes) || 0
+  const sleepValues =
+    safeWellnessHistory
+      .map((item) => {
+        const hours =
+          Number(
+            item.sleepHours
+          ) || 0
 
-      if (hours === 0 && minutes === 0) {
-        return null
-      }
+        const minutes =
+          Number(
+            item.sleepMinutes
+          ) || 0
 
-      return hours + minutes / 60
-    })
-    .filter((value) => value !== null)
+        if (
+          hours === 0 &&
+          minutes === 0
+        ) {
+          return null
+        }
+
+        return (
+          hours +
+          minutes / 60
+        )
+      })
+      .filter(
+        (value) =>
+          value !== null
+      )
 
   const averageSleep =
     sleepValues.length > 0
       ? (
           sleepValues.reduce(
-            (sum, value) => sum + value,
+            (sum, value) =>
+              sum + value,
             0
-          ) / sleepValues.length
+          ) /
+          sleepValues.length
         ).toFixed(1)
       : '—'
+
 
   // ==================================================
   // AVERAGE MEDITATION
   // ==================================================
 
-  const meditationValues = safeWellnessHistory
-    .map((item) => Number(item.meditationMinutes))
-    .filter((value) => !isNaN(value))
+  const meditationValues =
+    safeWellnessHistory
+      .map((item) =>
+        Number(
+          item.meditationMinutes
+        )
+      )
+      .filter(
+        (value) => !isNaN(value)
+      )
 
   const averageMeditation =
     meditationValues.length > 0
       ? (
           meditationValues.reduce(
-            (sum, value) => sum + value,
+            (sum, value) =>
+              sum + value,
             0
-          ) / meditationValues.length
+          ) /
+          meditationValues.length
         ).toFixed(0)
       : '—'
+
 
   // ==================================================
   // MOST COMMON MOOD
@@ -148,22 +303,29 @@ function MaternalWellnessDashboard({
 
   const moodCounts = {}
 
-  safeWellnessHistory.forEach((item) => {
-    if (item.mood) {
-      moodCounts[item.mood] =
-        (moodCounts[item.mood] || 0) + 1
+  safeWellnessHistory.forEach(
+    (item) => {
+      if (item.mood) {
+        moodCounts[item.mood] =
+          (moodCounts[item.mood] || 0) +
+          1
+      }
     }
-  })
+  )
 
   const mostCommonMood =
     Object.keys(moodCounts).length > 0
-      ? Object.keys(moodCounts).reduce(
+      ? Object.keys(
+          moodCounts
+        ).reduce(
           (a, b) =>
-            moodCounts[a] > moodCounts[b]
+            moodCounts[a] >
+            moodCounts[b]
               ? a
               : b
         )
       : '—'
+
 
   // ==================================================
   // MOOD EMOJI
@@ -176,16 +338,20 @@ function MaternalWellnessDashboard({
     Low: '😔',
   }
 
+
   // ==================================================
   // WELLNESS INSIGHTS
   // ==================================================
 
   const getEnergyInsight = () => {
-    if (energyValues.length === 0) {
+    if (
+      energyValues.length === 0
+    ) {
       return 'No energy data has been recorded yet.'
     }
 
-    const average = Number(averageEnergy)
+    const average =
+      Number(averageEnergy)
 
     if (average >= 4) {
       return 'Your energy has been generally good across your recent check-ins.'
@@ -198,12 +364,16 @@ function MaternalWellnessDashboard({
     return 'Your energy has been lower across your recent check-ins.'
   }
 
+
   const getWaterInsight = () => {
-    if (waterValues.length === 0) {
+    if (
+      waterValues.length === 0
+    ) {
       return 'No hydration data has been recorded yet.'
     }
 
-    const average = Number(averageWater)
+    const average =
+      Number(averageWater)
 
     if (average >= 8) {
       return 'Your recorded water intake has been consistent recently.'
@@ -216,12 +386,16 @@ function MaternalWellnessDashboard({
     return 'Your recorded water intake has been relatively low recently.'
   }
 
+
   const getSleepInsight = () => {
-    if (sleepValues.length === 0) {
+    if (
+      sleepValues.length === 0
+    ) {
       return 'No sleep data has been recorded yet.'
     }
 
-    const average = Number(averageSleep)
+    const average =
+      Number(averageSleep)
 
     if (average >= 8) {
       return 'Your recorded sleep duration has been consistent recently.'
@@ -234,13 +408,17 @@ function MaternalWellnessDashboard({
     return 'Your recorded sleep duration has been relatively low recently.'
   }
 
+
   const getMoodInsight = () => {
-    if (mostCommonMood === '—') {
+    if (
+      mostCommonMood === '—'
+    ) {
       return 'No mood pattern has been recorded yet.'
     }
 
     return `Your most frequently recorded mood has been ${mostCommonMood}.`
   }
+
 
   // ==================================================
   // EMPTY WELLNESS STATE
@@ -248,6 +426,7 @@ function MaternalWellnessDashboard({
 
   const hasWellnessData =
     safeWellnessHistory.length > 0
+
 
   // ==================================================
   // DASHBOARD
@@ -263,6 +442,7 @@ function MaternalWellnessDashboard({
       <div className="wellness-dashboard-header">
 
         <div>
+
           <span className="section-label">
             WELLNESS DASHBOARD
           </span>
@@ -272,9 +452,12 @@ function MaternalWellnessDashboard({
           </h2>
 
           <p>
-            A summary of your recorded daily wellness patterns.
+            A summary of your recorded daily
+            wellness patterns.
           </p>
+
         </div>
+
 
         <button
           type="button"
@@ -292,11 +475,13 @@ function MaternalWellnessDashboard({
           ================================================== */}
 
       {pregnancyInfo && (
+
         <div className="dashboard-pregnancy-card">
 
           <div className="dashboard-pregnancy-header">
 
             <div>
+
               <span className="section-label">
                 PREGNANCY OVERVIEW
               </span>
@@ -306,9 +491,10 @@ function MaternalWellnessDashboard({
               </h3>
 
               <p>
-                Your wellness information alongside your
-                current pregnancy stage.
+                Your wellness information alongside
+                your current pregnancy stage.
               </p>
+
             </div>
 
             <span className="dashboard-pregnancy-icon">
@@ -319,8 +505,6 @@ function MaternalWellnessDashboard({
 
 
           <div className="dashboard-pregnancy-content">
-
-            {/* WEEK */}
 
             <div className="dashboard-pregnancy-item">
 
@@ -334,13 +518,13 @@ function MaternalWellnessDashboard({
 
               <small>
                 {pregnancyInfo.days} day
-                {pregnancyInfo.days !== 1 ? 's' : ''}
+                {pregnancyInfo.days !== 1
+                  ? 's'
+                  : ''}
               </small>
 
             </div>
 
-
-            {/* TRIMESTER */}
 
             <div className="dashboard-pregnancy-item">
 
@@ -355,8 +539,6 @@ function MaternalWellnessDashboard({
             </div>
 
 
-            {/* DUE DATE */}
-
             <div className="dashboard-pregnancy-item">
 
               <span>
@@ -369,8 +551,6 @@ function MaternalWellnessDashboard({
 
             </div>
 
-
-            {/* PROGRESS */}
 
             <div className="dashboard-pregnancy-item">
 
@@ -386,14 +566,17 @@ function MaternalWellnessDashboard({
 
                 <div
                   style={{
-                    width: `${pregnancyInfo.progress}%`,
+                    width:
+                      `${pregnancyInfo.progress}%`,
                   }}
                 ></div>
 
               </div>
 
               <small>
-                {pregnancyInfo.remainingWeeks} weeks remaining
+                {pregnancyInfo.remainingWeeks}
+                {' '}
+                weeks remaining
               </small>
 
             </div>
@@ -401,6 +584,7 @@ function MaternalWellnessDashboard({
           </div>
 
         </div>
+
       )}
 
 
@@ -423,8 +607,9 @@ function MaternalWellnessDashboard({
             </h3>
 
             <p>
-              A quick view of your saved nutrition preferences,
-              cravings, allergies, and latest food suggestions.
+              A quick view of your saved nutrition
+              preferences, cravings, allergies,
+              and latest food suggestions.
             </p>
 
           </div>
@@ -438,8 +623,6 @@ function MaternalWellnessDashboard({
 
         <div className="dashboard-nutrition-grid">
 
-          {/* SAVED PLANS */}
-
           <div className="nutrition-overview-item">
 
             <span>
@@ -452,13 +635,13 @@ function MaternalWellnessDashboard({
 
             <small>
               nutrition plan
-              {safeNutritionHistory.length !== 1 ? 's' : ''}
+              {safeNutritionHistory.length !== 1
+                ? 's'
+                : ''}
             </small>
 
           </div>
 
-
-          {/* DIETARY PREFERENCE */}
 
           <div className="nutrition-overview-item">
 
@@ -473,8 +656,6 @@ function MaternalWellnessDashboard({
           </div>
 
 
-          {/* ALLERGIES */}
-
           <div className="nutrition-overview-item">
 
             <span>
@@ -488,15 +669,15 @@ function MaternalWellnessDashboard({
             </strong>
 
             {nutritionAllergies.length > 0 && (
+
               <small>
                 {nutritionAllergies.join(', ')}
               </small>
+
             )}
 
           </div>
 
-
-          {/* CRAVINGS */}
 
           <div className="nutrition-overview-item">
 
@@ -514,8 +695,6 @@ function MaternalWellnessDashboard({
 
         </div>
 
-
-        {/* LATEST PLAN */}
 
         {latestNutritionPlan ? (
 
@@ -548,41 +727,44 @@ function MaternalWellnessDashboard({
 
                 {nutritionRecommendations
                   .slice(0, 4)
-                  .map((food, index) => (
+                  .map(
+                    (food, index) => (
 
-                    <div
-                      className="dashboard-food-item"
-                      key={`${food.food_name}-${index}`}
-                    >
+                      <div
+                        className="dashboard-food-item"
+                        key={`${food.food_name}-${index}`}
+                      >
 
-                      <div className="dashboard-food-icon">
-                        🍎
+                        <div className="dashboard-food-icon">
+                          🍎
+                        </div>
+
+                        <div>
+
+                          <strong>
+                            {food.food_name}
+                          </strong>
+
+                          <span>
+                            {food.category ||
+                              food.dietary_type ||
+                              'Pregnancy-friendly option'}
+                          </span>
+
+                        </div>
+
                       </div>
 
-                      <div>
-
-                        <strong>
-                          {food.food_name}
-                        </strong>
-
-                        <span>
-                          {food.category ||
-                            food.dietary_type ||
-                            'Pregnancy-friendly option'}
-                        </span>
-
-                      </div>
-
-                    </div>
-
-                  ))}
+                    )
+                  )}
 
               </div>
 
             ) : (
 
               <div className="dashboard-food-empty">
-                No food suggestions were saved in the latest plan.
+                No food suggestions were saved
+                in the latest plan.
               </div>
 
             )}
@@ -604,9 +786,11 @@ function MaternalWellnessDashboard({
               </strong>
 
               <p>
-                Explore Nutrition to create a personalized
-                educational food plan based on your pregnancy
-                stage, wellness information, cravings, and preferences.
+                Explore Nutrition to create a
+                personalized educational food plan
+                based on your pregnancy stage,
+                wellness information, cravings,
+                and preferences.
               </p>
 
             </div>
@@ -615,10 +799,6 @@ function MaternalWellnessDashboard({
 
         )}
 
-
-        {/* ==================================================
-            EXPLORE NUTRITION
-            ================================================== */}
 
         {onNutritionClick && (
 
@@ -633,6 +813,307 @@ function MaternalWellnessDashboard({
             </span>
 
             <span className="dashboard-nutrition-button-arrow">
+              →
+            </span>
+
+          </button>
+
+        )}
+
+      </div>
+
+
+      {/* ==================================================
+          ACTIVITY SNAPSHOT — 8.9
+          ================================================== */}
+
+      <div className="dashboard-activity-card">
+
+        <div className="dashboard-activity-header">
+
+          <div>
+
+            <span className="section-label">
+              ACTIVITY SNAPSHOT
+            </span>
+
+            <h3>
+              Your Activity & Exercise
+            </h3>
+
+            <p>
+              A quick view of your saved activity plan
+              and today's personalized movement guidance.
+            </p>
+
+          </div>
+
+          <span className="dashboard-activity-icon">
+            🏃‍♀️
+          </span>
+
+        </div>
+
+
+        {/* ACTIVITY SUMMARY */}
+
+        <div className="dashboard-activity-grid">
+
+          <div className="activity-overview-item">
+
+            <span>
+              📋 Activity Plans
+            </span>
+
+            <strong>
+              {safeActivityHistory.length}
+            </strong>
+
+            <small>
+              saved plan
+              {safeActivityHistory.length !== 1
+                ? 's'
+                : ''}
+            </small>
+
+          </div>
+
+
+          <div className="activity-overview-item">
+
+            <span>
+              🌷 Today's Activity
+            </span>
+
+            <strong>
+              {getActivitySelfCareText()}
+            </strong>
+
+          </div>
+
+
+          <div className="activity-overview-item">
+
+            <span>
+              ✨ Today's Guidance
+            </span>
+
+            <strong>
+              {getActivityStatusText()}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        {/* LATEST ACTIVITY PLAN */}
+
+        {latestActivityPlan ? (
+
+          <div className="latest-activity-plan">
+
+            <div className="latest-activity-header">
+
+              <div>
+
+                <span className="section-label">
+                  LATEST PLAN
+                </span>
+
+                <h4>
+                  Today's Activity Guidance
+                </h4>
+
+              </div>
+
+              <span className="latest-activity-date">
+                📅 {latestActivityPlan.date}
+              </span>
+
+            </div>
+
+
+            {/* REST DAY */}
+
+            {activityStatus === 'rest_day' ? (
+
+              <div className="dashboard-rest-day">
+
+                <div className="dashboard-rest-day-icon">
+                  🛌
+                </div>
+
+                <div>
+
+                  <strong>
+                    Today is a Rest Day
+                  </strong>
+
+                  <p>
+                    Give your body some time to
+                    rest and recover today. Take
+                    care of yourself, stay comfortable,
+                    and listen to what your body needs. 🌷
+                  </p>
+
+                </div>
+
+              </div>
+
+            ) : activityStatus === 'medical_advice' ? (
+
+              /* MEDICAL ADVICE */
+
+              <div className="dashboard-activity-warning">
+
+                <div className="dashboard-activity-warning-icon">
+                  ⚠️
+                </div>
+
+                <div>
+
+                  <strong>
+                    Medical advice recommended
+                  </strong>
+
+                  {activityMessages.length > 0 ? (
+
+                    activityMessages.map(
+                      (message, index) => (
+
+                        <p key={index}>
+                          {message}
+                        </p>
+
+                      )
+                    )
+
+                  ) : (
+
+                    <p>
+                      Review the activity guidance
+                      and follow appropriate
+                      professional medical advice.
+                    </p>
+
+                  )}
+
+                </div>
+
+              </div>
+
+            ) : activityRecommendations.length > 0 ? (
+
+              /* RECOMMENDED EXERCISES */
+
+              <div className="dashboard-activity-list">
+
+                {activityRecommendations
+                  .slice(0, 4)
+                  .map(
+                    (exercise, index) => (
+
+                      <div
+                        className="dashboard-activity-item"
+                        key={
+                          exercise.exercise_id ||
+                          exercise.id ||
+                          `${exercise.exercise_name}-${index}`
+                        }
+                      >
+
+                        <div className="dashboard-activity-item-icon">
+                          {exercise.icon || '🌿'}
+                        </div>
+
+                        <div>
+
+                          <strong>
+                            {exercise.exercise_name ||
+                              exercise.name ||
+                              'Activity'}
+                          </strong>
+
+                          <span>
+                            {exercise.category ||
+                              'Pregnancy-friendly activity'}
+                          </span>
+
+                        </div>
+
+                      </div>
+
+                    )
+                  )}
+
+              </div>
+
+            ) : (
+
+              <div className="dashboard-activity-empty">
+
+                <span>
+                  🌸
+                </span>
+
+                <p>
+                  No activity recommendations are
+                  currently saved for this plan.
+                </p>
+
+              </div>
+
+            )}
+
+          </div>
+
+        ) : (
+
+          /* NO ACTIVITY PLAN */
+
+          <div className="dashboard-activity-empty">
+
+            <span>
+              🏃‍♀️
+            </span>
+
+            <div>
+
+              <strong>
+                No Activity Plan Saved Yet
+              </strong>
+
+              <p>
+                Complete your Daily Wellness check-in
+                and explore Activity & Exercise to
+                receive personalized activity guidance.
+              </p>
+
+            </div>
+
+          </div>
+
+        )}
+
+
+        {/* ==================================================
+            EXPLORE ACTIVITY
+            ================================================== */}
+
+        {onActivityClick && (
+
+          <button
+            type="button"
+            className="dashboard-activity-button"
+            onClick={onActivityClick}
+          >
+
+            <span>
+              🏃 Explore Activity & Exercise
+            </span>
+
+            <span>
               →
             </span>
 
@@ -660,8 +1141,9 @@ function MaternalWellnessDashboard({
           </h3>
 
           <p>
-            Complete a Daily Wellness Check-in to see your
-            wellness summary and trends here.
+            Complete a Daily Wellness Check-in
+            to see your wellness summary and
+            trends here.
           </p>
 
         </div>
@@ -677,13 +1159,9 @@ function MaternalWellnessDashboard({
 
         <>
 
-          {/* ==================================================
-              SUMMARY CARDS
-              ================================================== */}
+          {/* SUMMARY CARDS */}
 
           <div className="wellness-dashboard-grid">
-
-            {/* TOTAL CHECK-INS */}
 
             <div className="wellness-stat-card">
 
@@ -706,8 +1184,6 @@ function MaternalWellnessDashboard({
             </div>
 
 
-            {/* AVERAGE ENERGY */}
-
             <div className="wellness-stat-card">
 
               <div className="wellness-stat-icon">
@@ -722,15 +1198,14 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageEnergy}
-                  {averageEnergy !== '—' && ' / 5'}
+                  {averageEnergy !== '—' &&
+                    ' / 5'}
                 </strong>
 
               </div>
 
             </div>
 
-
-            {/* AVERAGE WATER */}
 
             <div className="wellness-stat-card">
 
@@ -746,15 +1221,14 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageWater}
-                  {averageWater !== '—' && ' glasses'}
+                  {averageWater !== '—' &&
+                    ' glasses'}
                 </strong>
 
               </div>
 
             </div>
 
-
-            {/* AVERAGE SLEEP */}
 
             <div className="wellness-stat-card">
 
@@ -770,15 +1244,14 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageSleep}
-                  {averageSleep !== '—' && ' hrs'}
+                  {averageSleep !== '—' &&
+                    ' hrs'}
                 </strong>
 
               </div>
 
             </div>
 
-
-            {/* AVERAGE MEDITATION */}
 
             <div className="wellness-stat-card">
 
@@ -794,7 +1267,8 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageMeditation}
-                  {averageMeditation !== '—' && ' min'}
+                  {averageMeditation !== '—' &&
+                    ' min'}
                 </strong>
 
               </div>
@@ -802,12 +1276,11 @@ function MaternalWellnessDashboard({
             </div>
 
 
-            {/* COMMON MOOD */}
-
             <div className="wellness-stat-card">
 
               <div className="wellness-stat-icon">
-                {moodEmoji[mostCommonMood] || '😊'}
+                {moodEmoji[mostCommonMood] ||
+                  '😊'}
               </div>
 
               <div>
@@ -827,9 +1300,7 @@ function MaternalWellnessDashboard({
           </div>
 
 
-          {/* ==================================================
-              WELLNESS OVERVIEW
-              ================================================== */}
+          {/* WELLNESS OVERVIEW */}
 
           <div className="wellness-overview-card">
 
@@ -879,7 +1350,8 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageEnergy}
-                  {averageEnergy !== '—' && ' / 5'}
+                  {averageEnergy !== '—' &&
+                    ' / 5'}
                 </strong>
 
               </div>
@@ -893,7 +1365,8 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageWater}
-                  {averageWater !== '—' && ' glasses/day'}
+                  {averageWater !== '—' &&
+                    ' glasses/day'}
                 </strong>
 
               </div>
@@ -907,7 +1380,8 @@ function MaternalWellnessDashboard({
 
                 <strong>
                   {averageSleep}
-                  {averageSleep !== '—' && ' hrs/night'}
+                  {averageSleep !== '—' &&
+                    ' hrs/night'}
                 </strong>
 
               </div>
@@ -917,9 +1391,7 @@ function MaternalWellnessDashboard({
           </div>
 
 
-          {/* ==================================================
-              WELLNESS TRENDS
-              ================================================== */}
+          {/* WELLNESS TRENDS */}
 
           <div className="wellness-trends-card">
 
@@ -936,8 +1408,12 @@ function MaternalWellnessDashboard({
                 </h3>
 
                 <p>
-                  Trends from your last {trendData.length} check-in
-                  {trendData.length !== 1 ? 's' : ''}.
+                  Trends from your last{' '}
+                  {trendData.length}{' '}
+                  check-in
+                  {trendData.length !== 1
+                    ? 's'
+                    : ''}.
                 </p>
 
               </div>
@@ -968,40 +1444,43 @@ function MaternalWellnessDashboard({
 
               <div className="trend-values">
 
-                {trendData.map((item, index) => (
+                {trendData.map(
+                  (item, index) => (
 
-                  <div
-                    className="trend-column"
-                    key={`${item.date}-energy-${index}`}
-                  >
+                    <div
+                      className="trend-column"
+                      key={`${item.date}-energy-${index}`}
+                    >
 
-                    <div className="trend-bar-area">
+                      <div className="trend-bar-area">
 
-                      <div
-                        className="trend-bar energy-bar"
-                        style={{
-                          height: `${Math.max(
-                            item.energy * 20,
-                            5
-                          )}%`,
-                        }}
-                      >
+                        <div
+                          className="trend-bar energy-bar"
+                          style={{
+                            height:
+                              `${Math.max(
+                                item.energy * 20,
+                                5
+                              )}%`,
+                          }}
+                        >
 
-                        <span>
-                          {item.energy}
-                        </span>
+                          <span>
+                            {item.energy}
+                          </span>
+
+                        </div>
 
                       </div>
 
+                      <small>
+                        {item.date.split(',')[0]}
+                      </small>
+
                     </div>
 
-                    <small>
-                      {item.date.split(',')[0]}
-                    </small>
-
-                  </div>
-
-                ))}
+                  )
+                )}
 
               </div>
 
@@ -1027,50 +1506,52 @@ function MaternalWellnessDashboard({
 
               <div className="trend-values">
 
-                {trendData.map((item, index) => {
+                {trendData.map(
+                  (item, index) => {
 
-                  const waterHeight =
-                    Math.min(
-                      item.water * 10,
-                      100
-                    )
+                    const waterHeight =
+                      Math.min(
+                        item.water * 10,
+                        100
+                      )
 
-                  return (
+                    return (
 
-                    <div
-                      className="trend-column"
-                      key={`${item.date}-water-${index}`}
-                    >
+                      <div
+                        className="trend-column"
+                        key={`${item.date}-water-${index}`}
+                      >
 
-                      <div className="trend-bar-area">
+                        <div className="trend-bar-area">
 
-                        <div
-                          className="trend-bar water-bar"
-                          style={{
-                            height: `${Math.max(
-                              waterHeight,
-                              5
-                            )}%`,
-                          }}
-                        >
+                          <div
+                            className="trend-bar water-bar"
+                            style={{
+                              height:
+                                `${Math.max(
+                                  waterHeight,
+                                  5
+                                )}%`,
+                            }}
+                          >
 
-                          <span>
-                            {item.water}
-                          </span>
+                            <span>
+                              {item.water}
+                            </span>
+
+                          </div>
 
                         </div>
 
+                        <small>
+                          {item.date.split(',')[0]}
+                        </small>
+
                       </div>
 
-                      <small>
-                        {item.date.split(',')[0]}
-                      </small>
-
-                    </div>
-
-                  )
-
-                })}
+                    )
+                  }
+                )}
 
               </div>
 
@@ -1096,50 +1577,52 @@ function MaternalWellnessDashboard({
 
               <div className="trend-values">
 
-                {trendData.map((item, index) => {
+                {trendData.map(
+                  (item, index) => {
 
-                  const sleepHeight =
-                    Math.min(
-                      item.sleep * 10,
-                      100
-                    )
+                    const sleepHeight =
+                      Math.min(
+                        item.sleep * 10,
+                        100
+                      )
 
-                  return (
+                    return (
 
-                    <div
-                      className="trend-column"
-                      key={`${item.date}-sleep-${index}`}
-                    >
+                      <div
+                        className="trend-column"
+                        key={`${item.date}-sleep-${index}`}
+                      >
 
-                      <div className="trend-bar-area">
+                        <div className="trend-bar-area">
 
-                        <div
-                          className="trend-bar sleep-bar"
-                          style={{
-                            height: `${Math.max(
-                              sleepHeight,
-                              5
-                            )}%`,
-                          }}
-                        >
+                          <div
+                            className="trend-bar sleep-bar"
+                            style={{
+                              height:
+                                `${Math.max(
+                                  sleepHeight,
+                                  5
+                                )}%`,
+                            }}
+                          >
 
-                          <span>
-                            {item.sleep.toFixed(1)}
-                          </span>
+                            <span>
+                              {item.sleep.toFixed(1)}
+                            </span>
+
+                          </div>
 
                         </div>
 
+                        <small>
+                          {item.date.split(',')[0]}
+                        </small>
+
                       </div>
 
-                      <small>
-                        {item.date.split(',')[0]}
-                      </small>
-
-                    </div>
-
-                  )
-
-                })}
+                    )
+                  }
+                )}
 
               </div>
 
@@ -1161,26 +1644,29 @@ function MaternalWellnessDashboard({
 
               <div className="mood-trend-list">
 
-                {trendData.map((item, index) => (
+                {trendData.map(
+                  (item, index) => (
 
-                  <div
-                    className="mood-trend-item"
-                    key={`${item.date}-mood-${index}`}
-                  >
+                    <div
+                      className="mood-trend-item"
+                      key={`${item.date}-mood-${index}`}
+                    >
 
-                    <span>
-                      {item.date.split(',')[0]}
-                    </span>
+                      <span>
+                        {item.date.split(',')[0]}
+                      </span>
 
-                    <strong>
-                      {moodEmoji[item.mood] || '—'}
-                      {' '}
-                      {item.mood}
-                    </strong>
+                      <strong>
+                        {moodEmoji[item.mood] ||
+                          '—'}
+                        {' '}
+                        {item.mood}
+                      </strong>
 
-                  </div>
+                    </div>
 
-                ))}
+                  )
+                )}
 
               </div>
 
@@ -1189,9 +1675,7 @@ function MaternalWellnessDashboard({
           </div>
 
 
-          {/* ==================================================
-              WELLNESS INSIGHTS
-              ================================================== */}
+          {/* WELLNESS INSIGHTS */}
 
           <div className="wellness-insights-card">
 
@@ -1208,8 +1692,8 @@ function MaternalWellnessDashboard({
                 </h3>
 
                 <p>
-                  Simple observations based on your recorded
-                  wellness check-ins.
+                  Simple observations based on
+                  your recorded wellness check-ins.
                 </p>
 
               </div>
@@ -1311,9 +1795,7 @@ function MaternalWellnessDashboard({
           </div>
 
 
-          {/* ==================================================
-              RECENT CHECK-INS
-              ================================================== */}
+          {/* RECENT CHECK-INS */}
 
           <div className="wellness-recent-card">
 
@@ -1357,7 +1839,11 @@ function MaternalWellnessDashboard({
 
                       <span>
                         {item.mood
-                          ? `${moodEmoji[item.mood] || ''} ${item.mood}`
+                          ? `${
+                              moodEmoji[
+                                item.mood
+                              ] || ''
+                            } ${item.mood}`
                           : 'Mood not entered'}
                       </span>
 
@@ -1395,9 +1881,10 @@ function MaternalWellnessDashboard({
         </span>
 
         <p>
-          This dashboard summarizes your recorded wellness
-          and nutrition information. It is intended for personal
-          monitoring and educational purposes and does not replace
+          This dashboard summarizes your recorded
+          wellness, nutrition, and activity information.
+          It is intended for personal monitoring and
+          educational purposes and does not replace
           professional medical advice.
         </p>
 

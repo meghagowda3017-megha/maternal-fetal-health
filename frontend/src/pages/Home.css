@@ -811,9 +811,9 @@
   background:
     linear-gradient(
       135deg,
-      #fff7fa 0%,
+      #fbe5ed 0%,
       #ffffff 55%,
-      #f9f4ff 100%
+      #d2c3e4 100%
     );
 
   border: 1px solid #eadde5;
@@ -936,6 +936,24 @@
 
 
 /* =========================================================
+   NUTRITION + ACTIVITY GRID
+   ========================================================= */
+
+.home-page .nutrition-activity-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+
+  margin: 28px 0;
+}
+
+
+/* =========================================================
    NUTRITION HOME CARD
    IMPORTANT:
    Scoped under .home-page so it CANNOT affect Nutrition.jsx
@@ -943,13 +961,15 @@
 
 .home-page .nutrition-section {
   width: 100%;
-  margin: 28px 0;
+  margin: 0;
 }
 
 .home-page .nutrition-home-card {
   position: relative;
 
   width: 100%;
+  height: 100%;
+
   box-sizing: border-box;
 
   min-height: 340px;
@@ -967,8 +987,9 @@
   background:
     linear-gradient(
       145deg,
-      rgba(250, 247, 238, 0.98),
-      rgba(255, 255, 255, 0.96)
+      rgba(245, 232, 190, 0.98),
+      rgba(254, 250, 250, 0.98),
+      rgba(237, 216, 249, 0.96)
     );
 
   border: 1px solid #eadff0;
@@ -1054,7 +1075,7 @@
   position: relative;
   z-index: 2;
 
-  max-width: 850px;
+  max-width: 500px;
 
   margin: 0 auto 18px;
 
@@ -1120,6 +1141,196 @@
 }
 
 .home-page .nutrition-home-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   ACTIVITY & EXERCISE HOME CARD
+   ========================================================= */
+
+.home-page .activity-home-section {
+  width: 100%;
+  margin: 0;
+}
+
+.home-page .activity-home-card {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 340px;
+
+  box-sizing: border-box;
+
+  padding: 32px 38px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(140, 200, 240, 0.98),
+      rgba(254, 250, 250, 0.98),
+      rgba(203, 243, 228, 0.96)
+    );
+
+  border: 1px solid #eadde5;
+
+  box-shadow:
+    0 8px 25px rgba(120, 90, 130, 0.08);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-page .activity-home-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: var(--pink-light);
+
+  opacity: 0.7;
+}
+
+.home-page .activity-home-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  bottom: -80px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: var(--blue-light);
+
+  opacity: 0.45;
+}
+
+.home-page .activity-home-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 45px rgba(120, 90, 130, 0.12);
+}
+
+.home-page .activity-home-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #ffe7f0,
+      #f7d8e5
+    );
+
+  box-shadow:
+    0 10px 25px rgba(220, 145, 170, 0.15);
+}
+
+.home-page .activity-home-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 18px 0 10px;
+
+  font-size: 27px;
+  letter-spacing: -0.6px;
+
+  color: #344054;
+}
+
+.home-page .activity-home-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 500px;
+
+  margin: 0 auto 18px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.home-page .activity-home-button {
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d78fac,
+      #c77b9b
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(199, 123, 155, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-page .activity-home-button span {
+  color: white;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.home-page .activity-home-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(199, 123, 155, 0.32);
+}
+
+.home-page .activity-home-button:hover span {
   transform: translateX(4px);
 }
 
@@ -1221,7 +1432,9 @@
 }
 
 
-/* Maternal */
+/* =========================================================
+   MATERNAL
+   ========================================================= */
 
 .home-page .maternal-card {
   background:
@@ -1245,7 +1458,9 @@
 }
 
 
-/* Fetal */
+/* =========================================================
+   FETAL
+   ========================================================= */
 
 .home-page .fetal-card {
   background:
@@ -1269,7 +1484,9 @@
 }
 
 
-/* Prediction heading */
+/* =========================================================
+   PREDICTION HEADING
+   ========================================================= */
 
 .home-page .prediction-card h3 {
   position: relative;
@@ -1284,7 +1501,9 @@
 }
 
 
-/* Prediction text */
+/* =========================================================
+   PREDICTION TEXT
+   ========================================================= */
 
 .home-page .prediction-card p {
   position: relative;
@@ -1301,7 +1520,9 @@
 }
 
 
-/* Prediction buttons */
+/* =========================================================
+   PREDICTION BUTTONS
+   ========================================================= */
 
 .home-page .prediction-card button {
   position: relative;
@@ -1389,6 +1610,7 @@
 .home-page .checkin-card:hover .card-icon,
 .home-page .wellness-dashboard-home-card:hover .card-icon,
 .home-page .nutrition-home-card:hover .card-icon,
+.home-page .activity-home-card:hover .card-icon,
 .home-page .prediction-card:hover .card-icon {
   transform:
     rotate(-4deg)
@@ -1558,6 +1780,10 @@
     grid-template-columns: 1fr;
   }
 
+  .home-page .nutrition-activity-grid {
+    grid-template-columns: 1fr;
+  }
+
   .home-page .prediction-grid {
     grid-template-columns: 1fr;
   }
@@ -1582,7 +1808,9 @@
   .home-page .pregnancy-card,
   .home-page .wellness-home-card,
   .home-page .checkin-card,
-  .home-page .wellness-dashboard-home-card {
+  .home-page .wellness-dashboard-home-card,
+  .home-page .nutrition-home-card,
+  .home-page .activity-home-card {
     min-height: 360px;
   }
 
@@ -1619,6 +1847,7 @@
   .home-page .checkin-card,
   .home-page .wellness-dashboard-home-card,
   .home-page .nutrition-home-card,
+  .home-page .activity-home-card,
   .home-page .prediction-card {
     padding: 28px 22px;
     border-radius: 24px;
@@ -1637,6 +1866,7 @@
   .home-page .wellness-home-card h3,
   .home-page .checkin-card h3,
   .home-page .nutrition-home-card h3,
+  .home-page .activity-home-card h3,
   .home-page .prediction-card h3 {
     font-size: 23px;
   }
@@ -1659,6 +1889,7 @@
   .home-page .checkin-button,
   .home-page .wellness-dashboard-button,
   .home-page .nutrition-home-button,
+  .home-page .activity-home-button,
   .home-page .prediction-card button {
     width: 100%;
     min-width: 0;
