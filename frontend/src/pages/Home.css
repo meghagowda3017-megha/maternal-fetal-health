@@ -1336,33 +1336,36 @@
 
 
 /* =========================================================
-   MATERNAL + FETAL PREDICTION GRID
+   MATERNAL HEALTH RISK
+   Single full-width card
    ========================================================= */
 
 .home-page .prediction-grid {
   width: 100%;
 
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 
   gap: 28px;
+
+  margin: 28px 0;
 }
 
 
 /* =========================================================
-   PREDICTION CARD
+   MATERNAL HEALTH RISK CARD
+   Styled like the Trimester Wellness card
    ========================================================= */
 
 .home-page .prediction-card {
   position: relative;
 
-  min-height: 410px;
-
+  width: 100%;
   box-sizing: border-box;
 
-  padding: 36px 38px 38px;
+  min-height: 340px;
+
+  padding: 32px 38px;
 
   display: flex;
   flex-direction: column;
@@ -1370,10 +1373,14 @@
 
   text-align: center;
 
-  border-radius: 32px;
+  border-radius: 30px;
 
   background:
-    rgba(255, 255, 255, 0.88);
+    linear-gradient(
+      145deg,
+      rgba(255, 240, 245, 0.96),
+      rgba(255, 255, 255, 0.95)
+    );
 
   border: 1px solid rgba(255, 255, 255, 0.95);
 
@@ -1388,23 +1395,29 @@
     box-shadow 0.3s ease;
 }
 
+
+/* Top decorative circle */
+
 .home-page .prediction-card::before {
   content: "";
 
   position: absolute;
 
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
 
-  top: -85px;
+  top: -90px;
   right: -70px;
 
   border-radius: 50%;
 
   background: var(--pink-light);
 
-  opacity: 0.9;
+  opacity: 0.8;
 }
+
+
+/* Bottom decorative circle */
 
 .home-page .prediction-card::after {
   content: "";
@@ -1414,36 +1427,30 @@
   width: 150px;
   height: 150px;
 
-  bottom: -85px;
-  left: -65px;
+  bottom: -80px;
+  left: -60px;
 
   border-radius: 50%;
 
-  background: var(--blue-light);
+  background: var(--mint-light);
 
-  opacity: 0.9;
+  opacity: 0.55;
 }
 
+
+/* Hover */
+
 .home-page .prediction-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
 
   box-shadow:
-    0 25px 65px rgba(72, 92, 120, 0.15);
+    0 25px 65px rgba(72, 92, 120, 0.13);
 }
 
 
 /* =========================================================
-   MATERNAL
+   MATERNAL ICON
    ========================================================= */
-
-.home-page .maternal-card {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 240, 245, 0.95),
-      rgba(255, 255, 255, 0.88)
-    );
-}
 
 .home-page .maternal-icon {
   background:
@@ -1459,33 +1466,7 @@
 
 
 /* =========================================================
-   FETAL
-   ========================================================= */
-
-.home-page .fetal-card {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(238, 247, 255, 0.95),
-      rgba(255, 255, 255, 0.88)
-    );
-}
-
-.home-page .fetal-icon {
-  background:
-    linear-gradient(
-      145deg,
-      #e3f2ff,
-      #d5eafa
-    );
-
-  box-shadow:
-    0 10px 25px rgba(100, 160, 210, 0.16);
-}
-
-
-/* =========================================================
-   PREDICTION HEADING
+   MATERNAL HEALTH RISK HEADING
    ========================================================= */
 
 .home-page .prediction-card h3 {
@@ -1502,18 +1483,18 @@
 
 
 /* =========================================================
-   PREDICTION TEXT
+   MATERNAL HEALTH RISK TEXT
    ========================================================= */
 
 .home-page .prediction-card p {
   position: relative;
   z-index: 2;
 
-  max-width: 470px;
+  max-width: 650px;
 
-  margin: 0 auto 28px;
+  margin: 0 auto 24px;
 
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.7;
 
   color: var(--text-soft);
@@ -1521,7 +1502,7 @@
 
 
 /* =========================================================
-   PREDICTION BUTTONS
+   MATERNAL HEALTH RISK BUTTON
    ========================================================= */
 
 .home-page .prediction-card button {
@@ -1538,7 +1519,7 @@
 
   min-width: 190px;
 
-  padding: 14px 27px;
+  padding: 14px 28px;
 
   border: none;
   border-radius: 50px;
@@ -1546,22 +1527,23 @@
   background:
     linear-gradient(
       135deg,
-      #72a9dc,
-      #6598ca
+      #e29bb3,
+      #d98ba5
     );
 
   color: white;
 
   font-size: 15px;
-  font-weight: 750;
+  font-weight: 700;
 
   box-shadow:
-    0 9px 22px rgba(100, 155, 205, 0.28);
+    0 9px 22px rgba(215, 140, 165, 0.25);
 
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
+
 
 .home-page .prediction-card button span {
   color: white;
@@ -1572,32 +1554,17 @@
     transform 0.2s ease;
 }
 
+
 .home-page .prediction-card button:hover {
   transform: translateY(-3px);
 
   box-shadow:
-    0 13px 28px rgba(100, 140, 180, 0.3);
+    0 13px 28px rgba(215, 140, 165, 0.3);
 }
+
 
 .home-page .prediction-card button:hover span {
   transform: translateX(4px);
-}
-
-.home-page .maternal-card button {
-  background:
-    linear-gradient(
-      135deg,
-      #e29bb3,
-      #d98ba5
-    );
-
-  box-shadow:
-    0 9px 22px rgba(215, 140, 165, 0.25);
-}
-
-.home-page .maternal-card button:hover {
-  box-shadow:
-    0 13px 28px rgba(215, 140, 165, 0.3);
 }
 
 
@@ -1784,10 +1751,6 @@
     grid-template-columns: 1fr;
   }
 
-  .home-page .prediction-grid {
-    grid-template-columns: 1fr;
-  }
-
   .home-page .info-strip {
     grid-template-columns: 1fr;
   }
@@ -1815,7 +1778,7 @@
   }
 
   .home-page .prediction-card {
-    min-height: 390px;
+    min-height: 360px;
   }
 
   .home-page .info-strip {

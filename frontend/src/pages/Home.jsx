@@ -2,7 +2,6 @@ import './Home.css'
 
 function Home({
   onMaternalClick,
-  onFetalClick,
   onHistoryClick,
   onPregnancyClick,
   onWellnessClick,
@@ -21,17 +20,18 @@ function Home({
       <section className="welcome">
 
         <span className="welcome-label">
-          HEALTH ASSESSMENT
+          MATERNAL HEALTH &amp; WELLNESS
         </span>
 
         <h2>
-          Welcome to Maternal-Fetal
-          <span> Health Monitoring</span>
+          Welcome to Maternal
+          <span> Health &amp; Wellness</span>
         </h2>
 
         <p>
-          Use our prediction models to assess maternal health
-          risk and fetal health status.
+          Support your pregnancy journey with maternal health
+          assessment, daily wellness tracking, nutrition,
+          activity guidance and personalized pregnancy care.
         </p>
 
       </section>
@@ -245,120 +245,117 @@ function Home({
       </div>
 
 
-{/* ==================================================
-    NUTRITION + ACTIVITY & EXERCISE
-    ================================================== */}
+      {/* ==================================================
+          NUTRITION + ACTIVITY & EXERCISE
+          ================================================== */}
 
-<div className="nutrition-activity-grid">
+      <div className="nutrition-activity-grid">
 
-  {/* NUTRITION */}
+        {/* NUTRITION */}
 
-  <section className="nutrition-section">
+        <section className="nutrition-section">
 
-    <div className="nutrition-home-card">
+          <div className="nutrition-home-card">
 
-      <div className="card-top">
+            <div className="card-top">
 
-        <div className="card-icon nutrition-home-icon">
-          🥗
-        </div>
+              <div className="card-icon nutrition-home-icon">
+                🥗
+              </div>
 
-        <span className="available-badge">
-          Available
-        </span>
+              <span className="available-badge">
+                Available
+              </span>
+
+            </div>
+
+            <h3>
+              Nutrition &amp; Pregnancy
+            </h3>
+
+            <p>
+              Explore pregnancy-friendly nutrition guidance based
+              on your pregnancy stage, cravings and food preferences.
+            </p>
+
+            <div className="card-features">
+
+              <span>🥑 Nutrition</span>
+              <span>🍓 Cravings</span>
+              <span>💧 Hydration</span>
+
+            </div>
+
+            <button
+              type="button"
+              className="primary-button nutrition-home-button"
+              onClick={onNutritionClick}
+            >
+              Explore Nutrition
+              <span>→</span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+        {/* ACTIVITY & EXERCISE */}
+
+        <section className="activity-home-section">
+
+          <div className="activity-home-card">
+
+            <div className="card-top">
+
+              <div className="card-icon activity-home-icon">
+                🏃‍♀️
+              </div>
+
+              <span className="available-badge">
+                Available
+              </span>
+
+            </div>
+
+            <h3>
+              Activity &amp; Exercise
+            </h3>
+
+            <p>
+              Explore pregnancy-friendly movement, gentle exercises,
+              relaxation activities and wellness guidance.
+            </p>
+
+            <div className="card-features">
+
+              <span>🚶 Walking</span>
+              <span>🧘 Yoga</span>
+              <span>🤸 Stretching</span>
+
+            </div>
+
+            <button
+              type="button"
+              className="primary-button activity-home-button"
+              onClick={onActivityClick}
+            >
+              Explore Activity
+              <span>→</span>
+            </button>
+
+          </div>
+
+        </section>
 
       </div>
-
-      <h3>
-        Nutrition & Pregnancy
-      </h3>
-
-      <p>
-        Explore pregnancy-friendly nutrition guidance based
-        on your pregnancy stage, cravings and food preferences.
-      </p>
-
-      <div className="card-features">
-
-        <span>🥑 Nutrition</span>
-        <span>🍓 Cravings</span>
-        <span>💧 Hydration</span>
-
-      </div>
-
-      <button
-        type="button"
-        className="primary-button nutrition-home-button"
-        onClick={onNutritionClick}
-      >
-        Explore Nutrition
-        <span>→</span>
-      </button>
-
-    </div>
-
-  </section>
-
-
-  {/* ACTIVITY & EXERCISE */}
-
-  <section className="activity-home-section">
-
-    <div className="activity-home-card">
-
-      <div className="card-top">
-
-        <div className="card-icon activity-home-icon">
-          🏃‍♀️
-        </div>
-
-        <span className="available-badge">
-          Available
-        </span>
-
-      </div>
-
-      <h3>
-        Activity & Exercise
-      </h3>
-
-      <p>
-        Explore pregnancy-friendly movement, gentle exercises,
-        relaxation activities and wellness guidance.
-      </p>
-
-      <div className="card-features">
-
-        <span>🚶 Walking</span>
-        <span>🧘 Yoga</span>
-        <span>🏊 Swimming</span>
-
-      </div>
-
-      <button
-        type="button"
-        className="primary-button activity-home-button"
-        onClick={onActivityClick}
-      >
-        Explore Activity
-        <span>→</span>
-      </button>
-
-    </div>
-
-  </section>
-
-</div>
-
 
 
       {/* ==================================================
-          MATERNAL + FETAL PREDICTION
+          MATERNAL HEALTH ASSESSMENT
           ================================================== */}
 
       <section className="prediction-grid">
-
-        {/* MATERNAL */}
 
         <div className="prediction-card maternal-card">
 
@@ -401,50 +398,6 @@ function Home({
 
         </div>
 
-
-        {/* FETAL */}
-
-        <div className="prediction-card fetal-card">
-
-          <div className="card-top">
-
-            <div className="card-icon fetal-icon">
-              👶
-            </div>
-
-            <span className="available-badge">
-              Available
-            </span>
-
-          </div>
-
-          <h3>
-            Fetal Health
-          </h3>
-
-          <p>
-            Analyze cardiotocography (CTG) measurements to predict
-            fetal health status.
-          </p>
-
-          <div className="card-features">
-
-            <span>⌁ CTG Analysis</span>
-            <span>◉ ML Prediction</span>
-
-          </div>
-
-          <button
-            type="button"
-            className="primary-button fetal-button"
-            onClick={onFetalClick}
-          >
-            Start Assessment
-            <span>→</span>
-          </button>
-
-        </div>
-
       </section>
 
 
@@ -459,7 +412,7 @@ function Home({
           className="history-button"
           onClick={onHistoryClick}
         >
-          View Assessment History →
+          View Health &amp; Wellness History →
         </button>
 
       </div>
@@ -480,11 +433,11 @@ function Home({
           <div>
 
             <strong>
-              Secure Assessment
+              Secure Information
             </strong>
 
             <p>
-              Your information is processed securely.
+              Your wellness information is stored locally.
             </p>
 
           </div>
@@ -505,7 +458,7 @@ function Home({
             </strong>
 
             <p>
-              Predictions are designed to support healthcare assessment.
+              Guidance is designed to support maternal health monitoring.
             </p>
 
           </div>
@@ -522,11 +475,11 @@ function Home({
           <div>
 
             <strong>
-              Machine Learning
+              Personalized Wellness
             </strong>
 
             <p>
-              Powered by trained prediction models.
+              Wellness guidance adapts to your pregnancy journey.
             </p>
 
           </div>

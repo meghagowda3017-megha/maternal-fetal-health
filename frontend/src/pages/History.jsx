@@ -165,7 +165,7 @@ function History({
             </h2>
 
             <p>
-              Previous maternal and fetal health assessments
+              Previous maternal health assessments
             </p>
           </div>
 
@@ -185,7 +185,7 @@ function History({
             </h3>
 
             <p>
-              Your completed maternal and fetal assessments
+              Your completed maternal assessments
               will appear here.
             </p>
 

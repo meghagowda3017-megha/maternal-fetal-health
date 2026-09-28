@@ -40,23 +40,6 @@ EXERCISE_DATASET_PATH = (
 
 
 # ==================================================
-# LOAD TRAINED CTG MODEL
-# ==================================================
-
-CTG_MODEL_PATH = BASE_DIR / "ctg_model.joblib"
-
-ctg_model_data = joblib.load(
-    CTG_MODEL_PATH
-)
-
-ctg_model = ctg_model_data["model"]
-
-CTG_FEATURES = (
-    ctg_model_data["features"]
-)
-
-
-# ==================================================
 # LOAD TRAINED MATERNAL HEALTH MODEL
 # ==================================================
 
@@ -82,11 +65,11 @@ MATERNAL_FEATURES = (
 # ==================================================
 
 app = FastAPI(
-    title="Maternal-Fetal Health API",
+    title="Maternal Health and Wellness API",
     version="1.0.0",
     description=(
-        "Backend API for Maternal-Fetal "
-        "Health Prediction System"
+        "Backend API for Maternal Health and "
+        "Wellness System"
     )
 )
 
@@ -109,42 +92,6 @@ app.add_middleware(
 
     allow_headers=["*"],
 )
-
-
-# ==================================================
-# CTG INPUT DATA MODEL
-# ==================================================
-
-class CTGInput(BaseModel):
-
-    LB: float
-    AC: float
-    FM: float
-    UC: float
-
-    ASTV: float
-    MSTV: float
-    ALTV: float
-    MLTV: float
-
-    DL: float
-    DS: float
-    DP: float
-    DR: float
-
-    Width: float
-    Min: float
-    Max: float
-
-    Nmax: float
-    Nzeros: float
-
-    Mode: float
-    Mean: float
-    Median: float
-
-    Variance: float
-    Tendency: float
 
 
 # ==================================================
@@ -212,7 +159,7 @@ def home():
 
     return {
         "message":
-            "Welcome to Maternal-Fetal Health API"
+            "Welcome to Maternal Health and Wellness API"
     }
 
 
@@ -226,8 +173,6 @@ def health_check():
     return {
         "status": "healthy",
 
-        "ctg_model": "loaded",
-
         "maternal_model": "loaded",
 
         "nutrition_engine": "loaded",
@@ -237,93 +182,6 @@ def health_check():
         "activity_engine": "loaded",
 
         "activity_safety": "loaded"
-    }
-
-
-# ==================================================
-# FETAL HEALTH PREDICTION
-# ==================================================
-
-@app.post("/predict/fetal-health")
-def predict_fetal_health(
-    data: CTGInput
-):
-
-    input_data = pd.DataFrame(
-        [[
-            data.LB,
-            data.AC,
-            data.FM,
-            data.UC,
-            data.ASTV,
-            data.MSTV,
-            data.ALTV,
-            data.MLTV,
-            data.DL,
-            data.DS,
-            data.DP,
-            data.DR,
-            data.Width,
-            data.Min,
-            data.Max,
-            data.Nmax,
-            data.Nzeros,
-            data.Mode,
-            data.Mean,
-            data.Median,
-            data.Variance,
-            data.Tendency
-        ]],
-        columns=CTG_FEATURES
-    )
-
-    prediction = int(
-        ctg_model.predict(
-            input_data
-        )[0]
-    )
-
-    probability_values = (
-        ctg_model.predict_proba(
-            input_data
-        )[0]
-    )
-
-    labels = {
-        1: "Normal",
-        2: "Suspect",
-        3: "Pathologic"
-    }
-
-    probabilities = {}
-
-    for (
-        class_value,
-        probability
-    ) in zip(
-        ctg_model.classes_,
-        probability_values
-    ):
-
-        class_value = int(
-            class_value
-        )
-
-        probabilities[
-            labels[class_value]
-        ] = round(
-            float(probability),
-            2
-        )
-
-    return {
-        "prediction": prediction,
-
-        "fetal_health":
-            labels[prediction],
-
-        "probabilities":
-            probabilities
     }
 
 

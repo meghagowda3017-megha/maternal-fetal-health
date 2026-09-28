@@ -3,7 +3,6 @@ import './App.css'
 
 import Home from './pages/Home'
 import MaternalAssessment from './pages/MaternalAssessment'
-import FetalAssessment from './pages/FetalAssessment'
 import History from './pages/History'
 import PregnancyOverview from './components/PregnancyOverview'
 import TrimesterWellness from './components/TrimesterWellness'
@@ -18,7 +17,6 @@ function App() {
   // ==================================================
 
   const [showMaternalForm, setShowMaternalForm] = useState(false)
-  const [showFetalForm, setShowFetalForm] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const [showPregnancy, setShowPregnancy] = useState(false)
   const [showWellness, setShowWellness] = useState(false)
@@ -39,7 +37,7 @@ function App() {
     )
 
   // ==================================================
-  // ASSESSMENT HISTORY
+  // MATERNAL ASSESSMENT HISTORY
   // ==================================================
 
   const [history, setHistory] = useState(() => {
@@ -91,7 +89,7 @@ function App() {
   })
 
   // ==================================================
-  // SAVE ASSESSMENT HISTORY TO LOCAL STORAGE
+  // SAVE MATERNAL ASSESSMENT HISTORY
   // ==================================================
 
   useEffect(() => {
@@ -102,7 +100,7 @@ function App() {
   }, [history])
 
   // ==================================================
-  // SAVE WELLNESS HISTORY TO LOCAL STORAGE
+  // SAVE WELLNESS HISTORY
   // ==================================================
 
   useEffect(() => {
@@ -113,7 +111,7 @@ function App() {
   }, [wellnessHistory])
 
   // ==================================================
-  // SAVE NUTRITION HISTORY TO LOCAL STORAGE
+  // SAVE NUTRITION HISTORY
   // ==================================================
 
   useEffect(() => {
@@ -124,7 +122,7 @@ function App() {
   }, [nutritionHistory])
 
   // ==================================================
-  // SAVE ACTIVITY HISTORY TO LOCAL STORAGE
+  // SAVE ACTIVITY HISTORY
   // ==================================================
 
   useEffect(() => {
@@ -140,23 +138,6 @@ function App() {
 
   const openMaternalForm = () => {
     setShowMaternalForm(true)
-    setShowFetalForm(false)
-    setShowHistory(false)
-    setShowPregnancy(false)
-    setShowWellness(false)
-    setShowDailyWellness(false)
-    setShowWellnessDashboard(false)
-    setShowNutrition(false)
-    setShowActivity(false)
-  }
-
-  // ==================================================
-  // OPEN FETAL ASSESSMENT
-  // ==================================================
-
-  const openFetalForm = () => {
-    setShowMaternalForm(false)
-    setShowFetalForm(true)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -172,7 +153,6 @@ function App() {
 
   const openPregnancy = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(true)
     setShowWellness(false)
@@ -188,7 +168,6 @@ function App() {
 
   const openWellness = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(true)
@@ -204,7 +183,6 @@ function App() {
 
   const openDailyWellness = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -220,7 +198,6 @@ function App() {
 
   const openWellnessDashboard = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -236,7 +213,6 @@ function App() {
 
   const openHistory = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(true)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -252,7 +228,6 @@ function App() {
 
   const openNutrition = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -268,7 +243,6 @@ function App() {
 
   const openActivity = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -297,7 +271,6 @@ function App() {
 
   const goHome = () => {
     setShowMaternalForm(false)
-    setShowFetalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
     setShowWellness(false)
@@ -313,14 +286,6 @@ function App() {
 
   const closeMaternalForm = () => {
     setShowMaternalForm(false)
-  }
-
-  // ==================================================
-  // CLOSE FETAL
-  // ==================================================
-
-  const closeFetalForm = () => {
-    setShowFetalForm(false)
   }
 
   // ==================================================
@@ -372,7 +337,7 @@ function App() {
   }
 
   // ==================================================
-  // ASSESSMENT HISTORY FUNCTIONS
+  // MATERNAL ASSESSMENT HISTORY FUNCTIONS
   // ==================================================
 
   const clearHistory = () => {
@@ -494,15 +459,12 @@ function App() {
 
   const addActivityHistory = (entry) => {
     setActivityHistory((previous) => {
-      // Check whether an activity plan already
-      // exists for this date.
       const existingEntry = previous.find(
         (item) =>
           item.selectedDate ===
           entry.selectedDate
       )
 
-      // New date → create a new activity plan.
       if (!existingEntry) {
         return [
           entry,
@@ -510,8 +472,6 @@ function App() {
         ]
       }
 
-      // Same date → update the existing activity plan
-      // instead of creating a duplicate.
       const updatedEntry = {
         ...entry,
         id: existingEntry.id,
@@ -593,11 +553,11 @@ function App() {
               onClick={goHome}
               style={{ cursor: 'pointer' }}
             >
-              Maternal-Fetal Health
+              Maternal Health and Wellness
             </h1>
 
             <p>
-              Prediction &amp; Monitoring System
+              Pregnancy Health &amp; Wellness System
             </p>
 
           </div>
@@ -614,7 +574,6 @@ function App() {
 
       </header>
 
-
       {/* ==================================================
           MAIN
           ================================================== */}
@@ -626,7 +585,6 @@ function App() {
             ================================================== */}
 
         {!showMaternalForm &&
-          !showFetalForm &&
           !showHistory &&
           !showPregnancy &&
           !showWellness &&
@@ -637,11 +595,12 @@ function App() {
 
             <Home
               onMaternalClick={openMaternalForm}
-              onFetalClick={openFetalForm}
               onHistoryClick={openHistory}
               onPregnancyClick={openPregnancy}
               onWellnessClick={openWellness}
-              onDailyWellnessClick={openDailyWellness}
+              onDailyWellnessClick={
+                openDailyWellness
+              }
               onWellnessDashboardClick={
                 openWellnessDashboard
               }
@@ -650,7 +609,6 @@ function App() {
             />
 
           )}
-
 
         {/* ==================================================
             MATERNAL ASSESSMENT
@@ -664,21 +622,6 @@ function App() {
           />
 
         )}
-
-
-        {/* ==================================================
-            FETAL ASSESSMENT
-            ================================================== */}
-
-        {showFetalForm && (
-
-          <FetalAssessment
-            onBack={closeFetalForm}
-            onSaveHistory={addHistoryItem}
-          />
-
-        )}
-
 
         {/* ==================================================
             PREGNANCY OVERVIEW
@@ -694,7 +637,6 @@ function App() {
           />
 
         )}
-
 
         {/* ==================================================
             HISTORY
@@ -732,7 +674,6 @@ function App() {
 
         )}
 
-
         {/* ==================================================
             TRIMESTER WELLNESS
             ================================================== */}
@@ -747,7 +688,6 @@ function App() {
           />
 
         )}
-
 
         {/* ==================================================
             DAILY WELLNESS
@@ -765,7 +705,6 @@ function App() {
 
         )}
 
-
         {/* ==================================================
             MATERNAL WELLNESS DASHBOARD
             ================================================== */}
@@ -776,34 +715,27 @@ function App() {
             wellnessHistory={
               wellnessHistory
             }
-
             pregnancyInfo={
               getPregnancyInfo()
             }
-
             nutritionHistory={
               nutritionHistory
             }
-
             activityHistory={
               activityHistory
             }
-
             onBack={
               closeWellnessDashboard
             }
-
             onNutritionClick={
               openNutrition
             }
-
             onActivityClick={
               openActivity
             }
           />
 
         )}
-
 
         {/* ==================================================
             NUTRITION
@@ -824,7 +756,6 @@ function App() {
           />
 
         )}
-
 
         {/* ==================================================
             ACTIVITY & EXERCISE
@@ -848,7 +779,6 @@ function App() {
 
       </main>
 
-
       {/* ==================================================
           FOOTER
           ================================================== */}
@@ -856,8 +786,7 @@ function App() {
       <footer className="footer">
 
         <p>
-          Maternal-Fetal Health Prediction &amp;
-          Monitoring System
+          Maternal Health and Wellness System
         </p>
 
         <span>
