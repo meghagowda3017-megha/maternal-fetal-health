@@ -712,29 +712,15 @@ function App() {
         {showWellnessDashboard && (
 
           <MaternalWellnessDashboard
-            wellnessHistory={
-              wellnessHistory
-            }
-            pregnancyInfo={
-              getPregnancyInfo()
-            }
-            nutritionHistory={
-              nutritionHistory
-            }
-            activityHistory={
-              activityHistory
-            }
-            onBack={
-              closeWellnessDashboard
-            }
-            onNutritionClick={
-              openNutrition
-            }
-            onActivityClick={
-              openActivity
-            }
-          />
-
+              wellnessHistory={wellnessHistory}
+              pregnancyInfo={getPregnancyInfo()}
+              nutritionHistory={nutritionHistory}
+              activityHistory={activityHistory}
+              maternalHistory={history}
+              onBack={closeWellnessDashboard}
+              onNutritionClick={openNutrition}
+              onActivityClick={openActivity}
+            />
         )}
 
         {/* ==================================================
@@ -744,16 +730,22 @@ function App() {
         {showNutrition && (
 
           <Nutrition
-            nutritionHistory={
-              nutritionHistory
-            }
-            onSaveNutrition={
-              addNutritionHistory
-            }
-            onBack={
-              closeNutrition
-            }
-          />
+              nutritionHistory={
+                nutritionHistory
+              }
+              maternalHistory={
+                history
+              }
+              wellnessHistory={
+                wellnessHistory
+              }
+              onSaveNutrition={
+                addNutritionHistory
+              }
+              onBack={
+                closeNutrition
+              }
+            />
 
         )}
 

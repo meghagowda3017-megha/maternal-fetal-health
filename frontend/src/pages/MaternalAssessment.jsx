@@ -28,59 +28,99 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     }))
   }
 
+  // --------------------------------------------------
+  // VALIDATE MATERNAL DATA
+  // --------------------------------------------------
+
   const validateMaternalData = () => {
-  const age = Number(formData.Age)
-  const systolicBP = Number(formData.SystolicBP)
-  const diastolicBP = Number(formData.DiastolicBP)
-  const bloodSugar = Number(formData.BS)
-  const bodyTemp = Number(formData.BodyTemp)
-  const heartRate = Number(formData.HeartRate)
+    const age = Number(formData.Age)
+    const systolicBP = Number(formData.SystolicBP)
+    const diastolicBP = Number(formData.DiastolicBP)
+    const bloodSugar = Number(formData.BS)
+    const bodyTemp = Number(formData.BodyTemp)
+    const heartRate = Number(formData.HeartRate)
 
-  if (age < 1 || age > 60) {
-    alert('Please enter a valid age between 1 and 60 years.')
-    return false
+    if (age < 1 || age > 60) {
+      alert(
+        'Please enter a valid age between 1 and 60 years.'
+      )
+      return false
+    }
+
+    if (systolicBP < 70 || systolicBP > 250) {
+      alert(
+        'Please enter a valid systolic blood pressure between 70 and 250 mmHg.'
+      )
+      return false
+    }
+
+    if (diastolicBP < 40 || diastolicBP > 150) {
+      alert(
+        'Please enter a valid diastolic blood pressure between 40 and 150 mmHg.'
+      )
+      return false
+    }
+
+    if (bloodSugar <= 0) {
+      alert(
+        'Please enter a valid blood sugar value greater than 0.'
+      )
+      return false
+    }
+
+    if (bodyTemp < 90 || bodyTemp > 110) {
+      alert(
+        'Please enter a valid body temperature between 90°F and 110°F.'
+      )
+      return false
+    }
+
+    if (heartRate < 30 || heartRate > 220) {
+      alert(
+        'Please enter a valid heart rate between 30 and 220 bpm.'
+      )
+      return false
+    }
+
+    return true
   }
 
-  if (systolicBP < 70 || systolicBP > 250) {
-    alert('Please enter a valid systolic blood pressure between 70 and 250 mmHg.')
-    return false
-  }
+  // --------------------------------------------------
+  // GET CURRENT PREGNANCY INFORMATION
+  // --------------------------------------------------
 
-  if (diastolicBP < 40 || diastolicBP > 150) {
-    alert('Please enter a valid diastolic blood pressure between 40 and 150 mmHg.')
-    return false
-  }
+  const getPregnancyInfo = () => {
+    const savedPregnancyInfo =
+      localStorage.getItem('pregnancyInfo')
 
-  if (bloodSugar <= 0) {
-    alert('Please enter a valid blood sugar value greater than 0.')
-    return false
-  }
+    if (!savedPregnancyInfo) {
+      return null
+    }
 
-  if (bodyTemp < 90 || bodyTemp > 110) {
-    alert('Please enter a valid body temperature between 90°F and 110°F.')
-    return false
-  }
+    try {
+      return JSON.parse(savedPregnancyInfo)
+    } catch (error) {
+      console.error(
+        'Unable to read pregnancy information:',
+        error
+      )
 
-  if (heartRate < 30 || heartRate > 220) {
-    alert('Please enter a valid heart rate between 30 and 220 bpm.')
-    return false
+      return null
+    }
   }
-
-  return true
-}
 
   // --------------------------------------------------
   // MATERNAL PREDICTION
   // --------------------------------------------------
 
   const handleMaternalSubmit = async (event) => {
-  event.preventDefault()
+    event.preventDefault()
 
-  if (!validateMaternalData()) {
-    return
-  }
+    if (!validateMaternalData()) {
+      return
+    }
 
-  setLoading(true)
+    setLoading(true)
     setMaternalResult(null)
 
     try {
@@ -103,29 +143,70 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
       )
 
       if (!response.ok) {
-        throw new Error('Maternal prediction request failed')
+        throw new Error(
+          'Maternal prediction request failed'
+        )
       }
 
       const data = await response.json()
 
-        setMaternalResult(data)
+      setMaternalResult(data)
 
-        onSaveHistory({
+      // --------------------------------------------------
+      // GET PREGNANCY CONTEXT AT THE TIME OF ASSESSMENT
+      // --------------------------------------------------
+
+      const pregnancyInfo = getPregnancyInfo()
+
+      // --------------------------------------------------
+      // SAVE COMPLETE ASSESSMENT HISTORY
+      // --------------------------------------------------
+
+      onSaveHistory({
         id: Date.now(),
+
         type: 'Maternal',
+
         date: new Date().toLocaleString(),
+
         result: data.prediction,
+
         riskClass: getRiskClass(data.prediction),
+
+        // ----------------------------------------------
+        // PREGNANCY CONTEXT
+        // ----------------------------------------------
+
+        pregnancy: pregnancyInfo
+          ? {
+              week: pregnancyInfo.weeks,
+              days: pregnancyInfo.days,
+              trimester: pregnancyInfo.trimester,
+              dueDate: pregnancyInfo.dueDate,
+              progress: pregnancyInfo.progress,
+            }
+          : null,
+
+        // ----------------------------------------------
+        // MATERNAL MEASUREMENTS
+        // ----------------------------------------------
+
         data: {
-            Age: formData.Age,
-            SystolicBP: formData.SystolicBP,
-            DiastolicBP: formData.DiastolicBP,
-            BS: formData.BS,
-            BodyTemp: formData.BodyTemp,
-            HeartRate: formData.HeartRate,
+          Age: formData.Age,
+          SystolicBP: formData.SystolicBP,
+          DiastolicBP: formData.DiastolicBP,
+          BS: formData.BS,
+          BodyTemp: formData.BodyTemp,
+          HeartRate: formData.HeartRate,
         },
-        probabilities: data.probabilities || null,
-        })
+
+        // ----------------------------------------------
+        // MODEL PROBABILITIES
+        // ----------------------------------------------
+
+        probabilities:
+          data.probabilities || null,
+      })
     } catch (error) {
       console.error(error)
 
@@ -159,7 +240,7 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
   }
 
   // --------------------------------------------------
-  // RESET MATERNAL
+  // RESET MATERNAL ASSESSMENT
   // --------------------------------------------------
 
   const newMaternalAssessment = () => {

@@ -1,18 +1,33 @@
-/* ==================================================
+/* =========================================================
    NUTRITION PAGE
-   ================================================== */
+   ========================================================= */
 
 .nutrition-page {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 0 40px;
+  padding: 10px 0 50px;
+  box-sizing: border-box;
 }
 
 
-/* ==================================================
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.nutrition-page .section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #c65d8c;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
    HEADER
-   ================================================== */
+   ========================================================= */
 
 .nutrition-header {
   display: flex;
@@ -23,9 +38,10 @@
 }
 
 .nutrition-header h2 {
-  margin: 6px 0 8px;
+  margin: 7px 0 8px;
   font-size: 32px;
-  font-weight: 700;
+  line-height: 1.2;
+  font-weight: 750;
   color: #17324d;
 }
 
@@ -33,138 +49,56 @@
   margin: 0;
   color: #6b7280;
   font-size: 15px;
+  line-height: 1.6;
 }
 
 .nutrition-header-icon {
   width: 58px;
   height: 58px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: #fff5f8;
+  border: 1px solid #f3dce7;
   border-radius: 16px;
+
   font-size: 30px;
   flex-shrink: 0;
 }
 
 
-/* ==================================================
-   INTRO CARD
-   ================================================== */
+/* =========================================================
+   COMMON CARD STYLE
+   ========================================================= */
 
-.nutrition-intro-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-
-  padding: 24px;
-  margin-bottom: 28px;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-}
-
-.nutrition-intro-icon {
-  width: 54px;
-  height: 54px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #fff5f8;
-  border-radius: 14px;
-
-  font-size: 28px;
-  flex-shrink: 0;
-}
-
-.nutrition-intro-card h3 {
-  margin: 0 0 7px;
-  font-size: 20px;
-  color: #17324d;
-}
-
-.nutrition-intro-card p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-
-/* ==================================================
-   GENERAL SECTION
-   ================================================== */
-
+.nutrition-pregnancy-card,
+.nutrition-health-context,
+.nutrition-wellness-card,
+.nutrition-preferences-section,
+.nutrition-intro-card,
 .nutrition-section {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-
-  padding: 25px;
-  margin-bottom: 28px;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-}
-
-.nutrition-section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  gap: 20px;
-  margin-bottom: 22px;
-}
-
-.nutrition-section-header h3 {
-  margin: 5px 0 6px;
-  font-size: 22px;
-  color: #17324d;
-}
-
-.nutrition-section-header p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.nutrition-section-icon {
-  width: 46px;
-  height: 46px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #fff5d9;
-  border-radius: 13px;
-
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-
-/* ==================================================
-   PREGNANCY CONTEXT
-   ================================================== */
-
-.nutrition-pregnancy-card {
   width: 100%;
   box-sizing: border-box;
 
+  background: #ffffff;
+
+  border: 1px solid #eadff0;
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 24px rgba(120, 90, 130, 0.07);
+}
+
+
+/* =========================================================
+   PREGNANCY CONTEXT
+   ========================================================= */
+
+.nutrition-pregnancy-card {
   padding: 28px;
   margin-bottom: 28px;
-
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #eadff0;
-
-  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
 }
 
 .nutrition-pregnancy-header {
@@ -176,65 +110,79 @@
 
 .nutrition-pregnancy-header h3 {
   margin: 8px 0 8px;
-  font-size: 1.4rem;
+  font-size: 22px;
+  line-height: 1.3;
   color: #17324d;
 }
 
 .nutrition-pregnancy-header p {
   margin: 0;
-  line-height: 1.6;
   color: #6b7280;
+  line-height: 1.6;
+  font-size: 14px;
 }
 
 .nutrition-pregnancy-icon {
   width: 54px;
   height: 54px;
 
-  border-radius: 16px;
-  background: #f8edf5;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.7rem;
+  background: #f8edf5;
+  border: 1px solid #eedcea;
+  border-radius: 16px;
+
+  font-size: 27px;
   flex-shrink: 0;
 }
 
 .nutrition-pregnancy-details {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+
   margin-top: 24px;
 }
 
 .nutrition-pregnancy-item {
   padding: 18px;
-  border-radius: 16px;
 
   background: #faf7fb;
   border: 1px solid #eee5f2;
+  border-radius: 16px;
+
+  box-sizing: border-box;
 }
 
 .nutrition-pregnancy-item span {
   display: block;
-  font-size: 1.4rem;
   margin-bottom: 10px;
+  font-size: 23px;
 }
 
 .nutrition-pregnancy-item strong {
   display: block;
-  font-size: 0.95rem;
   margin-bottom: 6px;
+
   color: #17324d;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .nutrition-pregnancy-item p {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
+
   color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
 }
+
+
+/* =========================================================
+   NO PREGNANCY
+   ========================================================= */
 
 .nutrition-no-pregnancy {
   width: 100%;
@@ -247,152 +195,475 @@
   padding: 24px;
   margin-bottom: 28px;
 
-  border-radius: 20px;
   background: #fffaf2;
   border: 1px solid #f0e2c8;
+  border-radius: 20px;
 }
 
 .nutrition-no-pregnancy > span {
-  font-size: 2rem;
+  font-size: 32px;
+  flex-shrink: 0;
 }
 
 .nutrition-no-pregnancy h3 {
   margin: 0 0 6px;
   color: #17324d;
+  font-size: 18px;
 }
 
 .nutrition-no-pregnancy p {
   margin: 0;
-  line-height: 1.5;
   color: #6b7280;
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 
-/* ==================================================
-   TODAY'S WELLNESS
-   ================================================== */
+/* =========================================================
+   MATERNAL HEALTH CONTEXT
+   ========================================================= */
 
-.nutrition-wellness-card {
-  width: 100%;
-  box-sizing: border-box;
-
+.nutrition-health-context {
   padding: 28px;
   margin-bottom: 28px;
 
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #eadff0;
+  background:
+    linear-gradient(
+      135deg,
+      #fffafd 0%,
+      #ffffff 55%,
+      #f8fbff 100%
+    );
+}
 
-  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
+.nutrition-health-context-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.nutrition-health-context-header h3 {
+  margin: 8px 0 7px;
+
+  color: #17324d;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.nutrition-health-context-header p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.nutrition-health-context-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eef5ff;
+  border: 1px solid #dce9f8;
+  border-radius: 16px;
+
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MATERNAL HEALTH SUMMARY
+   ========================================================= */
+
+.nutrition-health-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.nutrition-health-summary-item {
+  padding: 18px;
+
+  background: #faf8fc;
+  border: 1px solid #eee5f2;
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+.nutrition-health-summary-item > span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.nutrition-health-summary-item strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #17324d;
+  font-size: 14px;
+}
+
+.nutrition-health-summary-item p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MATERNAL HEALTH TREND GRID
+   ========================================================= */
+
+.nutrition-health-trend-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.nutrition-health-trend-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  background: #ffffff;
+  border: 1px solid #eee5f2;
+  border-radius: 16px;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nutrition-health-trend-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 20px rgba(120, 90, 130, 0.08);
+}
+
+.nutrition-health-trend-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #fff1f5;
+
+  font-size: 20px;
+
+  flex-shrink: 0;
+}
+
+.nutrition-health-trend-card strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #17324d;
+  font-size: 14px;
+}
+
+.nutrition-health-trend-card p {
+  margin: 0 0 10px;
+
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   HEALTH TREND STATUS
+   ========================================================= */
+
+.nutrition-health-trend {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #f3f4f6;
+
+  color: #667085;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-transform: capitalize;
+}
+
+.nutrition-health-trend.increasing {
+  background: #fff0f0;
+  border: 1px solid #f1d0d0;
+  color: #a34f4f;
+}
+
+.nutrition-health-trend.decreasing {
+  background: #eef6ff;
+  border: 1px solid #d8e8fa;
+  color: #5278a0;
+}
+
+.nutrition-health-trend.stable {
+  background: #eff9f2;
+  border: 1px solid #d8ecdd;
+  color: #558066;
+}
+
+
+/* =========================================================
+   HEALTH RISK PATTERN
+   ========================================================= */
+
+.nutrition-health-risk-pattern {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-top: 18px;
+  padding: 17px 18px;
+
+  background: #fffaf2;
+  border: 1px solid #eeddbd;
+  border-radius: 16px;
+}
+
+.nutrition-health-risk-pattern > span {
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.nutrition-health-risk-pattern strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #765c2f;
+  font-size: 14px;
+}
+
+.nutrition-health-risk-pattern p {
+  margin: 0;
+
+  color: #806f51;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   NO HEALTH CONTEXT
+   ========================================================= */
+
+.nutrition-no-health-context {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 20px;
+
+  background: #faf7fb;
+  border: 1px solid #eee5f2;
+  border-radius: 16px;
+}
+
+.nutrition-no-health-context > span {
+  font-size: 27px;
+  flex-shrink: 0;
+}
+
+.nutrition-no-health-context strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #17324d;
+  font-size: 14px;
+}
+
+.nutrition-no-health-context p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   TODAY'S WELLNESS
+   ========================================================= */
+
+.nutrition-wellness-card {
+  padding: 28px;
+  margin-bottom: 28px;
 }
 
 .nutrition-wellness-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   gap: 20px;
 }
 
 .nutrition-wellness-header h3 {
   margin: 8px 0;
-  font-size: 1.4rem;
+
   color: #17324d;
+  font-size: 22px;
+  line-height: 1.3;
 }
 
 .nutrition-wellness-header p {
   margin: 0;
-  line-height: 1.6;
+
   color: #6b7280;
+  line-height: 1.6;
+  font-size: 14px;
 }
 
 .nutrition-wellness-icon {
   width: 54px;
   height: 54px;
 
-  border-radius: 16px;
-  background: #f8edf5;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.7rem;
+  background: #f8edf5;
+  border: 1px solid #eedcea;
+  border-radius: 16px;
+
+  font-size: 27px;
   flex-shrink: 0;
 }
 
 .nutrition-wellness-details {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 16px;
+
   margin-top: 24px;
 }
 
 .nutrition-wellness-item {
   padding: 18px;
-  border-radius: 16px;
 
   background: #faf7fb;
   border: 1px solid #eee5f2;
+  border-radius: 16px;
+
+  box-sizing: border-box;
 }
 
 .nutrition-wellness-item span {
   display: block;
-  font-size: 1.4rem;
+
   margin-bottom: 10px;
+
+  font-size: 22px;
 }
 
 .nutrition-wellness-item strong {
   display: block;
-  font-size: 0.95rem;
+
   margin-bottom: 6px;
+
   color: #17324d;
+  font-size: 14px;
 }
 
 .nutrition-wellness-item p {
   margin: 0;
-  line-height: 1.5;
-  font-size: 0.95rem;
+
   color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
 }
+
+
+/* =========================================================
+   NO WELLNESS
+   ========================================================= */
 
 .nutrition-no-wellness {
   display: flex;
   align-items: center;
+
   gap: 16px;
 
   margin-top: 22px;
   padding: 20px;
 
-  border-radius: 16px;
   background: #fffaf2;
   border: 1px solid #f0e2c8;
+  border-radius: 16px;
 }
 
 .nutrition-no-wellness > span {
-  font-size: 1.8rem;
+  font-size: 28px;
+  flex-shrink: 0;
 }
 
 .nutrition-no-wellness strong {
   display: block;
+
   margin-bottom: 6px;
+
   color: #17324d;
+  font-size: 14px;
 }
 
 .nutrition-no-wellness p {
   margin: 0;
-  line-height: 1.5;
+
   color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 
-/* ==================================================
+/* =========================================================
    TODAY'S CRAVINGS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-cravings-section {
   grid-column: 1 / -1;
 
-  margin-top: 8px;
+  margin-top: 4px;
   padding-top: 24px;
 
   border-top: 1px solid #eee5f2;
@@ -402,96 +673,97 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   gap: 20px;
 }
 
 .nutrition-cravings-header h3 {
   margin: 8px 0;
-  font-size: 1.25rem;
+
   color: #17324d;
+  font-size: 20px;
 }
 
 .nutrition-cravings-header p {
   margin: 0;
-  line-height: 1.5;
+
   color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .nutrition-cravings-icon {
   width: 50px;
   height: 50px;
 
-  border-radius: 15px;
-  background: #fff1f5;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.5rem;
+  background: #fff1f5;
+  border: 1px solid #f2d7e3;
+  border-radius: 15px;
+
+  font-size: 24px;
   flex-shrink: 0;
 }
 
 .nutrition-cravings-list {
   display: flex;
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin-top: 20px;
 }
 
 .nutrition-craving-tag {
-  padding: 10px 16px;
-
-  border-radius: 999px;
+  padding: 9px 15px;
 
   background: #fff1f5;
   border: 1px solid #f2d7e3;
 
-  font-size: 0.9rem;
-  font-weight: 600;
+  border-radius: 999px;
+
   color: #8c4f72;
+
+  font-size: 13px;
+  font-weight: 650;
 }
 
 .nutrition-no-cravings {
   display: flex;
   align-items: center;
+
   gap: 12px;
 
   margin-top: 20px;
   padding: 16px;
 
-  border-radius: 14px;
-
   background: #faf7fb;
   border: 1px solid #eee5f2;
+  border-radius: 14px;
 }
 
 .nutrition-no-cravings span {
-  font-size: 1.4rem;
+  font-size: 22px;
 }
 
 .nutrition-no-cravings p {
   margin: 0;
+
   color: #6b7280;
+  font-size: 13px;
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOD PREFERENCES
-   ================================================== */
+   ========================================================= */
 
 .nutrition-preferences-section {
-  margin-top: 24px;
-  margin-bottom: 28px;
-
   padding: 28px;
-
-  border-radius: 20px;
-
-  background: #fff;
-  border: 1px solid #eadff0;
-
-  box-shadow: 0 8px 24px rgba(120, 90, 130, 0.08);
+  margin-bottom: 28px;
 }
 
 .nutrition-preferences-header {
@@ -500,40 +772,45 @@
   align-items: flex-start;
 
   gap: 20px;
+
   margin-bottom: 24px;
 }
 
 .nutrition-preferences-header h3 {
   margin: 8px 0;
-  font-size: 1.25rem;
+
   color: #17324d;
+  font-size: 21px;
 }
 
 .nutrition-preferences-header p {
   margin: 0;
-  line-height: 1.5;
+
   color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .nutrition-preferences-icon {
   width: 50px;
   height: 50px;
 
-  border-radius: 15px;
-  background: #f3f8ed;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.5rem;
+  background: #f3f8ed;
+  border: 1px solid #e1edd6;
+  border-radius: 15px;
+
+  font-size: 24px;
   flex-shrink: 0;
 }
 
 
-/* ==================================================
+/* =========================================================
    PREFERENCE GROUP
-   ================================================== */
+   ========================================================= */
 
 .nutrition-preference-group {
   margin-top: 24px;
@@ -541,20 +818,22 @@
 
 .nutrition-preference-group h4 {
   margin: 0 0 12px;
-  font-size: 1rem;
+
   color: #17324d;
+  font-size: 15px;
 }
 
 .nutrition-preference-help {
   margin: -4px 0 14px;
+
   color: #777;
-  font-size: 0.9rem;
+  font-size: 13px;
 }
 
 
-/* ==================================================
+/* =========================================================
    PREFERENCE OPTIONS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-preference-options {
   display: flex;
@@ -565,28 +844,33 @@
 .nutrition-preference-option {
   padding: 10px 16px;
 
+  border: 1px solid #e6dce9;
   border-radius: 999px;
 
-  border: 1px solid #e6dce9;
-  background: #fff;
+  background: #ffffff;
 
   color: #4f4a55;
 
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 650;
 
   cursor: pointer;
 
   transition:
     transform 0.2s ease,
     background 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .nutrition-preference-option:hover {
   transform: translateY(-2px);
-  border-color: #d7b8d0;
+
   background: #fff8fc;
+  border-color: #d7b8d0;
+
+  box-shadow:
+    0 4px 12px rgba(120, 90, 130, 0.07);
 }
 
 .nutrition-preference-option.selected {
@@ -602,9 +886,9 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    SAVE PREFERENCES
-   ================================================== */
+   ========================================================= */
 
 .nutrition-save-preferences {
   margin-top: 28px;
@@ -615,32 +899,135 @@
   border-radius: 12px;
 
   background: #d98caf;
-  color: white;
+  color: #ffffff;
 
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 750;
 
   cursor: pointer;
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .nutrition-save-preferences:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(150, 90, 120, 0.18);
+
+  background: #cf7fa5;
+
+  box-shadow:
+    0 8px 18px rgba(150, 90, 120, 0.18);
 }
 
 
-/* ==================================================
-   PERSONALIZED FOOD RECOMMENDATIONS
-   ================================================== */
+/* =========================================================
+   INTRO CARD
+   ========================================================= */
+
+.nutrition-intro-card {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.nutrition-intro-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff5f8;
+  border: 1px solid #f3dce7;
+  border-radius: 14px;
+
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.nutrition-intro-card h3 {
+  margin: 0 0 7px;
+
+  color: #17324d;
+  font-size: 20px;
+}
+
+.nutrition-intro-card p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PERSONALIZED GUIDANCE
+   ========================================================= */
+
+.nutrition-section {
+  padding: 25px;
+  margin-bottom: 28px;
+}
+
+.nutrition-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.nutrition-section-header h3 {
+  margin: 7px 0 6px;
+
+  color: #17324d;
+  font-size: 22px;
+}
+
+.nutrition-section-header p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.nutrition-section-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff5d9;
+  border: 1px solid #f1e4b7;
+  border-radius: 13px;
+
+  font-size: 23px;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RECOMMENDATION GRID
+   ========================================================= */
 
 .nutrition-recommendation-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 18px;
 
@@ -648,20 +1035,20 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    RECOMMENDATION CARD
-   ================================================== */
+   ========================================================= */
 
 .nutrition-recommendation-card {
   padding: 20px;
 
-  border-radius: 17px;
-
-  background: #fff;
+  background: #ffffff;
 
   border: 1px solid #eee5f2;
+  border-radius: 17px;
 
-  box-shadow: 0 5px 18px rgba(120, 90, 130, 0.06);
+  box-shadow:
+    0 5px 18px rgba(120, 90, 130, 0.05);
 
   transition:
     transform 0.2s ease,
@@ -676,9 +1063,9 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    RECOMMENDATION TOP
-   ================================================== */
+   ========================================================= */
 
 .nutrition-recommendation-top {
   display: flex;
@@ -698,37 +1085,37 @@
   align-items: center;
   justify-content: center;
 
+  background: #f8edf5;
+  border: 1px solid #eedcea;
   border-radius: 14px;
 
-  background: #f8edf5;
-
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .nutrition-score {
   padding: 7px 11px;
 
-  border-radius: 999px;
-
   background: #fff8df;
+  border: 1px solid #f1e6b9;
+
+  border-radius: 999px;
 
   color: #856d27;
 
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 750;
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOD NAME
-   ================================================== */
+   ========================================================= */
 
 .nutrition-recommendation-card h4 {
   margin: 0 0 5px;
 
-  font-size: 1.15rem;
-
   color: #17324d;
+  font-size: 18px;
 }
 
 .nutrition-food-category {
@@ -736,25 +1123,24 @@
 
   color: #9a6a86;
 
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 650;
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOD DETAILS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-food-detail {
   padding: 12px 14px;
 
   margin-top: 10px;
 
-  border-radius: 12px;
-
   background: #faf7fb;
-
   border: 1px solid #eee5f2;
+
+  border-radius: 12px;
 }
 
 .nutrition-food-detail strong {
@@ -762,9 +1148,9 @@
 
   margin-bottom: 5px;
 
-  font-size: 0.82rem;
-
   color: #4f4a55;
+
+  font-size: 12px;
 }
 
 .nutrition-food-detail p {
@@ -772,26 +1158,24 @@
 
   color: #6b7280;
 
-  font-size: 0.85rem;
-
+  font-size: 12px;
   line-height: 1.5;
 }
 
 
-/* ==================================================
+/* =========================================================
    WHY THIS FOOD WAS SUGGESTED
-   ================================================== */
+   ========================================================= */
 
 .nutrition-food-reasons {
   margin-top: 14px;
 
   padding: 14px;
 
-  border-radius: 12px;
-
   background: #fff7fa;
-
   border: 1px solid #f2dce5;
+
+  border-radius: 12px;
 }
 
 .nutrition-food-reasons strong {
@@ -801,12 +1185,11 @@
 
   color: #8c4f72;
 
-  font-size: 0.85rem;
+  font-size: 12px;
 }
 
 .nutrition-food-reasons ul {
   margin: 0;
-
   padding-left: 18px;
 }
 
@@ -815,8 +1198,7 @@
 
   color: #6b7280;
 
-  font-size: 0.83rem;
-
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -825,20 +1207,19 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOD PREPARATION SAFETY
-   ================================================== */
+   ========================================================= */
 
 .nutrition-food-safety {
   margin-top: 14px;
 
   padding: 13px 14px;
 
-  border-radius: 12px;
-
   background: #f5faf4;
-
   border: 1px solid #dfeedd;
+
+  border-radius: 12px;
 }
 
 .nutrition-food-safety strong {
@@ -848,7 +1229,7 @@
 
   color: #52734e;
 
-  font-size: 0.82rem;
+  font-size: 12px;
 }
 
 .nutrition-food-safety p {
@@ -856,75 +1237,68 @@
 
   color: #637160;
 
-  font-size: 0.82rem;
-
+  font-size: 12px;
   line-height: 1.5;
 }
 
 
-/* ==================================================
-   LOADING STATE
-   ================================================== */
+/* =========================================================
+   LOADING
+   ========================================================= */
 
 .nutrition-loading {
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 
   min-height: 180px;
 
   padding: 25px;
 
-  border-radius: 16px;
-
   background: #faf7fb;
-
   border: 1px solid #eee5f2;
+
+  border-radius: 16px;
 
   text-align: center;
 }
 
 .nutrition-loading span {
-  font-size: 2rem;
-
   margin-bottom: 10px;
+  font-size: 32px;
 }
 
 .nutrition-loading p {
   margin: 0;
 
   color: #6b7280;
-
-  font-size: 0.9rem;
+  font-size: 13px;
 }
 
 
-/* ==================================================
-   ERROR STATE
-   ================================================== */
+/* =========================================================
+   ERROR
+   ========================================================= */
 
 .nutrition-error {
   display: flex;
-
   align-items: center;
 
   gap: 14px;
 
   padding: 18px;
 
-  border-radius: 14px;
-
   background: #fff7f7;
-
   border: 1px solid #efcccc;
+
+  border-radius: 14px;
 }
 
 .nutrition-error > span {
-  font-size: 1.5rem;
+  font-size: 24px;
+  flex-shrink: 0;
 }
 
 .nutrition-error p {
@@ -934,8 +1308,7 @@
 
   color: #8a4b4b;
 
-  font-size: 0.9rem;
-
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -943,16 +1316,13 @@
   padding: 9px 15px;
 
   border: 1px solid #d9a7a7;
-
   border-radius: 9px;
 
-  background: white;
-
+  background: #ffffff;
   color: #8a4b4b;
 
-  font-size: 0.82rem;
-
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 650;
 
   cursor: pointer;
 }
@@ -962,36 +1332,34 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    NO RECOMMENDATIONS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-no-recommendations {
   display: flex;
-
   align-items: center;
 
   gap: 16px;
 
   padding: 22px;
 
-  border-radius: 16px;
-
   background: #faf7fb;
-
   border: 1px solid #eee5f2;
+
+  border-radius: 16px;
 }
 
 .nutrition-no-recommendations > span {
-  font-size: 2rem;
+  font-size: 32px;
+  flex-shrink: 0;
 }
 
 .nutrition-no-recommendations h4 {
   margin: 0 0 6px;
 
   color: #17324d;
-
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 .nutrition-no-recommendations p {
@@ -999,15 +1367,14 @@
 
   color: #6b7280;
 
-  font-size: 0.88rem;
-
+  font-size: 13px;
   line-height: 1.5;
 }
 
 
-/* ==================================================
-   REFRESH SUGGESTIONS
-   ================================================== */
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
 
 .nutrition-refresh-button {
   display: block;
@@ -1017,50 +1384,49 @@
   padding: 11px 20px;
 
   border: 1px solid #e1c8d7;
-
   border-radius: 11px;
 
   background: #fff8fc;
-
   color: #8c4f72;
 
-  font-size: 0.9rem;
-
+  font-size: 13px;
   font-weight: 700;
 
   cursor: pointer;
 
   transition:
     transform 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .nutrition-refresh-button:hover {
   transform: translateY(-2px);
 
   background: #f8eaf3;
+
+  box-shadow:
+    0 5px 15px rgba(140, 79, 114, 0.08);
 }
 
 
-/* ==================================================
+/* =========================================================
    SAFETY / RED FLAGS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-red-flags {
   margin-top: 24px;
 
   padding: 20px;
 
-  border-radius: 16px;
-
   background: #fffaf2;
-
   border: 1px solid #eeddbd;
+
+  border-radius: 16px;
 }
 
 .nutrition-red-flags-header {
   display: flex;
-
   align-items: flex-start;
 
   gap: 12px;
@@ -1069,15 +1435,15 @@
 }
 
 .nutrition-red-flags-header > span {
-  font-size: 1.5rem;
+  font-size: 24px;
+  flex-shrink: 0;
 }
 
 .nutrition-red-flags-header h4 {
   margin: 0 0 5px;
 
   color: #765c2f;
-
-  font-size: 1rem;
+  font-size: 14px;
 }
 
 .nutrition-red-flags-header p {
@@ -1085,25 +1451,22 @@
 
   color: #806f51;
 
-  font-size: 0.84rem;
-
+  font-size: 12px;
   line-height: 1.5;
 }
 
 .nutrition-red-flags-list {
   display: grid;
-
   gap: 10px;
 }
 
 .nutrition-red-flag {
   padding: 13px 15px;
 
-  border-radius: 11px;
-
-  background: white;
-
+  background: #ffffff;
   border: 1px solid #eee1c9;
+
+  border-radius: 11px;
 }
 
 .nutrition-red-flag strong {
@@ -1113,7 +1476,7 @@
 
   color: #765c2f;
 
-  font-size: 0.88rem;
+  font-size: 12px;
 }
 
 .nutrition-red-flag p {
@@ -1121,42 +1484,167 @@
 
   color: #706653;
 
-  font-size: 0.83rem;
-
+  font-size: 12px;
   line-height: 1.5;
 }
 
 
-/* ==================================================
+/* =========================================================
+   SAVE TODAY'S NUTRITION PLAN
+   ========================================================= */
+
+.nutrition-save-plan-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 28px;
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8f2,
+      #f4f9ff
+    );
+
+  border: 1px solid #eadff0;
+  border-radius: 20px;
+}
+
+.nutrition-save-plan-info {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+.nutrition-save-plan-info > span {
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.nutrition-save-plan-info h4 {
+  margin: 0 0 6px;
+
+  color: #344054;
+  font-size: 16px;
+}
+
+.nutrition-save-plan-info p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.nutrition-save-plan-button {
+  flex-shrink: 0;
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: #6d9fd0;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(100, 155, 205, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.nutrition-save-plan-button:hover {
+  transform: translateY(-2px);
+
+  background: #6094c8;
+
+  box-shadow:
+    0 10px 23px rgba(100, 155, 205, 0.28);
+}
+
+.nutrition-save-plan-button.saved {
+  background: #78a987;
+}
+
+
+/* =========================================================
+   SAVE MESSAGE
+   ========================================================= */
+
+.nutrition-save-message {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 18px;
+  padding: 13px 17px;
+
+  background: #effaf4;
+  border: 1px solid #d9f0e1;
+
+  border-radius: 15px;
+
+  color: #5b9d77;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.nutrition-save-message span {
+  font-size: 17px;
+}
+
+.nutrition-save-message p {
+  margin: 0;
+}
+
+
+/* =========================================================
    ACTIONS
-   ================================================== */
+   ========================================================= */
 
 .nutrition-actions {
   display: flex;
-
   justify-content: flex-start;
 
   margin-bottom: 22px;
 }
 
 .nutrition-back-button {
-  border: 1px solid #e5e7eb;
-
-  background: white;
-
   padding: 11px 18px;
 
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
 
-  cursor: pointer;
-
-  font-size: 14px;
-
-  font-weight: 600;
+  background: #ffffff;
 
   color: #374151;
 
-  transition: 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .nutrition-back-button:hover {
@@ -1168,13 +1656,12 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    DISCLAIMER
-   ================================================== */
+   ========================================================= */
 
 .nutrition-disclaimer {
   display: flex;
-
   align-items: flex-start;
 
   gap: 10px;
@@ -1182,7 +1669,6 @@
   padding: 15px 18px;
 
   background: #f8fafc;
-
   border: 1px solid #e5e7eb;
 
   border-radius: 12px;
@@ -1190,12 +1676,12 @@
   color: #6b7280;
 
   font-size: 12px;
-
   line-height: 1.6;
 }
 
 .nutrition-disclaimer span {
   font-size: 16px;
+  flex-shrink: 0;
 }
 
 .nutrition-disclaimer p {
@@ -1203,30 +1689,63 @@
 }
 
 
-/* ==================================================
+/* =========================================================
    TABLET
-   ================================================== */
+   ========================================================= */
 
 @media (max-width: 900px) {
 
   .nutrition-pregnancy-details {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nutrition-health-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nutrition-health-trend-grid {
+    grid-template-columns: 1fr;
   }
 
   .nutrition-wellness-details {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nutrition-recommendation-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
 
-/* ==================================================
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .nutrition-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .nutrition-health-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-save-plan-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nutrition-save-plan-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
    MOBILE
-   ================================================== */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1239,42 +1758,29 @@
 
   .nutrition-header {
     flex-direction: column;
+    gap: 15px;
   }
 
   .nutrition-header h2 {
     font-size: 26px;
   }
 
-
-  /* INTRO */
-
-  .nutrition-intro-card {
-    align-items: flex-start;
-
-    padding: 18px;
+  .nutrition-header p {
+    font-size: 14px;
   }
 
 
-  /* GENERAL SECTION */
+  /* COMMON CARDS */
 
-  .nutrition-section {
-    padding: 18px;
-  }
-
-  .nutrition-section-header {
-    flex-direction: column;
-  }
-
-  .nutrition-section-header h3 {
-    font-size: 19px;
+  .nutrition-pregnancy-card,
+  .nutrition-health-context,
+  .nutrition-wellness-card,
+  .nutrition-preferences-section {
+    padding: 20px;
   }
 
 
   /* PREGNANCY */
-
-  .nutrition-pregnancy-card {
-    padding: 20px;
-  }
 
   .nutrition-pregnancy-header {
     flex-direction: column;
@@ -1289,11 +1795,34 @@
   }
 
 
-  /* WELLNESS */
+  /* MATERNAL HEALTH */
 
-  .nutrition-wellness-card {
-    padding: 20px;
+  .nutrition-health-context-header {
+    flex-direction: column;
   }
+
+  .nutrition-health-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-health-trend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-health-trend-card {
+    padding: 16px;
+  }
+
+  .nutrition-health-risk-pattern {
+    align-items: flex-start;
+  }
+
+  .nutrition-no-health-context {
+    align-items: flex-start;
+  }
+
+
+  /* WELLNESS */
 
   .nutrition-wellness-header {
     flex-direction: column;
@@ -1315,11 +1844,7 @@
   }
 
 
-  /* FOOD PREFERENCES */
-
-  .nutrition-preferences-section {
-    padding: 20px;
-  }
+  /* PREFERENCES */
 
   .nutrition-preferences-header {
     flex-direction: column;
@@ -1327,12 +1852,34 @@
 
   .nutrition-preference-option {
     width: 100%;
-
     text-align: left;
   }
 
   .nutrition-save-preferences {
     width: 100%;
+  }
+
+
+  /* INTRO */
+
+  .nutrition-intro-card {
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+
+  /* GENERAL SECTION */
+
+  .nutrition-section {
+    padding: 18px;
+  }
+
+  .nutrition-section-header {
+    flex-direction: column;
+  }
+
+  .nutrition-section-header h3 {
+    font-size: 19px;
   }
 
 
@@ -1351,7 +1898,6 @@
 
   .nutrition-error {
     flex-direction: column;
-
     align-items: flex-start;
   }
 
@@ -1374,123 +1920,7 @@
   }
 
 
-  /* DISCLAIMER */
-
-  .nutrition-disclaimer {
-    align-items: flex-start;
-  }
-
-}
-/* ============================================
-   SAVE NUTRITION PLAN
-   ============================================ */
-
-.nutrition-save-plan-section {
-  margin-top: 28px;
-  padding: 22px;
-  border-radius: 20px;
-  background: linear-gradient(
-    135deg,
-    #fff8f2,
-    #f4f9ff
-  );
-  border: 1px solid #eadff0;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.nutrition-save-plan-info {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.nutrition-save-plan-info > span {
-  font-size: 25px;
-}
-
-.nutrition-save-plan-info h4 {
-  margin: 0 0 6px;
-  color: #344054;
-  font-size: 16px;
-}
-
-.nutrition-save-plan-info p {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.nutrition-save-plan-button {
-  flex-shrink: 0;
-
-  border: none;
-  padding: 12px 20px;
-
-  border-radius: 50px;
-
-  background: #6d9fd0;
-  color: white;
-
-  font-size: 13px;
-  font-weight: 750;
-
-  cursor: pointer;
-
-  box-shadow: 0 7px 18px rgba(100, 155, 205, 0.22);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-.nutrition-save-plan-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 23px rgba(100, 155, 205, 0.28);
-}
-
-.nutrition-save-plan-button.saved {
-  background: #78a987;
-}
-
-.nutrition-save-message {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 18px;
-  padding: 13px 17px;
-
-  border-radius: 15px;
-
-  background: #effaf4;
-  border: 1px solid #d9f0e1;
-
-  color: #5b9d77;
-
-  font-size: 13px;
-  font-weight: 650;
-}
-
-.nutrition-save-message span {
-  font-size: 17px;
-}
-
-.nutrition-save-message p {
-  margin: 0;
-}
-
-
-/* ============================================
-   RESPONSIVE SAVE PLAN
-   ============================================ */
-
-@media (max-width: 700px) {
+  /* SAVE PLAN */
 
   .nutrition-save-plan-section {
     flex-direction: column;
@@ -1501,4 +1931,10 @@
     width: 100%;
   }
 
+
+  /* DISCLAIMER */
+
+  .nutrition-disclaimer {
+    align-items: flex-start;
+  }
 }

@@ -1,10 +1,12 @@
 import './MaternalWellnessDashboard.css'
+import { analyzeMaternalHealthTrends } from '../utils/healthTrendEngine'
 
 function MaternalWellnessDashboard({
   wellnessHistory,
   pregnancyInfo,
   nutritionHistory,
   activityHistory,
+  maternalHistory,
   onBack,
   onNutritionClick,
   onActivityClick,
@@ -21,6 +23,19 @@ function MaternalWellnessDashboard({
 
   const safeActivityHistory =
     activityHistory || []
+
+  const safeMaternalHistory =
+    maternalHistory || []
+
+
+  // ==================================================
+  // MATERNAL HEALTH TREND ENGINE
+  // ==================================================
+
+  const maternalHealthTrends =
+    analyzeMaternalHealthTrends(
+      safeMaternalHistory
+    )
 
 
   // ==================================================
@@ -47,7 +62,7 @@ function MaternalWellnessDashboard({
 
 
   // ==================================================
-  // ACTIVITY INFORMATION — 8.9
+  // ACTIVITY INFORMATION
   // ==================================================
 
   const latestActivityPlan =
@@ -429,6 +444,31 @@ function MaternalWellnessDashboard({
 
 
   // ==================================================
+  // TREND DISPLAY HELPER
+  // ==================================================
+
+  const getTrendLabel = (trend) => {
+    if (trend === 'insufficient_data') {
+      return 'More data needed'
+    }
+
+    if (trend === 'increasing') {
+      return 'Increasing'
+    }
+
+    if (trend === 'decreasing') {
+      return 'Decreasing'
+    }
+
+    if (trend === 'stable') {
+      return 'Stable'
+    }
+
+    return 'Not available'
+  }
+
+
+  // ==================================================
   // DASHBOARD
   // ==================================================
 
@@ -452,8 +492,8 @@ function MaternalWellnessDashboard({
           </h2>
 
           <p>
-            A summary of your recorded daily
-            wellness patterns.
+            A summary of your current maternal
+            health and daily wellness information.
           </p>
 
         </div>
@@ -586,6 +626,353 @@ function MaternalWellnessDashboard({
         </div>
 
       )}
+
+
+      {/* ==================================================
+          MATERNAL HEALTH TRENDS
+          ================================================== */}
+
+      <div className="dashboard-health-trends-card">
+
+        <div className="dashboard-health-trends-header">
+
+          <div>
+
+            <span className="section-label">
+              MATERNAL HEALTH TRENDS
+            </span>
+
+            <h3>
+              Recent Health Patterns
+            </h3>
+
+            <p>
+              A simple summary of patterns across
+              your recorded maternal assessments.
+            </p>
+
+          </div>
+
+          <span className="dashboard-health-trends-icon">
+            📈
+          </span>
+
+        </div>
+
+
+        {/* NO DATA */}
+
+        {maternalHealthTrends.status === 'no_data' && (
+
+          <div className="dashboard-health-trends-empty">
+
+            <span>
+              🌸
+            </span>
+
+            <div>
+
+              <strong>
+                No Maternal Assessments Yet
+              </strong>
+
+              <p>
+                Complete a maternal health assessment
+                to begin tracking health patterns over time.
+              </p>
+
+            </div>
+
+          </div>
+
+        )}
+
+
+        {/* AVAILABLE DATA */}
+
+        {maternalHealthTrends.status === 'available' && (
+
+          <>
+
+            {/* SUMMARY */}
+
+            <div className="health-trend-summary">
+
+              <div className="health-trend-summary-item">
+
+                <span>
+                  📋 Assessments
+                </span>
+
+                <strong>
+                  {maternalHealthTrends.assessmentCount}
+                </strong>
+
+              </div>
+
+
+              <div className="health-trend-summary-item">
+
+                <span>
+                  🩺 Latest Risk
+                </span>
+
+                <strong>
+                  {maternalHealthTrends.latestAssessment?.result ||
+                    'Not available'}
+                </strong>
+
+              </div>
+
+
+              {maternalHealthTrends.latestPregnancy && (
+
+                <div className="health-trend-summary-item">
+
+                  <span>
+                    🌸 Pregnancy Stage
+                  </span>
+
+                  <strong>
+                    Week {
+                      maternalHealthTrends
+                        .latestPregnancy
+                        .weeks
+                    }
+                  </strong>
+
+                  <small>
+                    {
+                      maternalHealthTrends
+                        .latestPregnancy
+                        .trimester
+                    }
+                  </small>
+
+                </div>
+
+              )}
+
+            </div>
+
+
+            {/* MEASUREMENT TRENDS */}
+
+            <div className="health-trend-list">
+
+              <div className="health-trend-item">
+
+                <div className="health-trend-icon">
+                  ❤️
+                </div>
+
+                <div>
+
+                  <strong>
+                    Blood Pressure
+                  </strong>
+
+                  <p>
+                    {
+                      maternalHealthTrends
+                        .trends
+                        .systolicBP
+                        .message
+                    }
+                  </p>
+
+                  <span
+                    className={`health-trend-status ${
+                      maternalHealthTrends
+                        .trends
+                        .systolicBP
+                        .trend
+                    }`}
+                  >
+                    {
+                      getTrendLabel(
+                        maternalHealthTrends
+                          .trends
+                          .systolicBP
+                          .trend
+                      )
+                    }
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div className="health-trend-item">
+
+                <div className="health-trend-icon">
+                  🩸
+                </div>
+
+                <div>
+
+                  <strong>
+                    Blood Sugar
+                  </strong>
+
+                  <p>
+                    {
+                      maternalHealthTrends
+                        .trends
+                        .bloodSugar
+                        .message
+                    }
+                  </p>
+
+                  <span
+                    className={`health-trend-status ${
+                      maternalHealthTrends
+                        .trends
+                        .bloodSugar
+                        .trend
+                    }`}
+                  >
+                    {
+                      getTrendLabel(
+                        maternalHealthTrends
+                          .trends
+                          .bloodSugar
+                          .trend
+                      )
+                    }
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div className="health-trend-item">
+
+                <div className="health-trend-icon">
+                  💓
+                </div>
+
+                <div>
+
+                  <strong>
+                    Heart Rate
+                  </strong>
+
+                  <p>
+                    {
+                      maternalHealthTrends
+                        .trends
+                        .heartRate
+                        .message
+                    }
+                  </p>
+
+                  <span
+                    className={`health-trend-status ${
+                      maternalHealthTrends
+                        .trends
+                        .heartRate
+                        .trend
+                    }`}
+                  >
+                    {
+                      getTrendLabel(
+                        maternalHealthTrends
+                          .trends
+                          .heartRate
+                          .trend
+                      )
+                    }
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div className="health-trend-item">
+
+                <div className="health-trend-icon">
+                  🌡️
+                </div>
+
+                <div>
+
+                  <strong>
+                    Body Temperature
+                  </strong>
+
+                  <p>
+                    {
+                      maternalHealthTrends
+                        .trends
+                        .bodyTemperature
+                        .message
+                    }
+                  </p>
+
+                  <span
+                    className={`health-trend-status ${
+                      maternalHealthTrends
+                        .trends
+                        .bodyTemperature
+                        .trend
+                    }`}
+                  >
+                    {
+                      getTrendLabel(
+                        maternalHealthTrends
+                          .trends
+                          .bodyTemperature
+                          .trend
+                      )
+                    }
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* RISK TREND */}
+
+            {maternalHealthTrends.riskTrend && (
+
+              <div className="health-risk-trend">
+
+                <div className="health-risk-trend-icon">
+                  🩺
+                </div>
+
+                <div>
+
+                  <strong>
+                    Risk Category Pattern
+                  </strong>
+
+                  <p>
+                    {
+                      maternalHealthTrends
+                        .riskTrend
+                        .message
+                    }
+                  </p>
+
+                </div>
+
+              </div>
+
+            )}
+
+          </>
+
+        )}
+
+      </div>
 
 
       {/* ==================================================
@@ -824,7 +1211,7 @@ function MaternalWellnessDashboard({
 
 
       {/* ==================================================
-          ACTIVITY SNAPSHOT — 8.9
+          ACTIVITY SNAPSHOT
           ================================================== */}
 
       <div className="dashboard-activity-card">
@@ -1097,9 +1484,7 @@ function MaternalWellnessDashboard({
         )}
 
 
-        {/* ==================================================
-            EXPLORE ACTIVITY
-            ================================================== */}
+        {/* EXPLORE ACTIVITY */}
 
         {onActivityClick && (
 
@@ -1793,83 +2178,8 @@ function MaternalWellnessDashboard({
             </div>
 
           </div>
-
-
-          {/* RECENT CHECK-INS */}
-
-          <div className="wellness-recent-card">
-
-            <div className="wellness-recent-header">
-
-              <div>
-
-                <span className="section-label">
-                  RECENT ACTIVITY
-                </span>
-
-                <h3>
-                  Recent Wellness Check-ins
-                </h3>
-
-              </div>
-
-            </div>
-
-
-            <div className="wellness-recent-list">
-
-              {safeWellnessHistory
-                .slice(0, 5)
-                .map((item) => (
-
-                  <div
-                    className="wellness-recent-item"
-                    key={item.id}
-                  >
-
-                    <div className="recent-icon">
-                      🦋
-                    </div>
-
-                    <div className="recent-info">
-
-                      <strong>
-                        {item.date}
-                      </strong>
-
-                      <span>
-                        {item.mood
-                          ? `${
-                              moodEmoji[
-                                item.mood
-                              ] || ''
-                            } ${item.mood}`
-                          : 'Mood not entered'}
-                      </span>
-
-                    </div>
-
-                    <div className="recent-energy">
-
-                      {item.energy
-                        ? `⚡ ${item.energy}/5`
-                        : '—'}
-
-                    </div>
-
-                  </div>
-
-                ))}
-
-            </div>
-
-          </div>
-
-        </>
-
-      )}
-
-
+</>
+)}
       {/* ==================================================
           DISCLAIMER
           ================================================== */}
@@ -1882,9 +2192,10 @@ function MaternalWellnessDashboard({
 
         <p>
           This dashboard summarizes your recorded
-          wellness, nutrition, and activity information.
-          It is intended for personal monitoring and
-          educational purposes and does not replace
+          wellness, nutrition, activity, and maternal
+          assessment information. Health trend observations
+          are for personal monitoring and educational
+          decision-support purposes and do not replace
           professional medical advice.
         </p>
 
