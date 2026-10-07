@@ -1,0 +1,418 @@
+/* ==================================================
+   Authentication Pages
+   Login + Register
+   Maternal Health & Wellness Theme
+================================================== */
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(242, 205, 220, 0.55) 0,
+      rgba(242, 205, 220, 0) 28%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(214, 202, 235, 0.55) 0,
+      rgba(214, 202, 235, 0) 30%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8fa 0%,
+      #f8f5fb 48%,
+      #f3f8f6 100%
+    );
+
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* ==================================================
+   Soft Decorative Maternal Background
+================================================== */
+
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.auth-page::before {
+  width: 260px;
+  height: 260px;
+
+  top: -100px;
+  left: -80px;
+
+  background: rgba(238, 190, 208, 0.18);
+
+  border: 1px solid rgba(218, 165, 187, 0.15);
+}
+
+.auth-page::after {
+  width: 320px;
+  height: 320px;
+
+  bottom: -150px;
+  right: -100px;
+
+  background: rgba(207, 193, 230, 0.18);
+
+  border: 1px solid rgba(190, 171, 217, 0.15);
+}
+
+/* ==================================================
+   Authentication Card
+================================================== */
+
+.auth-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 430px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  padding: 42px 40px;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(226, 207, 222, 0.75);
+
+  box-shadow:
+    0 20px 55px rgba(120, 91, 117, 0.10),
+    0 4px 14px rgba(120, 91, 117, 0.06);
+
+  box-sizing: border-box;
+
+  backdrop-filter: blur(8px);
+}
+
+/* Small maternal accent above heading */
+
+.auth-card::before {
+  content: "♡";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 17px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #f9e4ec,
+    #eee5f7
+  );
+
+  color: #a96887;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  box-shadow:
+    0 6px 18px rgba(174, 117, 143, 0.12);
+}
+
+/* ==================================================
+   Heading
+================================================== */
+
+.auth-card h1 {
+  margin: 0 0 8px;
+
+  text-align: center;
+
+  color: #493b4b;
+
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+.auth-card > p {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  color: #837584;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   Form
+================================================== */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card label {
+  margin-bottom: 7px;
+
+  color: #554956;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==================================================
+   Inputs
+================================================== */
+
+.auth-card input {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #ded5df;
+
+  border-radius: 12px;
+
+  background: #fffdfd;
+
+  color: #403641;
+
+  font-size: 15px;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.auth-card input::placeholder {
+  color: #b0a6b1;
+}
+
+.auth-card input:hover {
+  border-color: #d0bfd1;
+  background: #ffffff;
+}
+
+.auth-card input:focus {
+  border-color: #c58ba5;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(197, 139, 165, 0.13),
+    0 3px 10px rgba(120, 91, 117, 0.05);
+}
+
+/* ==================================================
+   Main Button
+================================================== */
+
+.auth-card form button {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #b97896,
+    #9b75a9
+  );
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(155, 117, 169, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.auth-card form button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(155, 117, 169, 0.25);
+}
+
+.auth-card form button:active {
+  transform: translateY(0);
+}
+
+.auth-card form button:disabled {
+  background: #c9bfca;
+
+  box-shadow: none;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* ==================================================
+   Login / Register Switch
+================================================== */
+
+.auth-switch {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+
+  text-align: center;
+
+  color: #837584;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.auth-switch button {
+  border: none;
+
+  background: none;
+
+  color: #9b6685;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  transition:
+    color 0.2s ease;
+}
+
+.auth-switch button:hover {
+  color: #7e506d;
+
+  text-decoration: underline;
+}
+
+/* ==================================================
+   Error Message
+================================================== */
+
+.auth-error {
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border-radius: 11px;
+
+  background: #fff4f5;
+
+  border: 1px solid #efcbd1;
+
+  color: #b45363;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+}
+
+/* ==================================================
+   Success Message
+================================================== */
+
+.auth-success {
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border-radius: 11px;
+
+  background: #f1faf5;
+
+  border: 1px solid #c5e5d1;
+
+  color: #347653;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+}
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 600px) {
+
+  .auth-page {
+    padding: 25px 15px;
+  }
+
+  .auth-card {
+    padding: 34px 23px;
+
+    border-radius: 22px;
+  }
+
+  .auth-card::before {
+    width: 44px;
+    height: 44px;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+  }
+
+  .auth-card h1 {
+    font-size: 26px;
+  }
+
+  .auth-card > p {
+    font-size: 14px;
+
+    margin-bottom: 25px;
+  }
+
+  .auth-card input {
+    padding: 13px 14px;
+  }
+
+  .auth-card form button {
+    padding: 13px;
+  }
+}

@@ -1,6 +1,7 @@
 import './Home.css'
 
 function Home({
+  user,
   onMaternalClick,
   onHistoryClick,
   onPregnancyClick,
@@ -8,7 +9,8 @@ function Home({
   onDailyWellnessClick,
   onWellnessDashboardClick,
   onNutritionClick,
-  onActivityClick
+  onActivityClick,
+  onDoctorReportClick
 }) {
   return (
     <div className="home-page">
@@ -24,8 +26,7 @@ function Home({
         </span>
 
         <h2>
-          Welcome to Maternal
-          <span> Health &amp; Wellness</span>
+          Welcome, {user?.name}!
         </h2>
 
         <p>
@@ -413,6 +414,14 @@ function Home({
           onClick={onHistoryClick}
         >
           View Health &amp; Wellness History →
+        </button>
+
+        <button
+          type="button"
+          className="doctor-report-button"
+          onClick={onDoctorReportClick}
+        >
+          🩺 Generate Doctor Visit Report →
         </button>
 
       </div>

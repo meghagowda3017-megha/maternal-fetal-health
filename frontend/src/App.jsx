@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import MaternalAssessment from './pages/MaternalAssessment'
 import History from './pages/History'
+import DoctorReport from './pages/DoctorReport'
+
 import PregnancyOverview from './components/PregnancyOverview'
 import TrimesterWellness from './components/TrimesterWellness'
 import DailyWellness from './components/DailyWellness'
@@ -13,124 +17,407 @@ import ActivityExercise from './components/ActivityExercise'
 
 function App() {
   // ==================================================
+  // AUTHENTICATION
+  // ==================================================
+
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('currentUser')
+
+    if (!savedUser) {
+      return null
+    }
+
+    try {
+      return JSON.parse(savedUser)
+    } catch (error) {
+      console.error(
+        'Unable to read saved user:',
+        error
+      )
+
+      return null
+    }
+  })
+
+  const [showRegister, setShowRegister] =
+    useState(false)
+
+  // ==================================================
+  // USER-SPECIFIC STORAGE KEYS
+  // ==================================================
+
+  const getUserKey = (key, userId = user?.id) => {
+    if (!userId) {
+      return null
+    }
+
+    return `${key}_${userId}`
+  }
+
+  const loadUserData = (key, userId = user?.id) => {
+    const storageKey = getUserKey(key, userId)
+
+    if (!storageKey) {
+      return []
+    }
+
+    const savedData =
+      localStorage.getItem(storageKey)
+
+    if (!savedData) {
+      return []
+    }
+
+    try {
+      return JSON.parse(savedData)
+    } catch (error) {
+      console.error(
+        `Unable to read ${key}:`,
+        error
+      )
+
+      return []
+    }
+  }
+
+  // ==================================================
   // PAGE STATES
   // ==================================================
 
-  const [showMaternalForm, setShowMaternalForm] = useState(false)
-  const [showHistory, setShowHistory] = useState(false)
-  const [showPregnancy, setShowPregnancy] = useState(false)
-  const [showWellness, setShowWellness] = useState(false)
-  const [showDailyWellness, setShowDailyWellness] = useState(false)
-  const [showWellnessDashboard, setShowWellnessDashboard] =
+  const [showMaternalForm, setShowMaternalForm] =
     useState(false)
-  const [showNutrition, setShowNutrition] = useState(false)
-  const [showActivity, setShowActivity] = useState(false)
+
+  const [showHistory, setShowHistory] =
+    useState(false)
+
+  const [showPregnancy, setShowPregnancy] =
+    useState(false)
+
+  const [showWellness, setShowWellness] =
+    useState(false)
+
+  const [showDailyWellness, setShowDailyWellness] =
+    useState(false)
+
+  const [
+    showWellnessDashboard,
+    setShowWellnessDashboard
+  ] = useState(false)
+
+  const [showNutrition, setShowNutrition] =
+    useState(false)
+
+  const [showActivity, setShowActivity] =
+    useState(false)
+
+  const [showDoctorReport, setShowDoctorReport] =
+    useState(false)
 
   // ==================================================
   // SELECTED TRIMESTER
   // ==================================================
 
-  const [selectedWellnessTrimester, setSelectedWellnessTrimester] =
-    useState(
-      localStorage.getItem('selectedWellnessTrimester') ||
-        'First Trimester'
+  const [
+    selectedWellnessTrimester,
+    setSelectedWellnessTrimester
+  ] = useState(() => {
+    if (!user?.id) {
+      return 'First Trimester'
+    }
+
+    return (
+      localStorage.getItem(
+        `selectedWellnessTrimester_${user.id}`
+      ) || 'First Trimester'
     )
+  })
 
   // ==================================================
-  // MATERNAL ASSESSMENT HISTORY
+  // USER-SPECIFIC HISTORY
   // ==================================================
 
   const [history, setHistory] = useState(() => {
-    const savedHistory =
-      localStorage.getItem('assessmentHistory')
-
-    return savedHistory
-      ? JSON.parse(savedHistory)
-      : []
+    return loadUserData('assessmentHistory')
   })
 
-  // ==================================================
-  // WELLNESS HISTORY
-  // ==================================================
+  const [wellnessHistory, setWellnessHistory] =
+    useState(() => {
+      return loadUserData('wellnessHistory')
+    })
 
-  const [wellnessHistory, setWellnessHistory] = useState(() => {
-    const savedWellnessHistory =
-      localStorage.getItem('wellnessHistory')
+  const [nutritionHistory, setNutritionHistory] =
+    useState(() => {
+      return loadUserData('nutritionHistory')
+    })
 
-    return savedWellnessHistory
-      ? JSON.parse(savedWellnessHistory)
-      : []
-  })
-
-  // ==================================================
-  // NUTRITION HISTORY
-  // ==================================================
-
-  const [nutritionHistory, setNutritionHistory] = useState(() => {
-    const savedNutritionHistory =
-      localStorage.getItem('nutritionHistory')
-
-    return savedNutritionHistory
-      ? JSON.parse(savedNutritionHistory)
-      : []
-  })
+  const [activityHistory, setActivityHistory] =
+    useState(() => {
+      return loadUserData('activityHistory')
+    })
 
   // ==================================================
-  // ACTIVITY HISTORY
+  // TRACK WHICH USER'S DATA IS CURRENTLY LOADED
   // ==================================================
 
-  const [activityHistory, setActivityHistory] = useState(() => {
-    const savedActivityHistory =
-      localStorage.getItem('activityHistory')
+  const [loadedUserId, setLoadedUserId] =
+    useState(() => user?.id || null)
 
-    return savedActivityHistory
-      ? JSON.parse(savedActivityHistory)
-      : []
-  })
+  // ==================================================
+  // LOAD USER DATA AFTER LOGIN / USER CHANGE
+  // ==================================================
+
+  useEffect(() => {
+    if (!user?.id) {
+      setHistory([])
+      setWellnessHistory([])
+      setNutritionHistory([])
+      setActivityHistory([])
+      setSelectedWellnessTrimester(
+        'First Trimester'
+      )
+      setLoadedUserId(null)
+
+      return
+    }
+
+    const userId = user.id
+
+    setHistory(
+      loadUserData(
+        'assessmentHistory',
+        userId
+      )
+    )
+
+    setWellnessHistory(
+      loadUserData(
+        'wellnessHistory',
+        userId
+      )
+    )
+
+    setNutritionHistory(
+      loadUserData(
+        'nutritionHistory',
+        userId
+      )
+    )
+
+    setActivityHistory(
+      loadUserData(
+        'activityHistory',
+        userId
+      )
+    )
+
+    setSelectedWellnessTrimester(
+      localStorage.getItem(
+        `selectedWellnessTrimester_${userId}`
+      ) || 'First Trimester'
+    )
+
+    setLoadedUserId(userId)
+  }, [user])
+
+  // ==================================================
+  // SAVE USER
+  // ==================================================
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem(
+        'currentUser',
+        JSON.stringify(user)
+      )
+    } else {
+      localStorage.removeItem('currentUser')
+    }
+  }, [user])
 
   // ==================================================
   // SAVE MATERNAL ASSESSMENT HISTORY
   // ==================================================
 
   useEffect(() => {
+    if (!user?.id || loadedUserId !== user.id) {
+      return
+    }
+
     localStorage.setItem(
-      'assessmentHistory',
+      `assessmentHistory_${user.id}`,
       JSON.stringify(history)
     )
-  }, [history])
+  }, [history, user, loadedUserId])
 
   // ==================================================
   // SAVE WELLNESS HISTORY
   // ==================================================
 
   useEffect(() => {
+    if (!user?.id || loadedUserId !== user.id) {
+      return
+    }
+
     localStorage.setItem(
-      'wellnessHistory',
+      `wellnessHistory_${user.id}`,
       JSON.stringify(wellnessHistory)
     )
-  }, [wellnessHistory])
+  }, [
+    wellnessHistory,
+    user,
+    loadedUserId
+  ])
 
   // ==================================================
   // SAVE NUTRITION HISTORY
   // ==================================================
 
   useEffect(() => {
+    if (!user?.id || loadedUserId !== user.id) {
+      return
+    }
+
     localStorage.setItem(
-      'nutritionHistory',
+      `nutritionHistory_${user.id}`,
       JSON.stringify(nutritionHistory)
     )
-  }, [nutritionHistory])
+  }, [
+    nutritionHistory,
+    user,
+    loadedUserId
+  ])
 
   // ==================================================
   // SAVE ACTIVITY HISTORY
   // ==================================================
 
   useEffect(() => {
+    if (!user?.id || loadedUserId !== user.id) {
+      return
+    }
+
     localStorage.setItem(
-      'activityHistory',
+      `activityHistory_${user.id}`,
       JSON.stringify(activityHistory)
     )
-  }, [activityHistory])
+  }, [
+    activityHistory,
+    user,
+    loadedUserId
+  ])
+
+  // ==================================================
+  // LOGIN
+  // ==================================================
+
+  const handleLogin = (
+    loggedInUser,
+    accessToken
+  ) => {
+    const userId = loggedInUser.id
+
+    setUser(loggedInUser)
+
+    localStorage.setItem(
+      'accessToken',
+      accessToken
+    )
+
+    localStorage.setItem(
+      'currentUser',
+      JSON.stringify(loggedInUser)
+    )
+
+    // Load ONLY this user's data
+    setHistory(
+      loadUserData(
+        'assessmentHistory',
+        userId
+      )
+    )
+
+    setWellnessHistory(
+      loadUserData(
+        'wellnessHistory',
+        userId
+      )
+    )
+
+    setNutritionHistory(
+      loadUserData(
+        'nutritionHistory',
+        userId
+      )
+    )
+
+    setActivityHistory(
+      loadUserData(
+        'activityHistory',
+        userId
+      )
+    )
+
+    setSelectedWellnessTrimester(
+      localStorage.getItem(
+        `selectedWellnessTrimester_${userId}`
+      ) || 'First Trimester'
+    )
+
+    setLoadedUserId(userId)
+
+    setShowRegister(false)
+
+    goHome()
+  }
+
+  // ==================================================
+  // REGISTER
+  // ==================================================
+
+  const handleRegisterSuccess = () => {
+    setShowRegister(false)
+  }
+
+  // ==================================================
+  // LOGOUT
+  // ==================================================
+
+  const handleLogout = () => {
+    localStorage.removeItem(
+      'accessToken'
+    )
+
+    localStorage.removeItem(
+      'currentUser'
+    )
+
+    setUser(null)
+
+    // Clear current user's data from memory
+    setHistory([])
+    setWellnessHistory([])
+    setNutritionHistory([])
+    setActivityHistory([])
+
+    setLoadedUserId(null)
+
+    setSelectedWellnessTrimester(
+      'First Trimester'
+    )
+
+    // Reset all pages
+    setShowMaternalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
+    setShowWellness(false)
+    setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
+    setShowNutrition(false)
+    setShowActivity(false)
+    setShowDoctorReport(false)
+
+    setShowRegister(false)
+  }
 
   // ==================================================
   // OPEN MATERNAL ASSESSMENT
@@ -145,6 +432,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -160,6 +448,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -175,6 +464,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -190,6 +480,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -205,6 +496,7 @@ function App() {
     setShowWellnessDashboard(true)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -220,6 +512,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -235,6 +528,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(true)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -250,6 +544,23 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(true)
+    setShowDoctorReport(false)
+  }
+
+  // ==================================================
+  // OPEN DOCTOR REPORT
+  // ==================================================
+
+  const openDoctorReport = () => {
+    setShowMaternalForm(false)
+    setShowHistory(false)
+    setShowPregnancy(false)
+    setShowWellness(false)
+    setShowDailyWellness(false)
+    setShowWellnessDashboard(false)
+    setShowNutrition(false)
+    setShowActivity(false)
+    setShowDoctorReport(true)
   }
 
   // ==================================================
@@ -259,17 +570,19 @@ function App() {
   const handleTrimesterChange = (trimester) => {
     setSelectedWellnessTrimester(trimester)
 
-    localStorage.setItem(
-      'selectedWellnessTrimester',
-      trimester
-    )
+    if (user?.id) {
+      localStorage.setItem(
+        `selectedWellnessTrimester_${user.id}`,
+        trimester
+      )
+    }
   }
 
   // ==================================================
   // GO HOME
   // ==================================================
 
-  const goHome = () => {
+  function goHome() {
     setShowMaternalForm(false)
     setShowHistory(false)
     setShowPregnancy(false)
@@ -278,6 +591,7 @@ function App() {
     setShowWellnessDashboard(false)
     setShowNutrition(false)
     setShowActivity(false)
+    setShowDoctorReport(false)
   }
 
   // ==================================================
@@ -337,6 +651,14 @@ function App() {
   }
 
   // ==================================================
+  // CLOSE DOCTOR REPORT
+  // ==================================================
+
+  const closeDoctorReport = () => {
+    setShowDoctorReport(false)
+  }
+
+  // ==================================================
   // MATERNAL ASSESSMENT HISTORY FUNCTIONS
   // ==================================================
 
@@ -365,11 +687,12 @@ function App() {
 
   const addWellnessHistory = (checkIn) => {
     setWellnessHistory((previous) => {
-      const existingEntry = previous.find(
-        (item) =>
-          item.selectedDate ===
-          checkIn.selectedDate
-      )
+      const existingEntry =
+        previous.find(
+          (item) =>
+            item.selectedDate ===
+            checkIn.selectedDate
+        )
 
       if (!existingEntry) {
         return [
@@ -412,11 +735,12 @@ function App() {
 
   const addNutritionHistory = (entry) => {
     setNutritionHistory((previous) => {
-      const existingEntry = previous.find(
-        (item) =>
-          item.selectedDate ===
-          entry.selectedDate
-      )
+      const existingEntry =
+        previous.find(
+          (item) =>
+            item.selectedDate ===
+            entry.selectedDate
+        )
 
       if (!existingEntry) {
         return [
@@ -459,11 +783,12 @@ function App() {
 
   const addActivityHistory = (entry) => {
     setActivityHistory((previous) => {
-      const existingEntry = previous.find(
-        (item) =>
-          item.selectedDate ===
-          entry.selectedDate
-      )
+      const existingEntry =
+        previous.find(
+          (item) =>
+            item.selectedDate ===
+            entry.selectedDate
+        )
 
       if (!existingEntry) {
         return [
@@ -505,15 +830,33 @@ function App() {
   // ==================================================
 
   const getPregnancyInfo = () => {
+    if (!user?.id) {
+      return null
+    }
+
     const savedPregnancyInfo =
-      localStorage.getItem('pregnancyInfo')
+      localStorage.getItem(
+        `pregnancyInfo_${user.id}`
+      )
+
+    const savedLmpDate =
+      localStorage.getItem(
+        `pregnancyLmpDate_${user.id}`
+      )
 
     if (!savedPregnancyInfo) {
       return null
     }
 
     try {
-      return JSON.parse(savedPregnancyInfo)
+      const parsedInfo =
+        JSON.parse(savedPregnancyInfo)
+
+      return {
+        ...parsedInfo,
+        lmpDate:
+          savedLmpDate || null,
+      }
     } catch (error) {
       console.error(
         'Unable to read pregnancy information:',
@@ -525,7 +868,35 @@ function App() {
   }
 
   // ==================================================
-  // RETURN
+  // LOGIN PAGE
+  // ==================================================
+
+  if (!user) {
+    if (showRegister) {
+      return (
+        <Register
+          onRegisterSuccess={
+            handleRegisterSuccess
+          }
+          onBackToLogin={() =>
+            setShowRegister(false)
+          }
+        />
+      )
+    }
+
+    return (
+      <Login
+        onLogin={handleLogin}
+        onRegister={() =>
+          setShowRegister(true)
+        }
+      />
+    )
+  }
+
+  // ==================================================
+  // MAIN APPLICATION
   // ==================================================
 
   return (
@@ -564,11 +935,27 @@ function App() {
 
         </div>
 
-        <div className="system-status">
+        {/* ==================================================
+            USER ACTIONS
+            ================================================== */}
 
-          <span className="status-dot"></span>
+        <div className="header-user">
 
-          System Ready
+          <button
+            type="button"
+            className="home-header-button"
+            onClick={goHome}
+          >
+            Home
+          </button>
+
+          <button
+            type="button"
+            className="logout-button"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
 
         </div>
 
@@ -591,21 +978,38 @@ function App() {
           !showDailyWellness &&
           !showWellnessDashboard &&
           !showNutrition &&
-          !showActivity && (
+          !showActivity &&
+          !showDoctorReport && (
 
             <Home
-              onMaternalClick={openMaternalForm}
-              onHistoryClick={openHistory}
-              onPregnancyClick={openPregnancy}
-              onWellnessClick={openWellness}
+              user={user}
+              onMaternalClick={
+                openMaternalForm
+              }
+              onHistoryClick={
+                openHistory
+              }
+              onPregnancyClick={
+                openPregnancy
+              }
+              onWellnessClick={
+                openWellness
+              }
               onDailyWellnessClick={
                 openDailyWellness
               }
               onWellnessDashboardClick={
                 openWellnessDashboard
               }
-              onNutritionClick={openNutrition}
-              onActivityClick={openActivity}
+              onNutritionClick={
+                openNutrition
+              }
+              onActivityClick={
+                openActivity
+              }
+              onDoctorReportClick={
+                openDoctorReport
+              }
             />
 
           )}
@@ -617,8 +1021,13 @@ function App() {
         {showMaternalForm && (
 
           <MaternalAssessment
-            onBack={closeMaternalForm}
-            onSaveHistory={addHistoryItem}
+            user={user}
+            onBack={
+              closeMaternalForm
+            }
+            onSaveHistory={
+              addHistoryItem
+            }
           />
 
         )}
@@ -630,7 +1039,10 @@ function App() {
         {showPregnancy && (
 
           <PregnancyOverview
-            onBack={closePregnancyOverview}
+            user={user}
+            onBack={
+              closePregnancyOverview
+            }
             onTrimesterChange={
               handleTrimesterChange
             }
@@ -646,12 +1058,20 @@ function App() {
 
           <History
             history={history}
-            wellnessHistory={wellnessHistory}
-            nutritionHistory={nutritionHistory}
-            activityHistory={activityHistory}
+            wellnessHistory={
+              wellnessHistory
+            }
+            nutritionHistory={
+              nutritionHistory
+            }
+            activityHistory={
+              activityHistory
+            }
             onBack={goHome}
             onClear={clearHistory}
-            onDelete={deleteHistoryItem}
+            onDelete={
+              deleteHistoryItem
+            }
             onClearWellness={
               clearWellnessHistory
             }
@@ -696,8 +1116,12 @@ function App() {
         {showDailyWellness && (
 
           <DailyWellness
-            wellnessHistory={wellnessHistory}
-            onBack={closeDailyWellness}
+            wellnessHistory={
+              wellnessHistory
+            }
+            onBack={
+              closeDailyWellness
+            }
             onSaveWellness={
               addWellnessHistory
             }
@@ -712,15 +1136,32 @@ function App() {
         {showWellnessDashboard && (
 
           <MaternalWellnessDashboard
-              wellnessHistory={wellnessHistory}
-              pregnancyInfo={getPregnancyInfo()}
-              nutritionHistory={nutritionHistory}
-              activityHistory={activityHistory}
-              maternalHistory={history}
-              onBack={closeWellnessDashboard}
-              onNutritionClick={openNutrition}
-              onActivityClick={openActivity}
-            />
+            wellnessHistory={
+              wellnessHistory
+            }
+            pregnancyInfo={
+              getPregnancyInfo()
+            }
+            nutritionHistory={
+              nutritionHistory
+            }
+            activityHistory={
+              activityHistory
+            }
+            maternalHistory={
+              history
+            }
+            onBack={
+              closeWellnessDashboard
+            }
+            onNutritionClick={
+              openNutrition
+            }
+            onActivityClick={
+              openActivity
+            }
+          />
+
         )}
 
         {/* ==================================================
@@ -730,22 +1171,23 @@ function App() {
         {showNutrition && (
 
           <Nutrition
-              nutritionHistory={
-                nutritionHistory
-              }
-              maternalHistory={
-                history
-              }
-              wellnessHistory={
-                wellnessHistory
-              }
-              onSaveNutrition={
-                addNutritionHistory
-              }
-              onBack={
-                closeNutrition
-              }
-            />
+            user={user}
+            nutritionHistory={
+              nutritionHistory
+            }
+            maternalHistory={
+              history
+            }
+            wellnessHistory={
+              wellnessHistory
+            }
+            onSaveNutrition={
+              addNutritionHistory
+            }
+            onBack={
+              closeNutrition
+            }
+          />
 
         )}
 
@@ -756,6 +1198,7 @@ function App() {
         {showActivity && (
 
           <ActivityExercise
+            user={user}
             activityHistory={
               activityHistory
             }
@@ -764,6 +1207,34 @@ function App() {
             }
             onBack={
               closeActivity
+            }
+          />
+
+        )}
+
+        {/* ==================================================
+            DOCTOR REPORT
+            ================================================== */}
+
+        {showDoctorReport && (
+
+          <DoctorReport
+            user={user}
+            maternalHistory={history}
+            wellnessHistory={
+              wellnessHistory
+            }
+            nutritionHistory={
+              nutritionHistory
+            }
+            activityHistory={
+              activityHistory
+            }
+            pregnancyInfo={
+              getPregnancyInfo()
+            }
+            onBack={
+              closeDoctorReport
             }
           />
 

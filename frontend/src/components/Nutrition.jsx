@@ -4,6 +4,7 @@ import './Nutrition.css'
 import { analyzeMaternalHealthTrends } from '../utils/healthTrendEngine'
 
 function Nutrition({
+  user,
   nutritionHistory,
   onSaveNutrition,
   onBack,
@@ -37,13 +38,16 @@ function Nutrition({
     if (value.includes('legume')) return '🫘'
     if (value.includes('dairy')) return '🥛'
     if (value.includes('egg')) return '🥚'
+
     if (
       value.includes('fish') ||
       value.includes('seafood')
     ) {
       return '🐟'
     }
+
     if (value.includes('protein')) return '🍗'
+
     if (
       value.includes('nut') ||
       value.includes('seed')
@@ -78,25 +82,38 @@ function Nutrition({
   // LOAD SAVED PREGNANCY INFORMATION
   // ==================================================
 
-  const [pregnancyInfo] = useState(() => {
+  const [pregnancyInfo, setPregnancyInfo] =
+    useState(null)
+
+  useEffect(() => {
+    if (!user?.id) {
+      setPregnancyInfo(null)
+      return
+    }
+
     const savedPregnancyInfo =
-      localStorage.getItem('pregnancyInfo')
+      localStorage.getItem(
+        `pregnancyInfo_${user.id}`
+      )
 
     if (!savedPregnancyInfo) {
-      return null
+      setPregnancyInfo(null)
+      return
     }
 
     try {
-      return JSON.parse(savedPregnancyInfo)
+      setPregnancyInfo(
+        JSON.parse(savedPregnancyInfo)
+      )
     } catch (error) {
       console.error(
         'Unable to read pregnancy information:',
         error
       )
 
-      return null
+      setPregnancyInfo(null)
     }
-  })
+  }, [user])
 
 
   // ==================================================
@@ -104,33 +121,48 @@ function Nutrition({
   // ==================================================
 
   const [todayWellness, setTodayWellness] =
-    useState(() => {
-      const savedWellness =
-        localStorage.getItem('wellnessHistory')
+    useState(null)
 
-      if (!savedWellness) {
-        return null
-      }
+  useEffect(() => {
+    if (!user?.id) {
+      setTodayWellness(null)
+      return
+    }
 
-      try {
-        const savedHistory =
-          JSON.parse(savedWellness)
+    const savedWellness =
+      localStorage.getItem(
+        `wellnessHistory_${user.id}`
+      )
 
-        return (
-          savedHistory.find(
-            (entry) =>
-              entry.selectedDate === todayDate
-          ) || null
-        )
-      } catch (error) {
-        console.error(
-          'Unable to read wellness history:',
-          error
-        )
+    if (!savedWellness) {
+      setTodayWellness(null)
+      return
+    }
 
-        return null
-      }
-    })
+    try {
+      const savedHistory =
+        JSON.parse(savedWellness)
+
+      const todayEntry =
+        Array.isArray(savedHistory)
+          ? savedHistory.find(
+              (entry) =>
+                entry.selectedDate === todayDate
+            )
+          : null
+
+      setTodayWellness(
+        todayEntry || null
+      )
+    } catch (error) {
+      console.error(
+        'Unable to read wellness history:',
+        error
+      )
+
+      setTodayWellness(null)
+    }
+  }, [user, todayDate])
 
 
   // ==================================================
@@ -144,7 +176,9 @@ function Nutrition({
           entry.selectedDate === todayDate
       )
 
-    setTodayWellness(todayEntry || null)
+    setTodayWellness(
+      todayEntry || null
+    )
   }, [safeWellnessHistory, todayDate])
 
 
@@ -162,39 +196,70 @@ function Nutrition({
   // FOOD PREFERENCES
   // ==================================================
 
-  const [dietaryPreference, setDietaryPreference] =
-    useState(() => {
-      return (
-        localStorage.getItem(
-          'dietaryPreference'
-        ) ||
+  const [
+    dietaryPreference,
+    setDietaryPreference,
+  ] = useState(
+    'No specific preference'
+  )
+
+  useEffect(() => {
+    if (!user?.id) {
+      setDietaryPreference(
         'No specific preference'
       )
-    })
+      return
+    }
+
+    const savedPreference =
+      localStorage.getItem(
+        `dietaryPreference_${user.id}`
+      )
+
+    setDietaryPreference(
+      savedPreference ||
+        'No specific preference'
+    )
+  }, [user])
 
 
   const [foodAllergies, setFoodAllergies] =
-    useState(() => {
-      const savedAllergies =
-        localStorage.getItem(
-          'foodAllergies'
-        )
+    useState([])
 
-      if (!savedAllergies) {
-        return []
-      }
+  useEffect(() => {
+    if (!user?.id) {
+      setFoodAllergies([])
+      return
+    }
 
-      try {
-        return JSON.parse(savedAllergies)
-      } catch (error) {
-        console.error(
-          'Unable to read food allergies:',
-          error
-        )
+    const savedAllergies =
+      localStorage.getItem(
+        `foodAllergies_${user.id}`
+      )
 
-        return []
-      }
-    })
+    if (!savedAllergies) {
+      setFoodAllergies([])
+      return
+    }
+
+    try {
+      const parsedAllergies =
+        JSON.parse(savedAllergies)
+
+      setFoodAllergies(
+        Array.isArray(parsedAllergies)
+          ? parsedAllergies
+          : []
+      )
+    } catch (error) {
+      console.error(
+        'Unable to read food allergies:',
+        error
+      )
+
+      setFoodAllergies([])
+    }
+  }, [user])
 
 
   // ==================================================
@@ -384,7 +449,8 @@ function Nutrition({
         )
       }
 
-      const data = await response.json()
+      const data =
+        await response.json()
 
       setRecommendations(
         data.recommendations || []
@@ -413,8 +479,12 @@ function Nutrition({
   // ==================================================
 
   useEffect(() => {
+    if (!user?.id) {
+      return
+    }
+
     fetchRecommendations()
-  }, [])
+  }, [user])
 
 
   // ==================================================
@@ -422,13 +492,25 @@ function Nutrition({
   // ==================================================
 
   const saveNutritionPreferences = async () => {
+    if (!user?.id) {
+      setSaveMessage(
+        'Please log in before saving nutrition preferences.'
+      )
+
+      setTimeout(() => {
+        setSaveMessage('')
+      }, 3000)
+
+      return
+    }
+
     localStorage.setItem(
-      'dietaryPreference',
+      `dietaryPreference_${user.id}`,
       dietaryPreference
     )
 
     localStorage.setItem(
-      'foodAllergies',
+      `foodAllergies_${user.id}`,
       JSON.stringify(foodAllergies)
     )
 
@@ -486,9 +568,6 @@ function Nutrition({
       safety:
         safety || {},
 
-      // NEW:
-      // Save the maternal health trend
-      // context along with the nutrition plan.
       maternalHealthTrends:
         maternalHealthTrends || {},
     }

@@ -1852,3 +1852,121 @@ input {
     display: none;
   }
 }
+/* =========================================
+   Header User Area
+========================================= */
+
+.header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   Logout Button
+========================================= */
+
+.logout-button {
+  border: 1px solid #e0b6c5;
+  padding: 9px 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #c45f82;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #fff1f5;
+  border-color: #d991aa;
+  color: #b84f73;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200, 120, 150, 0.15);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .logout-button {
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+}
+/* =========================================
+   Header User Actions
+========================================= */
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Home button */
+
+.home-header-button {
+  border: 1px solid #d8c0e8;
+  padding: 9px 18px;
+  border-radius: 20px;
+  background: #f7eefb;
+  color: #76558f;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.home-header-button:hover {
+  background: #eeddf6;
+  border-color: #c9a9dc;
+  color: #624276;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(140, 100, 160, 0.15);
+}
+
+/* Logout button */
+
+.logout-button {
+  border: 1px solid #e0b6c5;
+  padding: 9px 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #c45f82;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #fff1f5;
+  border-color: #d991aa;
+  color: #b84f73;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200, 120, 150, 0.15);
+}
+
+.home-header-button:active,
+.logout-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .header-user {
+    gap: 6px;
+  }
+
+  .home-header-button,
+  .logout-button {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}

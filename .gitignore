@@ -17,3 +17,6 @@ uploads/
 
 # Logs
 *.log
+
+# Local database
+backend/maternal_health.db

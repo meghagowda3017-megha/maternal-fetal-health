@@ -10,10 +10,20 @@ const initialMaternalData = {
   HeartRate: '',
 }
 
-function MaternalAssessment({ onBack, onSaveHistory }) {
-  const [formData, setFormData] = useState(initialMaternalData)
-  const [maternalResult, setMaternalResult] = useState(null)
-  const [loading, setLoading] = useState(false)
+function MaternalAssessment({
+  user,
+  onBack,
+  onSaveHistory,
+}) {
+  const [formData, setFormData] =
+    useState(initialMaternalData)
+
+  const [maternalResult, setMaternalResult] =
+    useState(null)
+
+  const [loading, setLoading] =
+    useState(false)
+
 
   // --------------------------------------------------
   // MATERNAL INPUT
@@ -28,17 +38,23 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     }))
   }
 
+
   // --------------------------------------------------
   // VALIDATE MATERNAL DATA
   // --------------------------------------------------
 
   const validateMaternalData = () => {
     const age = Number(formData.Age)
-    const systolicBP = Number(formData.SystolicBP)
-    const diastolicBP = Number(formData.DiastolicBP)
-    const bloodSugar = Number(formData.BS)
-    const bodyTemp = Number(formData.BodyTemp)
-    const heartRate = Number(formData.HeartRate)
+    const systolicBP =
+      Number(formData.SystolicBP)
+    const diastolicBP =
+      Number(formData.DiastolicBP)
+    const bloodSugar =
+      Number(formData.BS)
+    const bodyTemp =
+      Number(formData.BodyTemp)
+    const heartRate =
+      Number(formData.HeartRate)
 
     if (age < 1 || age > 60) {
       alert(
@@ -47,14 +63,20 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
       return false
     }
 
-    if (systolicBP < 70 || systolicBP > 250) {
+    if (
+      systolicBP < 70 ||
+      systolicBP > 250
+    ) {
       alert(
         'Please enter a valid systolic blood pressure between 70 and 250 mmHg.'
       )
       return false
     }
 
-    if (diastolicBP < 40 || diastolicBP > 150) {
+    if (
+      diastolicBP < 40 ||
+      diastolicBP > 150
+    ) {
       alert(
         'Please enter a valid diastolic blood pressure between 40 and 150 mmHg.'
       )
@@ -68,14 +90,20 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
       return false
     }
 
-    if (bodyTemp < 90 || bodyTemp > 110) {
+    if (
+      bodyTemp < 90 ||
+      bodyTemp > 110
+    ) {
       alert(
         'Please enter a valid body temperature between 90°F and 110°F.'
       )
       return false
     }
 
-    if (heartRate < 30 || heartRate > 220) {
+    if (
+      heartRate < 30 ||
+      heartRate > 220
+    ) {
       alert(
         'Please enter a valid heart rate between 30 and 220 bpm.'
       )
@@ -85,20 +113,29 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     return true
   }
 
+
   // --------------------------------------------------
   // GET CURRENT PREGNANCY INFORMATION
   // --------------------------------------------------
 
   const getPregnancyInfo = () => {
+    if (!user?.id) {
+      return null
+    }
+
     const savedPregnancyInfo =
-      localStorage.getItem('pregnancyInfo')
+      localStorage.getItem(
+        `pregnancyInfo_${user.id}`
+      )
 
     if (!savedPregnancyInfo) {
       return null
     }
 
     try {
-      return JSON.parse(savedPregnancyInfo)
+      return JSON.parse(
+        savedPregnancyInfo
+      )
     } catch (error) {
       console.error(
         'Unable to read pregnancy information:',
@@ -109,11 +146,14 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     }
   }
 
+
   // --------------------------------------------------
   // MATERNAL PREDICTION
   // --------------------------------------------------
 
-  const handleMaternalSubmit = async (event) => {
+  const handleMaternalSubmit = async (
+    event
+  ) => {
     event.preventDefault()
 
     if (!validateMaternalData()) {
@@ -128,16 +168,36 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
         'http://127.0.0.1:8000/predict/maternal-risk',
         {
           method: 'POST',
+
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type':
+              'application/json',
           },
+
           body: JSON.stringify({
-            Age: Number(formData.Age),
-            SystolicBP: Number(formData.SystolicBP),
-            DiastolicBP: Number(formData.DiastolicBP),
-            BS: Number(formData.BS),
-            BodyTemp: Number(formData.BodyTemp),
-            HeartRate: Number(formData.HeartRate),
+            Age: Number(
+              formData.Age
+            ),
+
+            SystolicBP: Number(
+              formData.SystolicBP
+            ),
+
+            DiastolicBP: Number(
+              formData.DiastolicBP
+            ),
+
+            BS: Number(
+              formData.BS
+            ),
+
+            BodyTemp: Number(
+              formData.BodyTemp
+            ),
+
+            HeartRate: Number(
+              formData.HeartRate
+            ),
           }),
         }
       )
@@ -148,15 +208,19 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
         )
       }
 
-      const data = await response.json()
+      const data =
+        await response.json()
 
       setMaternalResult(data)
+
 
       // --------------------------------------------------
       // GET PREGNANCY CONTEXT AT THE TIME OF ASSESSMENT
       // --------------------------------------------------
 
-      const pregnancyInfo = getPregnancyInfo()
+      const pregnancyInfo =
+        getPregnancyInfo()
+
 
       // --------------------------------------------------
       // SAVE COMPLETE ASSESSMENT HISTORY
@@ -167,11 +231,17 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
 
         type: 'Maternal',
 
-        date: new Date().toLocaleString(),
+        date:
+          new Date().toLocaleString(),
 
-        result: data.prediction,
+        result:
+          data.prediction,
 
-        riskClass: getRiskClass(data.prediction),
+        riskClass:
+          getRiskClass(
+            data.prediction
+          ),
+
 
         // ----------------------------------------------
         // PREGNANCY CONTEXT
@@ -179,33 +249,56 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
 
         pregnancy: pregnancyInfo
           ? {
-              week: pregnancyInfo.weeks,
-              days: pregnancyInfo.days,
-              trimester: pregnancyInfo.trimester,
-              dueDate: pregnancyInfo.dueDate,
-              progress: pregnancyInfo.progress,
+              week:
+                pregnancyInfo.weeks,
+
+              days:
+                pregnancyInfo.days,
+
+              trimester:
+                pregnancyInfo.trimester,
+
+              dueDate:
+                pregnancyInfo.dueDate,
+
+              progress:
+                pregnancyInfo.progress,
             }
           : null,
+
 
         // ----------------------------------------------
         // MATERNAL MEASUREMENTS
         // ----------------------------------------------
 
         data: {
-          Age: formData.Age,
-          SystolicBP: formData.SystolicBP,
-          DiastolicBP: formData.DiastolicBP,
-          BS: formData.BS,
-          BodyTemp: formData.BodyTemp,
-          HeartRate: formData.HeartRate,
+          Age:
+            formData.Age,
+
+          SystolicBP:
+            formData.SystolicBP,
+
+          DiastolicBP:
+            formData.DiastolicBP,
+
+          BS:
+            formData.BS,
+
+          BodyTemp:
+            formData.BodyTemp,
+
+          HeartRate:
+            formData.HeartRate,
         },
+
 
         // ----------------------------------------------
         // MODEL PROBABILITIES
         // ----------------------------------------------
 
         probabilities:
-          data.probabilities || null,
+          data.probabilities ||
+          null,
       })
     } catch (error) {
       console.error(error)
@@ -218,12 +311,14 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     }
   }
 
+
   // --------------------------------------------------
   // RISK CLASS
   // --------------------------------------------------
 
   const getRiskClass = (risk) => {
-    const value = String(risk).toLowerCase()
+    const value =
+      String(risk).toLowerCase()
 
     if (value.includes('high')) {
       return 'high'
@@ -239,14 +334,18 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
     return 'low'
   }
 
+
   // --------------------------------------------------
   // RESET MATERNAL ASSESSMENT
   // --------------------------------------------------
 
   const newMaternalAssessment = () => {
     setMaternalResult(null)
-    setFormData(initialMaternalData)
+    setFormData(
+      initialMaternalData
+    )
   }
+
 
   return (
     <section className="form-section">
@@ -287,7 +386,11 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
           FORM
           ======================================== */}
 
-      <form onSubmit={handleMaternalSubmit}>
+      <form
+        onSubmit={
+          handleMaternalSubmit
+        }
+      >
 
         <div className="form-card">
 
@@ -327,8 +430,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                 <input
                   type="number"
                   name="Age"
-                  value={formData.Age}
-                  onChange={handleChange}
+                  value={
+                    formData.Age
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="Enter age"
                   min="1"
                   required
@@ -356,8 +463,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                 <input
                   type="number"
                   name="SystolicBP"
-                  value={formData.SystolicBP}
-                  onChange={handleChange}
+                  value={
+                    formData.SystolicBP
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="e.g. 120"
                   required
                 />
@@ -384,8 +495,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                 <input
                   type="number"
                   name="DiastolicBP"
-                  value={formData.DiastolicBP}
-                  onChange={handleChange}
+                  value={
+                    formData.DiastolicBP
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="e.g. 80"
                   required
                 />
@@ -413,8 +528,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                   type="number"
                   step="any"
                   name="BS"
-                  value={formData.BS}
-                  onChange={handleChange}
+                  value={
+                    formData.BS
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="e.g. 6.1"
                   required
                 />
@@ -442,8 +561,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                   type="number"
                   step="any"
                   name="BodyTemp"
-                  value={formData.BodyTemp}
-                  onChange={handleChange}
+                  value={
+                    formData.BodyTemp
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="e.g. 98.0"
                   required
                 />
@@ -470,8 +593,12 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
                 <input
                   type="number"
                   name="HeartRate"
-                  value={formData.HeartRate}
-                  onChange={handleChange}
+                  value={
+                    formData.HeartRate
+                  }
+                  onChange={
+                    handleChange
+                  }
                   placeholder="e.g. 80"
                   required
                 />
@@ -567,9 +694,13 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
 
             <div className="risk-icon">
 
-              {getRiskClass(maternalResult.prediction) === 'high'
+              {getRiskClass(
+                maternalResult.prediction
+              ) === 'high'
                 ? '!'
-                : getRiskClass(maternalResult.prediction) === 'medium'
+                : getRiskClass(
+                    maternalResult.prediction
+                  ) === 'medium'
                   ? '!'
                   : '✓'}
 
@@ -582,7 +713,9 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
               </span>
 
               <h3>
-                {maternalResult.prediction}
+                {
+                  maternalResult.prediction
+                }
               </h3>
 
               <p>
@@ -609,44 +742,55 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
 
               {Object.entries(
                 maternalResult.probabilities
-              ).map(([risk, probability]) => (
+              ).map(
+                ([
+                  risk,
+                  probability,
+                ]) => (
 
-                <div
-                  className="probability-item"
-                  key={risk}
-                >
+                  <div
+                    className="probability-item"
+                    key={risk}
+                  >
 
-                  <div className="probability-info">
+                    <div className="probability-info">
 
-                    <span>
-                      {risk}
-                    </span>
+                      <span>
+                        {risk}
+                      </span>
 
-                    <strong>
-                      {Math.round(
-                        Number(probability) * 100
-                      )}
-                      %
-                    </strong>
+                      <strong>
+                        {Math.round(
+                          Number(
+                            probability
+                          ) * 100
+                        )}
+                        %
+                      </strong>
+
+                    </div>
+
+                    <div className="progress-track">
+
+                      <div
+                        className={`progress-bar ${getRiskClass(
+                          risk
+                        )}`}
+                        style={{
+                          width: `${
+                            Number(
+                              probability
+                            ) * 100
+                          }%`,
+                        }}
+                      ></div>
+
+                    </div>
 
                   </div>
 
-                  <div className="progress-track">
-
-                    <div
-                      className={`progress-bar ${getRiskClass(
-                        risk
-                      )}`}
-                      style={{
-                        width: `${Number(probability) * 100}%`,
-                      }}
-                    ></div>
-
-                  </div>
-
-                </div>
-
-              ))}
+                )
+              )}
 
             </div>
 
@@ -666,7 +810,9 @@ function MaternalAssessment({ onBack, onSaveHistory }) {
 
             <button
               className="new-assessment-button"
-              onClick={newMaternalAssessment}
+              onClick={
+                newMaternalAssessment
+              }
             >
               New Assessment
             </button>

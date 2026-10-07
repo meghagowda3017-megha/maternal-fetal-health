@@ -1,0 +1,187 @@
+.doctor-report-page {
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+}
+
+.doctor-report-container {
+  width: min(850px, 100%);
+  margin: 0 auto;
+}
+
+.doctor-report-back {
+  border: none;
+  background: white;
+  color: #65536f;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 3px 12px rgba(90, 70, 100, 0.08);
+  margin-bottom: 25px;
+}
+
+.doctor-report-back:hover {
+  transform: translateY(-1px);
+}
+
+.doctor-report-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.doctor-report-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.doctor-report-header h1 {
+  margin: 0;
+  color: #3f4254;
+  font-size: 32px;
+}
+
+.doctor-report-header p {
+  max-width: 650px;
+  margin: 12px auto 0;
+  color: #7d8295;
+  line-height: 1.6;
+}
+
+.doctor-report-form {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 35px rgba(80, 65, 90, 0.08);
+}
+
+.doctor-report-form h2 {
+  margin: 0;
+  color: #45485a;
+  font-size: 22px;
+}
+
+.doctor-report-help {
+  margin: 8px 0 25px;
+  color: #85899b;
+}
+
+.doctor-report-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.doctor-report-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-report-field label {
+  color: #55586a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.doctor-report-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #e3dfe8;
+  border-radius: 12px;
+  background: #fcfbfd;
+  color: #45485a;
+  font-size: 14px;
+  outline: none;
+}
+
+.doctor-report-field input:focus {
+  border-color: #d99abb;
+  box-shadow: 0 0 0 3px rgba(217, 154, 187, 0.12);
+}
+
+.doctor-report-error {
+  margin-top: 20px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  background: #fff0f1;
+  color: #b34f5c;
+  font-size: 14px;
+}
+
+.doctor-report-data {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #faf7fc;
+}
+
+.doctor-report-data h3 {
+  margin: 0 0 12px;
+  color: #5d4c67;
+  font-size: 16px;
+}
+
+.doctor-report-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-report-data-list span {
+  color: #6f7180;
+  font-size: 14px;
+}
+
+.doctor-report-generate {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background: #d98eaf;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.doctor-report-generate:hover {
+  background: #cc7fa2;
+  transform: translateY(-1px);
+}
+
+.doctor-report-generate:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.doctor-report-note {
+  margin: 22px auto 0;
+  max-width: 720px;
+  text-align: center;
+  color: #898c99;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+  .doctor-report-page {
+    padding: 25px 15px 45px;
+  }
+
+  .doctor-report-form {
+    padding: 22px;
+  }
+
+  .doctor-report-header h1 {
+    font-size: 26px;
+  }
+
+  .doctor-report-dates {
+    grid-template-columns: 1fr;
+  }
+}

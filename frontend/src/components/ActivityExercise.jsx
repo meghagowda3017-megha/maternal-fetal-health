@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './ActivityExercise.css'
 
 function ActivityExercise({
+  user,
   activityHistory,
   onSaveActivity,
   onBack,
@@ -13,7 +14,11 @@ function ActivityExercise({
 
   const pregnancyInfo = (() => {
     const savedPregnancyInfo =
-      localStorage.getItem('pregnancyInfo')
+      user?.id
+        ? localStorage.getItem(
+            `pregnancyInfo_${user.id}`
+          )
+        : null
 
     if (!savedPregnancyInfo) {
       return null
@@ -38,7 +43,11 @@ function ActivityExercise({
 
   const todayWellness = (() => {
     const savedWellness =
-      localStorage.getItem('wellnessHistory')
+      user?.id
+        ? localStorage.getItem(
+            `wellnessHistory_${user.id}`
+          )
+        : null
 
     if (!savedWellness) {
       return null
@@ -359,7 +368,7 @@ function ActivityExercise({
 
 
   // =========================================================
-  // LOAD ALL 90 EXERCISES FROM BACKEND
+  // LOAD ALL EXERCISES FROM BACKEND
   // =========================================================
 
   const loadExerciseDataset = async () => {
@@ -1704,7 +1713,7 @@ function ActivityExercise({
       </section>
 
 
-            {/* =====================================================
+      {/* =====================================================
           EXERCISE CATEGORY MODAL
           ===================================================== */}
 
@@ -2406,6 +2415,7 @@ function ActivityExercise({
         </div>
 
       )}
+
 
       {/* =====================================================
           SAFETY GUIDANCE
