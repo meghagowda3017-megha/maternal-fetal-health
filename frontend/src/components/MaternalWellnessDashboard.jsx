@@ -1,4 +1,4 @@
-import './MaternalWellnessDashboard.css'
+import '../styles/MaternalWellnessDashboard.css'
 import { analyzeMaternalHealthTrends } from '../utils/healthTrendEngine'
 
 function MaternalWellnessDashboard({

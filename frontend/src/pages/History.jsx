@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import './History.css'
+import '../styles/History.css'
 
 function History({
   history = [],

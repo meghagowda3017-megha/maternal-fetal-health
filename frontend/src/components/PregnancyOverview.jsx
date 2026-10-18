@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './PregnancyOverview.css'
+import '../styles/PregnancyOverview.css'
 
 function PregnancyOverview({
   user,

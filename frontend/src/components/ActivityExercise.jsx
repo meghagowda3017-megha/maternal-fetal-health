@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './ActivityExercise.css'
+import '../styles/ActivityExercise.css'
 
 function ActivityExercise({
   user,

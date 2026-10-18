@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './DailyWellness.css'
+import '../styles/DailyWellness.css'
 
 // Helper function to format date as YYYY-MM-DD for standard <input type="date">
 const getTodayString = () => {

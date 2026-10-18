@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './MaternalAssessment.css'
+import '../styles/MaternalAssessment.css'
 
 const initialMaternalData = {
   Age: '',

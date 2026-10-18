@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './Nutrition.css'
+import '../styles/Nutrition.css'
 
 import { analyzeMaternalHealthTrends } from '../utils/healthTrendEngine'
 

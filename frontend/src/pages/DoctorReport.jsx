@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './DoctorReport.css'
+import '../styles/DoctorReport.css'
 
 function DoctorReport({
   user,

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './TrimesterWellness.css'
+import '../styles/TrimesterWellness.css'
 
 function TrimesterWellness({
   onBack,
